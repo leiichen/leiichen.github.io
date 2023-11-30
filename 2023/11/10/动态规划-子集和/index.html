@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -364,12 +364,41 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-动态规划-子集和" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2023-11-10 16:53:56'>2023-11-10 15:06</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
     
 <style>
     .left-col .switch-btn,
@@ -382,37 +411,116 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阁主（杨玉杰）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
-<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad&#x2F;手机等移动端适配</li>
-<li>页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol start="5">
+<li>子集和问题SUBSET-SUM</li>
+</ol>
+<p>给定整数集合S和一个整数t，判定是否存在S的一个子集S′⊆S，使得S′中整数的和为t。</p>
+<p>例如，若S＝ ｛1，4，16，64，256，1040，1041，1093，1284，1344｝且t＝3754，则子集S′＝ ｛1，16，64，256，1040，1093，1284｝是它的一个解。</p>
+<p> 动态规划法避免了重复求解子问题的步骤，是一种空间换时间的方式。</p>
+<p>我们先来简单介绍动态规划的思想，比如A &#x3D; {1, 2, 5, 9}中是否存在sum &#x3D; 6的子集，可以求解{2, 5, 9}这个集合中是否有sum &#x3D; 5的子集。总之，动态规划就是将问题划分为小问题。动态规划的难点是如何列出递推关系式，也就是如何填表。</p>
+<p>动态规划与递归的区别：对于此题，我们介绍过递归的解法，那为何还衍生出动态规划呢？递归需要重复求解子问题，也就是程序计算当前值时需要把之前所有的子问题全部求解一遍，而其中的子问题我们在算前一个值时就已经求解过了，程序没有将这些子问题的值保存下来，而动态规划使用数组就是为了保存计算过的值而出现。</p>
+<p>为了解决这个问题，我们构建一个二维数组subset，其中subset[i] [j]表示前i个元素的子集是否存在和为j，我们将subset的第一列初始化为True，因为空集的和总是0。动态规划最重要的列出递推关系式，这里给出这道题的公式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subset[i][j] = subset[i-1][j] or subset[i-1][j - nums[i-1]]</span><br></pre></td></tr></table></figure>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+<p>画个表格来说明此公式：</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th align="left">3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">{}</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td align="left">0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="left">{1}</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td align="left">0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="left">{1, 4}</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td align="left">0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="left">{1, 4, 5}</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td align="left">0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="left">{1, 4, 5, 9}</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td align="left">0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>![image-20231110160554379](&#x2F;Users&#x2F;lei&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20231110160554379.png)</p>
+<p> 拿上图中红色圈举个例子，{1, 4}中的4为nums[i-1]</p>
+<ol>
+<li>不包含当前元素，即上一格的结果为0</li>
+<li>包含当前元素，需要检查subset[1] [5-4]的值 &#x3D; 1，说明如果包含当前元素后，结果就是1，因此这个格子被标注为1</li>
+</ol>
+<p>最后运行下题目的结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">has_subset_with_sum</span>(<span class="params">nums, target_sum</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建一个二维数组，subset[i][j]表示是否存在子集的和等于j，其中子集包含前i个元素</span></span><br><span class="line">    subset = [[<span class="literal">False</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(target_sum + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化第一列，表示空集的和为0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        subset[i][<span class="number">0</span>] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 记录路径信息的数组，用于还原子集</span></span><br><span class="line">    path = [[<span class="literal">None</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(target_sum + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 填充二维数组</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, target_sum + <span class="number">1</span>):</span><br><span class="line">            <span class="comment"># 如果当前数字大于目标和，直接继承上一行的结果</span></span><br><span class="line">            <span class="keyword">if</span> nums[i - <span class="number">1</span>] &gt; j:</span><br><span class="line">                subset[i][j] = subset[i - <span class="number">1</span>][j]</span><br><span class="line">                path[i][j] = (i-<span class="number">1</span>, j)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 否则，考虑包含或不包含当前数字的两种情况</span></span><br><span class="line">                subset[i][j] = subset[i - <span class="number">1</span>][j] <span class="keyword">or</span> subset[i - <span class="number">1</span>][j - nums[i - <span class="number">1</span>]]</span><br><span class="line">                path[i][j] = (i-<span class="number">1</span>, j) <span class="keyword">if</span> subset[i - <span class="number">1</span>][j] <span class="keyword">else</span> (i - <span class="number">1</span>, j - nums[i - <span class="number">1</span>])</span><br><span class="line">        </span><br><span class="line">    subset_elements = []</span><br><span class="line">    i, j = n, target_sum <span class="comment"># 从右下角开始</span></span><br><span class="line">    <span class="keyword">while</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> j &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> path[i][j] <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            i, j = path[i][j]</span><br><span class="line">            <span class="keyword">if</span> i &gt;= <span class="number">0</span> <span class="keyword">and</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">                subset_elements.append(nums[i])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回最终结果</span></span><br><span class="line">    <span class="comment"># return subset[n][target_sum]</span></span><br><span class="line">    <span class="keyword">return</span> subset_elements</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">nums = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">16</span>, <span class="number">64</span>, <span class="number">256</span>, <span class="number">1040</span>, <span class="number">1041</span>, <span class="number">1093</span>, <span class="number">1284</span>, <span class="number">1344</span>]</span><br><span class="line">target_sum = <span class="number">3754</span></span><br><span class="line"></span><br><span class="line">result = has_subset_with_sum(nums, target_sum)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
+
+<p>这是result的结果![image-20231110165004397](&#x2F;Users&#x2F;lei&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20231110165004397.png)</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -421,11 +529,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
