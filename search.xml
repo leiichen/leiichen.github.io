@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>时空数据</title>
+      <link href="/2023/12/01/%E6%97%B6%E7%A9%BA%E6%95%B0%E6%8D%AE/"/>
+      <url>/2023/12/01/%E6%97%B6%E7%A9%BA%E6%95%B0%E6%8D%AE/</url>
+      
+        <content type="html"><![CDATA[<p>$\boldsymbol{D^{-\frac12}AD^{-\frac12}}&#x3D;softmax(ReLU(\boldsymbol{E_A}\cdot\boldsymbol{E_A^T}))$</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 公式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>test</title>
       <link href="/2023/12/01/%E6%B5%8B%E8%AF%95/"/>
       <url>/2023/12/01/%E6%B5%8B%E8%AF%95/</url>
