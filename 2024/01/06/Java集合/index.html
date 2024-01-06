@@ -6,38 +6,17 @@
   <meta name="keywords" content=" Java集合 ">
   <meta name="description" content="Java集合 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Java 内存模型 出现这种情况的原因是 Java 内存模型，线程从主内存复制一份，先放到工作内存，再放到主内存，释放锁，而另一个线程修改的不一样，导致结果不一样。 接口Collection：集合框架最基础的接口，最顶层的接口 List：Collection 的子接口，存储有序、可重复的对象，最常用的接口。 Set：Collection 的子接口，存储有序、唯一（元素不可重复）的对象。 Map：独">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java集合">
-<meta property="og:url" content="http://example.com/2024/01/06/Java%E9%9B%86%E5%90%88/index.html">
+<meta name="description" content="个人简介">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://example.com/about/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="Java 内存模型 出现这种情况的原因是 Java 内存模型，线程从主内存复制一份，先放到工作内存，再放到主内存，释放锁，而另一个线程修改的不一样，导致结果不一样。 接口Collection：集合框架最基础的接口，最顶层的接口 List：Collection 的子接口，存储有序、可重复的对象，最常用的接口。 Set：Collection 的子接口，存储有序、唯一（元素不可重复）的对象。 Map：独">
+<meta property="og:description" content="个人简介">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/image-20231228215407955.png">
-<meta property="og:image" content="http://example.com/image-20231228215505374.png">
-<meta property="og:image" content="http://example.com/image-20231230210121262.png">
-<meta property="og:image" content="http://example.com/image-20231231144623559.png">
-<meta property="og:image" content="http://example.com/image-20240101095510340.png">
-<meta property="og:image" content="http://example.com/image-20240101095643330.png">
-<meta property="og:image" content="http://example.com/image-20240102111455342.png">
-<meta property="og:image" content="http://example.com/image-20240103094946726.png">
-<meta property="og:image" content="http://example.com/image-20240103095030575.png">
-<meta property="og:image" content="http://example.com/image-20240103101200174.png">
-<meta property="og:image" content="http://example.com/image-20240103174705206.png">
-<meta property="og:image" content="http://example.com/image-20240103174845642.png">
-<meta property="og:image" content="http://example.com/image-20240103202800556.png">
-<meta property="og:image" content="http://example.com/image-20240105142945713.png">
-<meta property="og:image" content="http://example.com/image-20240105152250368.png">
-<meta property="og:image" content="http://example.com/image-20240105162047833.png">
-<meta property="og:image" content="http://example.com/image-20240105170347820.png">
-<meta property="og:image" content="http://example.com/image-20240106093901882.png">
-<meta property="og:image" content="http://example.com/image-20240106094816585.png">
-<meta property="article:published_time" content="2024-01-06T07:43:25.000Z">
-<meta property="article:modified_time" content="2024-01-06T08:21:23.307Z">
+<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
+<meta property="article:modified_time" content="2023-12-01T03:32:32.163Z">
 <meta property="article:author" content="leiichen">
-<meta property="article:tag" content="Java集合">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image-20231228215407955.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -410,7 +389,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-01-06 16:21:23'>2024-01-06 15:43</time>
+            发布时间 : <time class="date" title='最后更新: 2024-01-06 16:26:30'>2024-01-06 15:43</time>
         
     </div>
     <div class="article-meta">
@@ -450,7 +429,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Java-内存模型"><a href="#Java-内存模型" class="headerlink" title="Java 内存模型"></a>Java 内存模型</h3><p><img src="/image-20231228215407955.png" alt="image-20231228215407955"><img src="/image-20231228215505374.png" alt="image-20231228215505374"></p>
+        <h3 id="Java-内存模型"><a href="#Java-内存模型" class="headerlink" title="Java 内存模型"></a>Java 内存模型</h3><p><img src="/./image-20231228215407955.png" alt="image-20231228215407955"><img src="/./image-20231228215505374.png" alt="image-20231228215505374"></p>
 <p>出现这种情况的原因是 Java 内存模型，线程从主内存复制一份，先放到工作内存，再放到主内存，释放锁，而另一个线程修改的不一样，导致结果不一样。</p>
 <h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>Collection：集合框架最基础的接口，最顶层的接口</p>
 <p>List：Collection 的子接口，存储有序、可重复的对象，最常用的接口。</p>
@@ -527,7 +506,7 @@
 </ul>
 <p>HashSet 存储一组<strong>无序</strong>（元素存储顺序和遍历顺序不一致）且唯一的对象。</p>
 <p>LinkedHashSet：可以存储<strong>有序（元素存储顺序和遍历顺序一致）</strong>且唯一的元素</p>
-<p><img src="/image-20231230210121262.png" alt="image-20231230210121262"></p>
+<p><img src="/./image-20231230210121262.png" alt="image-20231230210121262"></p>
 <p>LinkedHashSet 如何判断两个对象是否相等？</p>
 <p>首先会判断两个对象的 hashCode 是否相等</p>
 <p>什么是 hashCode？将对象的内部信息（内存地址、属性值），通过某种特定规则转换成一个散列值，就是该对象的 hashCode。</p>
@@ -588,7 +567,7 @@
     &#125;
 &#125;</code></pre>
 
-<h3 id=""><a href="#" class="headerlink" title="&#x3D;&#x3D;"></a>&#x3D;&#x3D;</h3><p><img src="/image-20231231144623559.png" alt="image-20231231144623559"></p>
+<h3 id=""><a href="#" class="headerlink" title="&#x3D;&#x3D;"></a>&#x3D;&#x3D;</h3><p><img src="/./image-20231231144623559.png" alt="image-20231231144623559"></p>
 <p>栈中存储的是变量，引用类型具体的对象（属性）存储再堆中的，再将堆中的对象地址赋值给栈中的变量。 基本数据类型变量的值直接存在栈中。</p>
 <p><strong>&#x3D;&#x3D;：判断的是栈内存中的值。</strong></p>
 <p>引用类型的数据，栈内存中存储的是地址，所以此时 &#x3D;&#x3D; 判断的是引用地址。</p>
@@ -702,9 +681,9 @@
 <p>能 reverse 要有顺序，而 Set 无序。</p>
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型（Generics），是指在类中定义时不指定类中信息的具体类型，而是暂时用一个标识符来替代，当外部实例化对象时再来指定具体的数据类型。</p>
 <h3 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h3><p>有一个参数为 ArrayList 的方法，希望这个方法既可以接受泛型是 String 的集合，又可以接受泛型是 Integer 的集合。</p>
-<p><img src="/image-20240101095510340.png" alt="image-20240101095510340"></p>
+<p><img src="/./image-20240101095510340.png" alt="image-20240101095510340"></p>
 <p>不能这样，要么不写 Object。</p>
-<p><img src="/image-20240101095643330.png" alt="image-20240101095643330"></p>
+<p><img src="/./image-20240101095643330.png" alt="image-20240101095643330"></p>
 <p>ArrayList&lt;?&gt; 表示可以使用任意的泛型类型对象，这样 test 就具有通用性。</p>
 <h3 id="泛型上限和下限"><a href="#泛型上限和下限" class="headerlink" title="泛型上限和下限"></a>泛型上限和下限</h3><p>上限：表示实例化时具体的数据类型，可以是上限类型的子类或上限类型本身，用 extends 表示。</p>
 <p>下限：表示实例化时具体的数据类型，可以是下限类型的父类或下限类型本身，用 super 表示。</p>
@@ -819,7 +798,7 @@
 <p>null 和空是两种概念，null 是指对象不存在，</p>
 <h2 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h2><p>String 对象一旦创建，值不能修改（原来的值不能修改，一旦修改就是新的对象，只要一改动，就会创建一个新的对象）。</p>
 <p>修改后会重新开辟内存空间来存储新的内存对象，会修改 String 的引用。</p>
-<p><img src="/image-20240102111455342.png" alt="image-20240102111455342"></p>
+<p><img src="/./image-20240102111455342.png" alt="image-20240102111455342"></p>
 <p>String 为什么修改后会开辟新的空间创建新对象？不能在原先内存上直接修改吗？</p>
 <p>因为 String 底层是用数组来存值的，数组长度一旦创建就不可修改，导致上述问题。</p>
 <p>StringBuffer 可以解决 String 频繁修改造成资源浪费的问题。</p>
@@ -828,14 +807,14 @@
 <li>StringBuffer 数组的默认长度为 16</li>
 <li>使用无参构造，默认长度是 16</li>
 </ul>
-<p><img src="/image-20240103094946726.png" alt="image-20240103094946726"></p>
+<p><img src="/./image-20240103094946726.png" alt="image-20240103094946726"></p>
 <ul>
 <li>使用有参构造，长度是 值的长度 + 16</li>
 </ul>
-<p><img src="/image-20240103095030575.png" alt="image-20240103095030575"></p>
+<p><img src="/./image-20240103095030575.png" alt="image-20240103095030575"></p>
 <p>StringBuffer 一旦创建，默认会有 16 个字节空间去修改，但一旦追加的字符串长度超过 16，如何处理？</p>
 <p>StringBuffer 不会重新开辟一块新的内存空间，而是在原有空间直接扩容，通过调用父类的ensureCapacityInternal() 方法对底层数组扩容，保持引用不变。</p>
-<p><img src="/image-20240103101200174.png" alt="image-20240103101200174"></p>
+<p><img src="/./image-20240103101200174.png" alt="image-20240103101200174"></p>
 <h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><p>StringBuffer 是线程安全的，效率较低；StringBuilder 是线程不安全的，效率较高。</p>
 <p>读取数据不需要考虑线程安全问题，因为没有隐患。</p>
 <h2 id="日期类"><a href="#日期类" class="headerlink" title="日期类"></a>日期类</h2><ul>
@@ -853,9 +832,9 @@ System.out.println(format);</code></pre>
 <p>Calendar 用来完成日期数据的逻辑运算</p>
 <p>运算思路：</p>
 <p>1、将日期数据传给 Calendar（Calendar 提供了很多静态常量，专门记录日期数据）</p>
-<p><img src="/image-20240103174705206.png" alt="image-20240103174705206"></p>
+<p><img src="/./image-20240103174705206.png" alt="image-20240103174705206"></p>
 <p>2、调用相关方法完成计算</p>
-<p><img src="/image-20240103174845642.png" alt="image-20240103174845642"></p>
+<p><img src="/./image-20240103174845642.png" alt="image-20240103174845642"></p>
 <pre><code class="highlight java"><span class="keyword">package</span> Collection.Date;
 
 <span class="keyword">import</span> java.text.SimpleDateFormat;
@@ -895,14 +874,14 @@ System.out.println(format);</code></pre>
 
 <h2 id="输入输出-IO-流"><a href="#输入输出-IO-流" class="headerlink" title="输入输出 IO 流"></a>输入输出 IO 流</h2><p>File 类</p>
 <p>java.io.File，使用该类的构造函数可以创建文件对象。</p>
-<p><img src="/image-20240103202800556.png" alt="image-20240103202800556"></p>
+<p><img src="/./image-20240103202800556.png" alt="image-20240103202800556"></p>
 <h3 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h3><ul>
 <li>按照单位分，分为字节流和字符流</li>
 </ul>
 <h4 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h4><p>按照方向可分为输入字节流和输出字节流</p>
 <p>InputStream 和 OutputSteam</p>
 <p>InputStream 常用方法</p>
-<p><img src="/image-20240105142945713.png" alt="image-20240105142945713"></p>
+<p><img src="/./image-20240105142945713.png" alt="image-20240105142945713"></p>
 <h4 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h4><p>字节流是单位时间内处理一个字节的数据（输入+输出）</p>
 <p>字符流是单位时间内处理一个字符的数据（输入+输出）</p>
 <p>字符流：</p>
@@ -913,7 +892,7 @@ System.out.println(format);</code></pre>
 <h4 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h4><p>是一个抽象类</p>
 <p>Readable 的作用？</p>
 <p>可以将数据以字符的形式读入缓冲区</p>
-<p><img src="/image-20240105152250368.png" alt="image-20240105152250368"></p>
+<p><img src="/./image-20240105152250368.png" alt="image-20240105152250368"></p>
 <p>InputStream（字节输入流）   Reader（字符输入流）</p>
 <p>InputStreamReader 的功能是将字节输入流转化为字符输入流</p>
 <pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
@@ -966,7 +945,7 @@ System.out.println(format);</code></pre>
 
 
 
-<h4 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h4><p><img src="/image-20240105162047833.png" alt="image-20240105162047833"></p>
+<h4 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h4><p><img src="/./image-20240105162047833.png" alt="image-20240105162047833"></p>
 <p>Appendable 接口可以将 char 类型的数据读入到数据缓冲区</p>
 <pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
 
@@ -983,7 +962,7 @@ System.out.println(format);</code></pre>
 
 
 
-<h4 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h4><p><img src="/image-20240105170347820.png" alt="image-20240105170347820"></p>
+<h4 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h4><p><img src="/./image-20240105170347820.png" alt="image-20240105170347820"></p>
 <pre><code class="highlight java"><span class="comment">// 基础管道</span>
 <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
 <span class="comment">// 处理流</span>
@@ -1005,11 +984,11 @@ writer.close();</code></pre>
 
 <h4 id="缓存流"><a href="#缓存流" class="headerlink" title="缓存流"></a>缓存流</h4><p>无论是字节流还是字符流，使用的时候都会频繁访问硬盘，对硬盘是一种损伤，同时效率不高，如何解决？</p>
 <p>可以使用缓存流，缓存流自带缓冲区，可以一次性从硬盘中读取部分数据存入缓存区，再写入内存。</p>
-<p><img src="/image-20240106093901882.png" alt="image-20240106093901882"></p>
+<p><img src="/./image-20240106093901882.png" alt="image-20240106093901882"></p>
 <p>缓存流属于处理流，如何区分处理流和节点流？</p>
 <p>1、节点流使用的时候可以直接对接到文件对象 File</p>
 <p>2、处理流使用的时候不能直接对接到文件对象 File</p>
-<p><img src="/image-20240106094816585.png" alt="image-20240106094816585"></p>
+<p><img src="/./image-20240106094816585.png" alt="image-20240106094816585"></p>
 <p>缓存流又可以分为字节缓存流和字符缓存流，再细分可以分为字节输入缓存流和字节输出缓存流、字符输入缓存流和字符输出缓存流。</p>
 <p>字符输入缓存流</p>
 <pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
