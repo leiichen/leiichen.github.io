@@ -8,7 +8,7 @@
       <link href="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/"/>
       <url>/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/</url>
       
-        <content type="html"><![CDATA[<p>今天在使用 typora 写好笔记后，上传至 hexo 服务器，发现图片还是读取的本地路径。通过参考其他人的经验找到一种解决方法。</p><p>1、在 typora 设置中勾选如下选项，作用是图片使用相对路径。</p><p><img src="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/image-20240106172757156.png" alt="image-20240106172757156"></p><p>2、</p>]]></content>
+        <content type="html"><![CDATA[<p>今天在使用 typora 写好笔记后，上传至 hexo 服务器，发现图片还是读取的本地路径。通过参考其他人的经验找到一种解决方法。</p><p>1、在 typora 设置中勾选如下选项，作用是图片使用相对路径。</p><p><img src="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/image-20240106172757156.png" alt="image-20240106172757156"></p><p>2、安装插件即可，不需要再设置<code>图片根目录</code>。</p><pre><code class="highlight javascript">npm install <span class="attr">https</span>:<span class="comment">//github.com/CodeFalling/hexo-asset-image --save</span></code></pre><p>至此就已经可以正常显示图片了。（ps: 前提是客根目录下的_config.yml文件中的post_asset_folder字段设置为true）</p>]]></content>
       
       
       <categories>
