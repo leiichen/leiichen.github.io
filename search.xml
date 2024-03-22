@@ -2,6 +2,31 @@
 <search> 
   
   
+    
+    <entry>
+      <title>计网小记</title>
+      <link href="/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/"/>
+      <url>/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="TCP-与-UDP-区别"><a href="#TCP-与-UDP-区别" class="headerlink" title="TCP 与 UDP 区别"></a>TCP 与 UDP 区别</h2><p>TCP：面向连接、可靠、面向字节流</p><p>UDP：无连接、不可靠、面向报文</p><p>TCP 是一对一的两点服务，UDP 支持一对一、一对多、多对多</p><p>应用场景：</p><p>TCP：FTP 文件传输、HTTP &#x2F; HTTPS</p><p>UDP：实时应用、游戏</p><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p><img src="/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/image-20240316164317006.png" alt="image-20240316164317006"></p><p>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了 <strong>LISTEN 监听状态</strong>。</p><p><strong>第一次握手：</strong>客户端首先也创建传输运输块，向服务器发出连接请求报文，将标志位 SYN 置为 1，选择一个初始序列号 seq&#x3D;x。SYN&#x3D;1的报文段不能携带数据，但要消耗掉一个序号，此时TCP客户进程进入SYN-SENT（同步已发送）状态。</p><p><strong>第二次握手：</strong>服务器收到请求报文后，如果同意连接，则会向客户端发出确认报文。确认报文中应该 ACK&#x3D;1，SYN&#x3D;1，确认号是ack&#x3D;x+1，同时也要为自己初始化一个序列号 seq&#x3D;y，此时，TCP服务器进程进入了 SYN-RCVD 同步收到状态。</p><p>第三次握手：TCP客户端收到确认后，还要向服务器给出确认。确认报文的ACK&#x3D;1，ack&#x3D;y+1，自己的序列号seq&#x3D;x+1，此时，TCP连接建立。</p><p><strong>第三次握手是可以携带数据的，前两次握手是不可以携带数据的</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 408 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
   
   
 </search>
