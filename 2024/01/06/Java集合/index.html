@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java集合 | Chenlei&#39;s Blog</title>
+  <meta name="keywords" content=" Java集合 ">
+  <meta name="description" content="Java集合 | Chenlei&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="个人简介">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:site_name" content="Chenlei&#39;s Blog">
+<meta property="og:description" content="个人简介">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
+<meta property="article:modified_time" content="2023-12-01T03:32:32.163Z">
+<meta property="article:author" content="leiichen">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>leiichen</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/leiichen/leiichen.github.io"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            <a title="weibo"
+               href="https://www.weibo.com/u/6473823872"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/jaytp/activities"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1216271933@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1216271933&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/user/home?id=91350989"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(17)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="工具">
+            
+            工具
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="后端">
+            <i class="fold iconfont icon-right"></i>
+            后端
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="后端&lt;---&gt;中间件">
+            
+            中间件
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="数据库">
+            
+            数据库
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="408">
+            
+            408
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="部署">
+            
+            部署
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="深度学习">
+            
+            深度学习
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Hexo">
+            
+            Hexo
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="Java">
+            <i class="fold iconfont icon-right"></i>
+            Java
+            <small>(6)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="Java&lt;---&gt;基础">
+            
+            基础
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="Java&lt;---&gt;集合">
+            
+            集合
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="Java&lt;---&gt;源码分析">
+            
+            源码分析
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="Java&lt;---&gt;Spring">
+            
+            Spring
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="Java&lt;---&gt;SpringBoot">
+            
+            SpringBoot
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="17">
+<input type="hidden" id="yelog_site_word_count" value="24.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>个人感悟</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>面试常见知识点</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>消息队列</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ArrayList扩容机制</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java集合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JVM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MyBatis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL面试题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>redis的应用</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Spring框架</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SpringBoot小记</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ThreadLocal</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>typora</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 部署 "
+           href="/2024/03/19/Docker/"
+           data-tag="docker"
+           data-author="" >
+            <span class="post-title" title="docker">docker</span>
+            <span class="post-date" title="2024-03-19 08:46:07">2024/03/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 408 "
+           href="/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/"
+           data-tag="计算机网络"
+           data-author="" >
+            <span class="post-title" title="计网小记">计网小记</span>
+            <span class="post-date" title="2024-03-16 16:17:44">2024/03/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 工具 "
+           href="/2024/03/15/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="git上传代码">git上传代码</span>
+            <span class="post-date" title="2024-03-15 09:49:26">2024/03/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/2024/03/15/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/"
+           data-tag="MySQL面试题"
+           data-author="" >
+            <span class="post-title" title="MySQL知识点">MySQL知识点</span>
+            <span class="post-date" title="2024-03-15 09:09:50">2024/03/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/2024/03/12/JVM%E7%AC%94%E8%AE%B0/"
+           data-tag="JVM"
+           data-author="" >
+            <span class="post-title" title="JVM笔记">JVM笔记</span>
+            <span class="post-date" title="2024-03-12 14:39:20">2024/03/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 后端 中间件 "
+           href="/2024/03/09/RabbitMQ%E5%AE%9E%E6%88%98/"
+           data-tag="消息队列"
+           data-author="" >
+            <span class="post-title" title="RabbitMQ实战">RabbitMQ实战</span>
+            <span class="post-date" title="2024-03-09 11:12:34">2024/03/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/2024/03/07/redis%E7%9A%84%E5%BA%94%E7%94%A8/"
+           data-tag="redis的应用"
+           data-author="" >
+            <span class="post-title" title="redis的应用">redis的应用</span>
+            <span class="post-date" title="2024-03-07 20:11:13">2024/03/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 后端 "
+           href="/2024/03/07/ThreadLocal%E5%9C%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%BA%94%E7%94%A8/"
+           data-tag="ThreadLocal"
+           data-author="" >
+            <span class="post-title" title="ThreadLocal在多线程下的应用">ThreadLocal在多线程下的应用</span>
+            <span class="post-date" title="2024-03-07 15:59:27">2024/03/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/2024/02/23/MybatisPlus/"
+           data-tag="MyBatis"
+           data-author="" >
+            <span class="post-title" title="MybatisPlus">MybatisPlus</span>
+            <span class="post-date" title="2024-02-23 09:06:49">2024/02/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java 基础 "
+           href="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/"
+           data-tag="面试常见知识点"
+           data-author="" >
+            <span class="post-title" title="Java基础小记">Java基础小记</span>
+            <span class="post-date" title="2024-02-22 17:01:44">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java SpringBoot "
+           href="/2024/02/21/SpringBoot%E5%B0%8F%E8%AE%B0/"
+           data-tag="SpringBoot小记"
+           data-author="" >
+            <span class="post-title" title="SpringBoot小记">SpringBoot小记</span>
+            <span class="post-date" title="2024-02-21 20:25:21">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java 源码分析 "
+           href="/2024/02/06/ArrayList%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6/"
+           data-tag="ArrayList扩容机制"
+           data-author="" >
+            <span class="post-title" title="ArrayList扩容机制">ArrayList扩容机制</span>
+            <span class="post-date" title="2024-02-06 15:00:14">2024/02/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/01/20/Java%E9%9B%86%E5%90%88/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2024-01-20 21:09:16">2024/01/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/"
+           data-tag="hexo,typora"
+           data-author="" >
+            <span class="post-title" title="hexo上传图片">hexo上传图片</span>
+            <span class="post-date" title="2024-01-06 17:20:13">2024/01/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java 集合 "
+           href="/2024/01/06/Java%E9%9B%86%E5%90%88/"
+           data-tag="Java集合"
+           data-author="" >
+            <span class="post-title" title="Java集合">Java集合</span>
+            <span class="post-date" title="2024-01-06 15:43:25">2024/01/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java Spring "
+           href="/2023/12/15/Spring%E7%AC%94%E8%AE%B0/"
+           data-tag="Spring框架"
+           data-author="" >
+            <span class="post-title" title="Spring笔记">Spring笔记</span>
+            <span class="post-date" title="2023-12-15 16:25:35">2023/12/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 深度学习 "
+           href="/2023/12/01/Experience%20getting%20started%20with%20deep%20learning/"
+           data-tag="个人感悟"
+           data-author="" >
+            <span class="post-title" title="Experience getting started with deep learning">Experience getting started with deep learning</span>
+            <span class="post-date" title="2023-12-01 14:24:00">2023/12/01</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Java集合" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java集合</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Java">Java</a> > 
+            
+            <a  data-rel="Java&lt;---&gt;集合">集合</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">Java集合</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:34:12'>2024-01-06 15:43</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4.5k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">Java 内存模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection-%E6%8E%A5%E5%8F%A3"><span class="toc-text">Collection 接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List-%E6%8E%A5%E5%8F%A3"><span class="toc-text">List 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#List-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-text">List 接口的实现类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text">&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeSet"><span class="toc-text">TreeSet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Map-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-text">Map 接口的实现类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeMap"><span class="toc-text">TreeMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collections-%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">Collections 工具类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B"><span class="toc-text">泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-text">泛型通配符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E4%B8%8A%E9%99%90%E5%92%8C%E4%B8%8B%E9%99%90"><span class="toc-text">泛型上限和下限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="toc-text">泛型接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E5%AE%9E%E7%94%A8%E7%B1%BB"><span class="toc-text">Java 实用类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String"><span class="toc-text">String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuffer"><span class="toc-text">StringBuffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder"><span class="toc-text">StringBuilder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E7%B1%BB"><span class="toc-text">日期类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA-IO-%E6%B5%81"><span class="toc-text">输入输出 IO 流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IO-%E6%B5%81"><span class="toc-text">IO 流</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E6%B5%81"><span class="toc-text">字节流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E6%B5%81"><span class="toc-text">字符流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reader"><span class="toc-text">Reader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Writer"><span class="toc-text">Writer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%B5%81"><span class="toc-text">处理流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%B5%81"><span class="toc-text">缓存流</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%92%8C%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化和反序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO-%E6%B5%81%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">IO 流的应用</span></a>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Java-内存模型"><a href="#Java-内存模型" class="headerlink" title="Java 内存模型"></a>Java 内存模型</h3><p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20231228215407955.png" alt="image-20231228215407955"><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20231228215505374.png" alt="image-20231228215505374"></p>
+<p>出现这种情况的原因是 Java 内存模型，线程从主内存复制一份，先放到工作内存，再放到主内存，释放锁，而另一个线程修改的不一样，导致结果不一样。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>Collection：集合框架最基础的接口，最顶层的接口</p>
+<p>List：Collection 的子接口，存储有序、可重复的对象，最常用的接口。</p>
+<p>Set：Collection 的子接口，存储有序、唯一（元素不可重复）的对象。</p>
+<p>Map：独立于 Collection 的另外一个接口，最顶层的接口，存储一组键值对象，提供键到值的映射。</p>
+<p>Iterator：输出集合元素的接口，一般适合无序集合，从前往后输出。</p>
+<p>ListIterator：Iterator 的子接口，可以双向输出集合中的元素。</p>
+<p>Enumeration：传统的输出接口，已经被 Iterator 取代。</p>
+<p>SortedSet：Set 的子接口，可以对集合中的元素进行排序。</p>
+<p>SortedMap：Map 子接口，可以对集合中的元素进行排序。</p>
+<p>Queue：队列接口。</p>
+<p>Map Entry：Map 的内部接口，描述 Map 中存储的一组键值对元素。</p>
+<h3 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h3><p>Collection 是集合框架最基础的接口，可以存储一组无序、重复的对象。</p>
+<h2 id="List-接口"><a href="#List-接口" class="headerlink" title="List 接口"></a>List 接口</h2><p>List 常用的扩展方法：</p>
+<pre><code class="highlight java">E <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span>;  通过下标返回集合中对应位置的元素</code></pre>
+
+<pre><code class="highlight java">E <span class="title function_">set</span><span class="params">(<span class="type">int</span> index, E element)</span>;  在集合中指定位置存入对象</code></pre>
+
+<pre><code class="highlight java"><span class="type">int</span> <span class="title function_">indexOf</span><span class="params">(Object o)</span>;  查找某个对象在集合中的位置</code></pre>
+
+<pre><code class="highlight java"><span class="type">int</span> <span class="title function_">lastIndexOf</span><span class="params">(Object o)</span>;  返回指定元素最后一次出现的位置</code></pre>
+
+<pre><code class="highlight java">ListIterator&lt;E&gt; <span class="title function_">listIterator</span><span class="params">()</span>;  实例化 ListIterator 接口，用来遍历 List 集合</code></pre>
+
+<pre><code class="highlight java">List&lt;E&gt; <span class="title function_">subList</span><span class="params">(<span class="type">int</span> fromIndex, <span class="type">int</span> toIndex)</span>;  通过下标截取 List 集合</code></pre>
+
+
+
+<h3 id="List-接口的实现类"><a href="#List-接口的实现类" class="headerlink" title="List 接口的实现类"></a>List 接口的实现类</h3><p>ArrayList：实现了长度可变的数组，在内存中分配连续空间，所以读取快，增删慢。非线程安全。</p>
+<p>Vector：线程安全，但效率低，实现线程安全直接通过 synchronized 修饰方法来完成。</p>
+<p>Stack：Vector 的子类，实现了栈的数据结构（后进先出）</p>
+<p>ArrayList 和 ListedList 区别：内存中存储的形式不同，ArrayList 采用的是数组的方式，LinkedList 采用的是链表的方式。</p>
+<p>ListedList 实现了 Deque 接口，而 Deque 是 Queue 的子接口，Queue 底层实现了队列的数据结构。</p>
+<p>Queue 的实现类是 AbstractQueue，它是一个抽象类，不能直接实例化，开发中使用 PriorityQueue 类。</p>
+<p>Queue 添加的数据必须是有序的。</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection;
+
+<span class="keyword">import</span> java.util.AbstractQueue;
+<span class="keyword">import</span> java.util.PriorityQueue;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PriorityQueueTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        PriorityQueue&lt;Object&gt; queue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;();
+<span class="comment">//        queue.add(&quot;wdcp&quot;);</span>
+<span class="comment">//        queue.add(&quot;hdcp&quot;);</span>
+<span class="comment">//        queue.add(&quot;dcp&quot;);</span>
+        queue.add(<span class="keyword">new</span> <span class="title class_">A</span>(<span class="number">1</span>));
+        queue.add(<span class="keyword">new</span> <span class="title class_">A</span>(<span class="number">2</span>));
+        System.out.println(queue);
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">A</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&#123;
+    <span class="keyword">private</span> <span class="type">int</span> num;
+
+    <span class="keyword">public</span> <span class="title function_">A</span><span class="params">(<span class="type">int</span> num)</span> &#123;
+        <span class="built_in">this</span>.num = num;
+    &#125;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Object o)</span> &#123;
+        <span class="type">A</span> <span class="variable">a</span> <span class="operator">=</span> (A) o;
+        <span class="keyword">return</span> <span class="built_in">this</span>.num - a.num;
+    &#125;
+&#125;</code></pre>
+
+<p>Queue 默认给元素进行升序排序。</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set 集合以散列形式存储数据，所以元素是没有顺序的。</p>
+<p>Set 常用实现类：</p>
+<ul>
+<li>HashSet</li>
+<li>LinkedHashSet</li>
+<li>TreeSet</li>
+</ul>
+<p>HashSet 存储一组<strong>无序</strong>（元素存储顺序和遍历顺序不一致）且唯一的对象。</p>
+<p>LinkedHashSet：可以存储<strong>有序（元素存储顺序和遍历顺序一致）</strong>且唯一的元素</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20231230210121262.png" alt="image-20231230210121262"></p>
+<p>LinkedHashSet 如何判断两个对象是否相等？</p>
+<p>首先会判断两个对象的 hashCode 是否相等</p>
+<p>什么是 hashCode？将对象的内部信息（内存地址、属性值），通过某种特定规则转换成一个散列值，就是该对象的 hashCode。</p>
+<ul>
+<li>两个不同对象的 hashCode 值可能是相等的。</li>
+<li>hashCode 不相等的对象一定不是同一个对象。</li>
+</ul>
+<p>集合在判断两个对象是否相等的时候，首先会先比较它们的 hashCode，如果不等，肯定不是同一个对象，可以添加。</p>
+<p>如果 hashCode 相等，再判断 equals 进行进一步判断，如果 equals 相等，则两个对象相等。</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection;
+
+<span class="keyword">import</span> java.util.HashSet;
+<span class="keyword">import</span> java.util.Iterator;
+<span class="keyword">import</span> java.util.LinkedHashSet;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SetTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        LinkedHashSet&lt;Object&gt; linkedHashSet = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;();
+        linkedHashSet.add(<span class="string">&quot;wdcp&quot;</span>);
+        <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">B</span>(<span class="number">1</span>);
+        linkedHashSet.add(b);
+        <span class="type">B</span> <span class="variable">b1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">B</span>(<span class="number">1</span>);
+        linkedHashSet.add(b1);
+        linkedHashSet.add(<span class="number">1</span>);
+        System.out.println(linkedHashSet);
+        System.out.println(b.equals(b1));  <span class="comment">// true，但还是存了两次，set认为它们还是两个对象</span>
+    &#125;
+&#125;
+<span class="keyword">class</span> <span class="title class_">B</span> &#123;
+    <span class="keyword">private</span> <span class="type">int</span> num;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="string">&quot;B&#123;&quot;</span> +
+                <span class="string">&quot;num=&quot;</span> + num +
+                <span class="string">&#x27;&#125;&#x27;</span>;
+    &#125;
+
+    <span class="keyword">public</span> <span class="title function_">B</span><span class="params">(<span class="type">int</span> num)</span> &#123;
+        <span class="built_in">this</span>.num = num;
+    &#125;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;
+        <span class="keyword">if</span>(<span class="built_in">this</span> == obj)&#123;
+            <span class="keyword">return</span> <span class="literal">true</span>;
+        &#125;
+        <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> B)&#123;
+            <span class="type">B</span> <span class="variable">b</span> <span class="operator">=</span> (B) obj;
+            <span class="keyword">return</span> <span class="built_in">this</span>.num == b.num;
+        &#125;
+        <span class="keyword">return</span> <span class="literal">false</span>;
+    &#125;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="number">1</span>;
+    &#125;
+&#125;</code></pre>
+
+<h3 id><a href="#" class="headerlink" title="&#x3D;&#x3D;"></a>&#x3D;&#x3D;</h3><p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20231231144623559.png" alt="image-20231231144623559"></p>
+<p>栈中存储的是变量，引用类型具体的对象（属性）存储再堆中的，再将堆中的对象地址赋值给栈中的变量。 基本数据类型变量的值直接存在栈中。</p>
+<p><strong>&#x3D;&#x3D;：判断的是栈内存中的值。</strong></p>
+<p>引用类型的数据，栈内存中存储的是地址，所以此时 &#x3D;&#x3D; 判断的是引用地址。</p>
+<p>基本数据类型，栈内存中存储的是具体的数值。</p>
+<h3 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h3><p>LinkedHashSet 和 TreeSet 都是存储一组有序且唯一的数据，但这里的两个有序有区别的。</p>
+<p>LinkedHashSet 的有序指元素的存储顺序与遍历顺序是一致的。</p>
+<p>TreeSet 的有序是指集合内部自动按照升序排列，无论存入的顺序是什么，遍历一定按照升序输出。</p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>key-value，数据字典</p>
+<p>List、Set 接口都是 Collection 的子接口，Map 接口是与 Collection 完全独立的另外一个体系。</p>
+<table>
+<thead>
+<tr>
+<th>Set<K> keySet();</K></th>
+<th>取出集合中所有的 key，返回一个 Set</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Collection<V> values();</V></td>
+<td>取出集合中所有的 values，返回一个 Collection</td>
+</tr>
+<tr>
+<td>Set&lt;Map.Entry&lt;K, V&gt;&gt; entrySet();</td>
+<td>将 Map 以 Set 输出</td>
+</tr>
+</tbody></table>
+<h3 id="Map-接口的实现类"><a href="#Map-接口的实现类" class="headerlink" title="Map 接口的实现类"></a>Map 接口的实现类</h3><ul>
+<li>HashMap：存储一组无序，key 不能重复，value 可以重复的元素</li>
+<li>Hashtable：存储一组无序，key 不能重复，value 可以重复的元素。</li>
+<li>TreeMap：存储一组有序，key 不能重复，value 可以重复的元素，可以按照 key 进行排序。</li>
+</ul>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Map;
+
+<span class="keyword">import</span> java.util.*;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        HashMap&lt;Object, Object&gt; hashMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();
+        hashMap.put(<span class="string">&quot;h&quot;</span>, <span class="string">&quot;Hello&quot;</span>);
+        hashMap.put(<span class="string">&quot;w&quot;</span>, <span class="string">&quot;World&quot;</span>);
+        hashMap.put(<span class="string">&quot;j&quot;</span>, <span class="string">&quot;Java&quot;</span>);
+        System.out.println(hashMap);
+
+        Set&lt;Object&gt; sets = hashMap.keySet();
+        Iterator&lt;Object&gt; iterator = sets.iterator();
+        <span class="keyword">while</span> (iterator.hasNext()) &#123;
+            <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> (String)iterator.next();
+            <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> (String) hashMap.get(key);
+            System.out.println(key + <span class="string">&quot;-&quot;</span> + value);
+        &#125;
+
+        Collection&lt;Object&gt; values = hashMap.values();
+        <span class="keyword">for</span>(Object value: values) &#123;
+            System.out.println(value);
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>Hashtable 与 HashMap 用法基本一样，区别是 Hashtable 是线程安全的，但性能较低。HashMap 是非线程安全的，性能较高。</p>
+<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><pre><code class="highlight java"><span class="keyword">package</span> Collection.Map;
+
+<span class="keyword">import</span> java.util.Iterator;
+<span class="keyword">import</span> java.util.Set;
+<span class="keyword">import</span> java.util.TreeMap;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TreeMapTest1</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        TreeMap&lt;Object, Object&gt; treeMap = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;();
+        treeMap.put(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">3</span>, <span class="string">&quot;cp&quot;</span>), <span class="string">&quot;cp&quot;</span>);
+        treeMap.put(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">2</span>, <span class="string">&quot;dcp&quot;</span>), <span class="string">&quot;dcp&quot;</span>);
+        treeMap.put(<span class="keyword">new</span> <span class="title class_">User</span>(-<span class="number">1</span>, <span class="string">&quot;cpp&quot;</span>), <span class="string">&quot;cpp&quot;</span>);
+        System.out.println(treeMap);
+        Set&lt;Object&gt; set = treeMap.keySet();
+        Iterator&lt;Object&gt; iterator = set.iterator();
+        <span class="keyword">while</span> (iterator.hasNext()) &#123;
+            <span class="type">Object</span> <span class="variable">key</span> <span class="operator">=</span> iterator.next();
+            System.out.println(key + <span class="string">&quot;-&quot;</span> + treeMap.get(key));
+        &#125;
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">User</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&#123;
+    <span class="keyword">private</span> Integer id;
+    <span class="keyword">private</span> String name;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="string">&quot;User&#123;&quot;</span> +
+                <span class="string">&quot;id=&quot;</span> + id +
+                <span class="string">&quot;, name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +
+                <span class="string">&#x27;&#125;&#x27;</span>;
+    &#125;
+
+    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(Integer id, String name)</span> &#123;
+        <span class="built_in">this</span>.id = id;
+        <span class="built_in">this</span>.name = name;
+    &#125;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Object o)</span> &#123;
+        <span class="keyword">if</span> (o <span class="keyword">instanceof</span> User) &#123;
+            <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> (User) o;
+            <span class="keyword">return</span> <span class="built_in">this</span>.id - user.id;
+        &#125;
+        <span class="keyword">return</span> <span class="number">0</span>;
+    &#125;
+&#125;</code></pre>
+
+<p>TreeMap 会对 key 值进行排序，如果是自定义类，则需要重写 compareTo 方法。</p>
+<h3 id="Collections-工具类"><a href="#Collections-工具类" class="headerlink" title="Collections 工具类"></a>Collections 工具类</h3><p>Collections 不是接口，是工具类，专门提供了一些对集合的操作，方便开发者去使用。</p>
+<p>Collections.reverse(List&lt;?&gt; list) 为什么 Set 不能用 reverse？</p>
+<p>能 reverse 要有顺序，而 Set 无序。</p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型（Generics），是指在类中定义时不指定类中信息的具体类型，而是暂时用一个标识符来替代，当外部实例化对象时再来指定具体的数据类型。</p>
+<h3 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h3><p>有一个参数为 ArrayList 的方法，希望这个方法既可以接受泛型是 String 的集合，又可以接受泛型是 Integer 的集合。</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240101095510340.png" alt="image-20240101095510340"></p>
+<p>不能这样，要么不写 Object。</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240101095643330.png" alt="image-20240101095643330"></p>
+<p>ArrayList&lt;?&gt; 表示可以使用任意的泛型类型对象，这样 test 就具有通用性。</p>
+<h3 id="泛型上限和下限"><a href="#泛型上限和下限" class="headerlink" title="泛型上限和下限"></a>泛型上限和下限</h3><p>上限：表示实例化时具体的数据类型，可以是上限类型的子类或上限类型本身，用 extends 表示。</p>
+<p>下限：表示实例化时具体的数据类型，可以是下限类型的父类或下限类型本身，用 super 表示。</p>
+<p>类名&lt;泛型标识 extends 上限类名&gt;</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Generics;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        test(<span class="keyword">new</span> <span class="title class_">Time1</span>&lt;Double&gt;());
+    &#125;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(Time1&lt;? extends Number&gt; time1)</span>&#123;
+
+    &#125;
+
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">(Time1&lt;? <span class="built_in">super</span> String&gt; time1)</span>&#123;
+
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">Time1</span>&lt;T&gt; &#123;
+
+&#125;</code></pre>
+
+<h3 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h3><p>接口<T> </T></p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Generics;
+
+<span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">MyInterface</span>&lt;T&gt; &#123;
+    T <span class="title function_">getValue</span><span class="params">()</span>;
+&#125;</code></pre>
+
+<p>实现泛型接口有两种方式：</p>
+<ul>
+<li>实现类在定义时继续使用泛型标识</li>
+</ul>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Generics;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterfaceImpl</span>&lt;T&gt; <span class="keyword">implements</span> <span class="title class_">MyInterface</span>&#123;
+    <span class="keyword">private</span> T obj;
+
+    <span class="keyword">public</span> <span class="title function_">MyInterfaceImpl</span><span class="params">(T obj)</span> &#123;
+        <span class="built_in">this</span>.obj = obj;
+    &#125;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> T <span class="title function_">getValue</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="built_in">this</span>.obj;
+    &#125;
+&#125;</code></pre>
+
+
+
+<ul>
+<li>实现类在定义时直接给出具体的数据类型</li>
+</ul>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Generics;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyinterfaceImpl2</span> <span class="keyword">implements</span> <span class="title class_">MyInterface</span>&lt;String&gt; &#123;
+    <span class="keyword">private</span> String obj;
+
+    <span class="keyword">public</span> <span class="title function_">MyinterfaceImpl2</span><span class="params">(String obj)</span> &#123;
+        <span class="built_in">this</span>.obj = obj;
+    &#125;
+
+    <span class="meta">@Override</span>
+    <span class="keyword">public</span> String <span class="title function_">getValue</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="built_in">this</span>.obj;
+    &#125;
+&#125;</code></pre>
+
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Generics;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyInterfaceTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        <span class="type">MyInterfaceImpl</span> <span class="variable">myInterface</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyInterfaceImpl</span>&lt;&gt;(<span class="string">&quot;wdcp&quot;</span>);
+        <span class="type">String</span> <span class="variable">val</span> <span class="operator">=</span> (String)myInterface.getValue();
+        System.out.println(val);
+        <span class="type">MyinterfaceImpl2</span> <span class="variable">myinterfaceImpl2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyinterfaceImpl2</span>(<span class="string">&quot;hecp&quot;</span>);
+        System.out.println(myinterfaceImpl2.getValue());
+    &#125;
+&#125;</code></pre>
+
+
+
+<h2 id="Java-实用类"><a href="#Java-实用类" class="headerlink" title="Java 实用类"></a>Java 实用类</h2><ul>
+<li>枚举</li>
+</ul>
+<p>枚举 Enum，是一个有确定值区间的数据结构，本质就是一个类。</p>
+<p>为什么要有枚举？</p>
+<p>因为在描述某些对象的属性时，该属性的值不能随便定义，必须在某个特定的区间取值。</p>
+<p>枚举由一组常量组成的类型，指定一个取值区间，我们只能从该区间取值。</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
+<li>String 实例化</li>
+</ul>
+<p>1、直接赋值</p>
+<pre><code class="highlight java"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;wdcp&quot;</span>;</code></pre>
+
+<p>2、通过构造函数创建对象</p>
+<pre><code class="highlight java"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;wdcp&quot;</span>)</code></pre>
+
+<ul>
+<li>String 常用方法</li>
+</ul>
+<pre><code class="highlight java"><span class="keyword">public</span> <span class="type">char</span> <span class="title function_">charAt</span><span class="params">(<span class="type">int</span> index)</span> ： 返回下标所对应的字符
+
+<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">indexof</span><span class="params">(String str)</span> ： 返回 str 在字符串中的下标
+
+<span class="keyword">public</span> String[] split(String regex) ： 用指定的字符串对目标分割，返回数组
+
+<span class="keyword">public</span> String <span class="title function_">toLowerCase</span><span class="params">()</span> ： 转小写
+<span class="keyword">public</span> String <span class="title function_">toUpperCase</span><span class="params">()</span> ： 转大写</code></pre>
+
+<p>null 和空是两种概念，null 是指对象不存在，</p>
+<h2 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h2><p>String 对象一旦创建，值不能修改（原来的值不能修改，一旦修改就是新的对象，只要一改动，就会创建一个新的对象）。</p>
+<p>修改后会重新开辟内存空间来存储新的内存对象，会修改 String 的引用。</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240102111455342.png" alt="image-20240102111455342"></p>
+<p>String 为什么修改后会开辟新的空间创建新对象？不能在原先内存上直接修改吗？</p>
+<p>因为 String 底层是用数组来存值的，数组长度一旦创建就不可修改，导致上述问题。</p>
+<p>StringBuffer 可以解决 String 频繁修改造成资源浪费的问题。</p>
+<p>StringBuffer 底层也是使用数组来存值。</p>
+<ul>
+<li>StringBuffer 数组的默认长度为 16</li>
+<li>使用无参构造，默认长度是 16</li>
+</ul>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240103094946726.png" alt="image-20240103094946726"></p>
+<ul>
+<li>使用有参构造，长度是 值的长度 + 16</li>
+</ul>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240103095030575.png" alt="image-20240103095030575"></p>
+<p>StringBuffer 一旦创建，默认会有 16 个字节空间去修改，但一旦追加的字符串长度超过 16，如何处理？</p>
+<p>StringBuffer 不会重新开辟一块新的内存空间，而是在原有空间直接扩容，通过调用父类的ensureCapacityInternal() 方法对底层数组扩容，保持引用不变。</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240103101200174.png" alt="image-20240103101200174"></p>
+<h2 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h2><p>StringBuffer 是线程安全的，效率较低；StringBuilder 是线程不安全的，效率较高。</p>
+<p>读取数据不需要考虑线程安全问题，因为没有隐患。</p>
+<h2 id="日期类"><a href="#日期类" class="headerlink" title="日期类"></a>日期类</h2><ul>
+<li>java.util.Date</li>
+</ul>
+<p>Date 对象表示当前的系统时间</p>
+<pre><code class="highlight java"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();
+<span class="type">SimpleDateFormat</span> <span class="variable">simpleDateFormat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm&quot;</span>);
+<span class="type">String</span> <span class="variable">format</span> <span class="operator">=</span> simpleDateFormat.format(date);
+System.out.println(format);</code></pre>
+
+<ul>
+<li>java.util.Calendar</li>
+</ul>
+<p>Calendar 用来完成日期数据的逻辑运算</p>
+<p>运算思路：</p>
+<p>1、将日期数据传给 Calendar（Calendar 提供了很多静态常量，专门记录日期数据）</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240103174705206.png" alt="image-20240103174705206"></p>
+<p>2、调用相关方法完成计算</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240103174845642.png" alt="image-20240103174845642"></p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Date;
+
+<span class="keyword">import</span> java.text.SimpleDateFormat;
+<span class="keyword">import</span> java.util.Calendar;
+<span class="keyword">import</span> java.util.Date;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CalendarTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;
+        <span class="comment">// 计算今天所在的周是 2024 年第几周</span>
+<span class="comment">//        Calendar calendar = Calendar.getInstance();</span>
+<span class="comment">//        calendar.set(Calendar.YEAR, 2024);</span>
+<span class="comment">//        calendar.set(Calendar.MONTH, 0);  // 1月从0开始</span>
+<span class="comment">//        calendar.set(Calendar.DAY_OF_MONTH, 3);</span>
+<span class="comment">//        int week = calendar.get(Calendar.WEEK_OF_YEAR);</span>
+<span class="comment">//        System.out.println(week);</span>
+        <span class="comment">// 今天之后的63天是几月几号</span>
+        <span class="comment">// 先算出今天是一年中的第几天</span>
+        <span class="type">Calendar</span> <span class="variable">calendar</span> <span class="operator">=</span> Calendar.getInstance();
+        calendar.set(Calendar.YEAR, <span class="number">2024</span>);
+        calendar.set(Calendar.MONTH, <span class="number">0</span>);
+        calendar.set(Calendar.DAY_OF_MONTH, <span class="number">3</span>);
+        <span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> calendar.get(Calendar.DAY_OF_YEAR);
+        day += <span class="number">63</span>;
+        calendar.set(Calendar.DAY_OF_YEAR, day);
+        <span class="type">Date</span> <span class="variable">time</span> <span class="operator">=</span> calendar.getTime();
+        <span class="type">SimpleDateFormat</span> <span class="variable">simpleDateFormat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd&quot;</span>);
+        <span class="type">String</span> <span class="variable">format</span> <span class="operator">=</span> simpleDateFormat.format(time);
+        System.out.println(format);
+
+        calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR)-<span class="number">63</span>);
+        time = calendar.getTime();
+        System.out.println(simpleDateFormat.format(time));
+    &#125;
+&#125;</code></pre>
+
+
+
+<h2 id="输入输出-IO-流"><a href="#输入输出-IO-流" class="headerlink" title="输入输出 IO 流"></a>输入输出 IO 流</h2><p>File 类</p>
+<p>java.io.File，使用该类的构造函数可以创建文件对象。</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240103202800556.png" alt="image-20240103202800556"></p>
+<h3 id="IO-流"><a href="#IO-流" class="headerlink" title="IO 流"></a>IO 流</h3><ul>
+<li>按照单位分，分为字节流和字符流</li>
+</ul>
+<h4 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h4><p>按照方向可分为输入字节流和输出字节流</p>
+<p>InputStream 和 OutputSteam</p>
+<p>InputStream 常用方法</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240105142945713.png" alt="image-20240105142945713"></p>
+<h4 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h4><p>字节流是单位时间内处理一个字节的数据（输入+输出）</p>
+<p>字符流是单位时间内处理一个字符的数据（输入+输出）</p>
+<p>字符流：</p>
+<ul>
+<li>输入字符流 Reader</li>
+<li>输出字符流 Writer</li>
+</ul>
+<h4 id="Reader"><a href="#Reader" class="headerlink" title="Reader"></a>Reader</h4><p>是一个抽象类</p>
+<p>Readable 的作用？</p>
+<p>可以将数据以字符的形式读入缓冲区</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240105152250368.png" alt="image-20240105152250368"></p>
+<p>InputStream（字节输入流）   Reader（字符输入流）</p>
+<p>InputStreamReader 的功能是将字节输入流转化为字符输入流</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
+
+<span class="keyword">import</span> java.io.FileInputStream;
+<span class="keyword">import</span> java.io.FileReader;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ReaderTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+        <span class="comment">// 字符流</span>
+        <span class="type">FileReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+        <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> <span class="number">0</span>;
+        <span class="keyword">while</span> ((tmp = reader.read()) != -<span class="number">1</span>) &#123;
+            System.out.println(tmp);
+        &#125;
+        reader.close();
+        System.out.println(<span class="string">&quot;-----------&quot;</span>);
+        <span class="comment">// 字节流</span>
+        <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+        tmp = <span class="number">0</span>;
+        <span class="keyword">while</span> ((tmp = inputStream.read()) != -<span class="number">1</span>) &#123;
+            System.out.println(tmp);
+        &#125;
+        inputStream.close();
+    &#125;
+&#125;</code></pre>
+
+
+
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
+
+<span class="keyword">import</span> java.io.FileInputStream;
+<span class="keyword">import</span> java.io.FileReader;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ReaderTest2</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+        <span class="type">FileReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+        <span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+        <span class="type">char</span>[] chars = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">20</span>];
+        <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">20</span>];
+        <span class="type">int</span> <span class="variable">length2</span> <span class="operator">=</span> inputStream.read(bytes);
+        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> reader.read(chars);
+        System.out.println(<span class="string">&quot;字节流长度是&quot;</span> + length2);
+        System.out.println(<span class="string">&quot;字符流长度是&quot;</span> + length);
+        <span class="keyword">for</span> (<span class="type">char</span> aChar : chars) &#123;
+            System.out.println(aChar);
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+
+
+<h4 id="Writer"><a href="#Writer" class="headerlink" title="Writer"></a>Writer</h4><p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240105162047833.png" alt="image-20240105162047833"></p>
+<p>Appendable 接口可以将 char 类型的数据读入到数据缓冲区</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
+
+<span class="keyword">import</span> java.io.FileWriter;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WriterTest</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+        <span class="type">FileWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/copy.txt&quot;</span>);
+        writer.write(<span class="string">&quot;你好，wdcp&quot;</span>, <span class="number">2</span>, <span class="number">3</span>);
+        writer.flush();
+        writer.close();
+    &#125;
+&#125;</code></pre>
+
+
+
+<h4 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h4><p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240105170347820.png" alt="image-20240105170347820"></p>
+<pre><code class="highlight java"><span class="comment">// 基础管道</span>
+<span class="type">FileInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+<span class="comment">// 处理流</span>
+<span class="type">InputStreamReader</span> <span class="variable">inputStreamReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(inputStream);
+<span class="type">char</span>[] chars = <span class="keyword">new</span> <span class="title class_">char</span>[<span class="number">1024</span>];
+<span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> inputStreamReader.read(chars);
+inputStreamReader.close();
+<span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(chars, <span class="number">0</span>, length);
+System.out.println(str);</code></pre>
+
+<pre><code class="highlight java"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="string">&quot;你好，世界&quot;</span>;
+<span class="type">FileOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/0.txt&quot;</span>);
+<span class="type">OutputStreamWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OutputStreamWriter</span>(outputStream);
+writer.write(s);
+writer.flush();
+writer.close();</code></pre>
+
+
+
+<h4 id="缓存流"><a href="#缓存流" class="headerlink" title="缓存流"></a>缓存流</h4><p>无论是字节流还是字符流，使用的时候都会频繁访问硬盘，对硬盘是一种损伤，同时效率不高，如何解决？</p>
+<p>可以使用缓存流，缓存流自带缓冲区，可以一次性从硬盘中读取部分数据存入缓存区，再写入内存。</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240106093901882.png" alt="image-20240106093901882"></p>
+<p>缓存流属于处理流，如何区分处理流和节点流？</p>
+<p>1、节点流使用的时候可以直接对接到文件对象 File</p>
+<p>2、处理流使用的时候不能直接对接到文件对象 File</p>
+<p><img src="/2024/01/06/Java%E9%9B%86%E5%90%88/image-20240106094816585.png" alt="image-20240106094816585"></p>
+<p>缓存流又可以分为字节缓存流和字符缓存流，再细分可以分为字节输入缓存流和字节输出缓存流、字符输入缓存流和字符输出缓存流。</p>
+<p>字符输入缓存流</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
+
+<span class="keyword">import</span> java.io.BufferedReader;
+<span class="keyword">import</span> java.io.FileReader;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Buffer2</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+        <span class="type">FileReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+        <span class="type">BufferedReader</span> <span class="variable">bufferedReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(reader);
+
+        <span class="type">String</span> <span class="variable">tmp</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;
+        <span class="keyword">while</span> ((tmp = bufferedReader.readLine()) != <span class="literal">null</span>) &#123;
+            System.out.println(tmp);
+        &#125;
+        bufferedReader.close();
+        reader.close();
+    &#125;
+&#125;</code></pre>
+
+
+
+<p>字符输出缓存流</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.File;
+
+<span class="keyword">import</span> java.io.BufferedWriter;
+<span class="keyword">import</span> java.io.FileWriter;
+<span class="keyword">import</span> java.io.Writer;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Buffer4</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+        <span class="type">Writer</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/File/2.txt&quot;</span>);
+        <span class="type">BufferedWriter</span> <span class="variable">bufferedWriter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(writer);
+        bufferedWriter.write(<span class="string">&quot;wdcppppp&quot;</span>);
+
+        bufferedWriter.flush();
+        bufferedWriter.close();
+        writer.close();
+    &#125;
+&#125;</code></pre>
+
+<p>输入流没有 flush 方法，但不代表它没有缓存流，输出流是有 flush 方法，在关闭缓存流之前，需要调用 flush 方法。</p>
+<h2 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h2><p>序列化：将内存中的对象输出到硬盘文件中保存。</p>
+<p>反序列化：从文件中读取数据并还原成内存中的对象。 </p>
+<p>序列化 </p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Serializable;
+
+<span class="keyword">import</span> java.io.FileOutputStream;
+<span class="keyword">import</span> java.io.ObjectOutputStream;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">1</span>, <span class="string">&quot;张三&quot;</span>, <span class="number">22</span>);
+        <span class="comment">// user 对象写入文件</span>
+        <span class="type">FileOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/Serializable/user.txt&quot;</span>);
+        <span class="type">ObjectOutputStream</span> <span class="variable">objectOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(outputStream);
+        objectOutputStream.writeObject(user);
+
+        objectOutputStream.flush();
+        objectOutputStream.close();
+        outputStream.close();
+    &#125;
+&#125;</code></pre>
+
+
+
+<h2 id="IO-流的应用"><a href="#IO-流的应用" class="headerlink" title="IO 流的应用"></a>IO 流的应用</h2><p>IO 流就是完成文件传输的（上传文件：上传头像、朋友圈，文件下载：CSDN 下载源代码）</p>
+<pre><code class="highlight java"><span class="keyword">package</span> Collection.Serializable;
+
+<span class="keyword">import</span> java.io.BufferedReader;
+<span class="keyword">import</span> java.io.BufferedWriter;
+<span class="keyword">import</span> java.io.FileReader;
+<span class="keyword">import</span> java.io.FileWriter;
+
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test3</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;
+<span class="comment">//        FileInputStream inputStream = new FileInputStream(&quot;/Users/lei/Java/java-base/src/main/java/Collection/Serializable/user.txt&quot;);</span>
+<span class="comment">//        FileOutputStream outputStream = new FileOutputStream(&quot;/Users/lei/Java/java-base/src/main/java/Collection/Serializable/user.txt&quot;);</span>
+<span class="comment">//        int tmp = 0;</span>
+<span class="comment">//        while ((tmp = inputStream.read()) != -1) &#123;</span>
+<span class="comment">//            outputStream.write(tmp);</span>
+<span class="comment">//        &#125;</span>
+<span class="comment">//        outputStream.close();</span>
+<span class="comment">//        inputStream.close();</span>
+        <span class="type">FileReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/Serializable/user.txt&quot;</span>);
+        <span class="type">FileWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;/Users/lei/Java/java-base/src/main/java/Collection/Serializable/user2.txt&quot;</span>);
+        <span class="type">BufferedReader</span> <span class="variable">bufferedReader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(reader);
+        <span class="type">BufferedWriter</span> <span class="variable">bufferedWriter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedWriter</span>(writer);
+        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;
+        <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;
+        <span class="keyword">while</span> ((str = bufferedReader.readLine()) != <span class="literal">null</span>) &#123;
+            bufferedWriter.write(str);
+            num++;
+        &#125;
+        System.out.println(num);
+        bufferedWriter.flush();
+        bufferedWriter.close();
+        bufferedReader.close();
+        writer.close();
+        reader.close();
+    &#125;
+&#125;</code></pre>
+
+<p>对于音频、图片，只能用字节流读取</p>
+<p>文本类型的数据可以用字符流、字节流读取</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: 'leiichen.github.io',
+            owner: 'leiichen',
+            admin: ['leiichen'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2023 leiichen
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
