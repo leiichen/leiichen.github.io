@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>docker</title>
+      <link href="/2024/03/19/Docker/"/>
+      <url>/2024/03/19/Docker/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Docker-和-虚拟机的区别"><a href="#Docker-和-虚拟机的区别" class="headerlink" title="Docker 和 虚拟机的区别"></a>Docker 和 虚拟机的区别</h2><p>虚拟机需要启动完整的系统，内核、工具等</p><p>Docker 是容器的一种实现方式，镜像是一个模板，容器是模板的实例。</p><p><img src="/2024/03/19/Docker/image-20240319140809181.png" alt="image-20240319140809181"></p><p>查看本地镜像：docker images</p><p>查看正在运行的容器：docker ps</p><p>运行一个容器：docker run –name some-nginx -d -p 8080:80 nginx:1.22</p><p>查看容器的信息：docker inspect 容器名</p><pre><code class="highlight plaintext">将容器连接到网络：docker network (dis)connect 网络名 容器名 之后访问容器 docker run -it --rm mysql:5.7 mysql -h172.17.0.2 -uroot -p=》 docker run -it --rm --network 网络名 mysql:5.7 mysql -hsome-mysql -uroot -p</code></pre><h2 id="Docker-存储"><a href="#Docker-存储" class="headerlink" title="Docker 存储"></a>Docker 存储</h2><p><img src="/2024/03/19/Docker/image-20240319153237440.png" alt="image-20240319153237440"></p><p>创建一个卷：docker volume create 卷名</p><h2 id="Docker-部署前后端分离项目-若依"><a href="#Docker-部署前后端分离项目-若依" class="headerlink" title="Docker 部署前后端分离项目-若依"></a>Docker 部署前后端分离项目-若依</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1、创建 mysql 容器</p><pre><code class="highlight linux">docker run -d \  --name mysql \  -p 3307:3306 \  -e TZ=Asia/Shanghai \  -e MYSQL_ROOT_PASSWORD=1314 \  -v ./mysql/data:/var/lib/mysql \  -v ./mysql/conf:/etc/mysql/conf.d \  -v ./mysql/init:/docker-entrypoint-initdb.d \   # 映射路径  --network ruoyi    \  mysql:8.0.19</code></pre><p>在启动 mysql 容器后，运行中内存会很大，需要在进入容器内为其配置文件中设置参数：</p><p>&#x2F;etc&#x2F;mysql&#x2F;conf.d 目录执行 vim docker.cnf</p><pre><code class="highlight plaintext">performance_schema_max_table_instances=400  table_definition_cache=400    performance_schema=off    table_open_cache=64    innodb_buffer_pool_chunk_size=64M    innodb_buffer_pool_size=64M</code></pre><p>2、创建 redis 容器</p><pre><code class="highlight linux">docker run  \--name redis \-p 6380:6379 \-v /root/redis/conf:/usr/local/etc/redis \-v /root/redis/data:/data \-d \--network ruoyi   \redis:6.0.8 \redis-server /usr/local/etc/redis/redis.conf</code></pre><p>3、创建 nginx 容器</p><pre><code class="highlight linux">docker run -d \  --name nginx \  -p 81:80 \  -v /root/nginx/html:/usr/share/nginx/html \  -v /root/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \  --network ruoyi  \  nginx:1.22</code></pre><p>由于 nginx 的配置文件容器出错，我们可以先创建一个 nginx 容器复制其配置文件，再删除它。</p><pre><code class="highlight plaintext"># 复制配置docker cp nginx:/etc/nginx/nginx.conf /root/nginx/conf/nginx.confdocker cp nginx:/etc/nginx/conf.d /root/nginx/conf/conf.ddocker cp nginx:/usr/share/nginx/html /root/nginx/</code></pre><p>4、部署后端 Dokcerfile</p><pre><code class="highlight linux"># 基础镜像FROM openjdk:11.0-jre-buster# 设定时区ENV TZ=Asia/ShanghaiRUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone# 挂载目录VOLUME /home/ruoyi# 创建目录RUN mkdir -p /home/ruoyi# 指定路径WORKDIR /home/ruoyi# 拷贝jar包COPY /root/ruoyi-admin.jar /home/ruoyi/app.jar# 入口ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]</code></pre><p>5、创建项目镜像</p><pre><code class="highlight linux">docker build -t ruoyi:1.0 -f /root/Dockerfile .</code></pre><p>6、创建项目容器</p><pre><code class="highlight linux">docker run -d \--name ruoyi  \-p 8081:8081  \-v /root/ruoyi/uploadPath:/home/ruoyi/uploadPath \--network \ruoyi  \ruoyi:1.0</code></pre><p>7、最后运行容器</p><pre><code class="highlight plaintext">docker run -d \-p 81:80 \-p 443:443 \--name nginx \--restart=always \--network ruoyi \-e TZ=&quot;Asia/Shanghai&quot; \-v /root/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \-v /root/nginx/conf/conf.d:/etc/nginx/conf.d \-v /root/nginx:/var/log/nginx \-v /root/nginx/html:/usr/share/nginx/html \-v /root/nginx/cert:/etc/nginx/cert \nginx:1.22</code></pre><p>现在可以通过 服务器id : nginx端口 访问界面了！</p><p><img src="/2024/03/19/Docker/image-20240322095418176.png" alt="image-20240322095418176"></p><p>其中容易出错的点是配置 nginx 时，其配置文件对于后端的映射。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 部署 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计网小记</title>
       <link href="/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/"/>
       <url>/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/</url>
@@ -21,6 +46,110 @@
         <tags>
             
             <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>git上传代码</title>
+      <link href="/2024/03/15/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/"/>
+      <url>/2024/03/15/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><blockquote><p>git log：查看提交记录（作者、邮箱）</p><p>git status：查看哪些文件被提交</p><p>git ls-files：查看暂存区的内容 默认是mixed，也就是回退时保留工作区文件，但移除暂存区文件</p><p>git reflog：查看历史记录</p><p>git reset 回退分支</p><p>git diff：比较工作区和暂存区的差别  –cached 比较暂存区和版本库的差异</p><p>git rm：将文件从工作区和暂存区都删除    –cached：把文件从暂存区删除，但保留在工作区</p><p>git checkout – filename    从暂存区恢复文件到工作区</p><p>git commit -am “”  一个命令同时添加到暂存区和提交到本地仓库</p></blockquote><p>.gitignore：忽略加入暂存区的文件</p><h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><pre><code class="highlight plaintext">cd .sshssh-keygen -t rsa -b 4096</code></pre><p>git remote -v：查看本地仓库所对应的远程仓库的别名和地址</p><h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>创建分支：git branch dev</p><p>切换分支：git switch dev</p><p>合并分支：git merge dev 把 dev 分支合并到 main 分支中</p><p><img src="/2024/03/15/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/image-20240318164945891.png" alt="image-20240318164945891"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ArrayList扩容机制</title>
+      <link href="/2024/02/06/ArrayList%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6/"/>
+      <url>/2024/02/06/ArrayList%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<p>ArrayList 有三种方式初始化：</p><pre><code class="highlight java"><span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">(<span class="type">int</span> initialCapacity)</span> &#123;    <span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;        <span class="built_in">this</span>.elementData = <span class="keyword">new</span> <span class="title class_">Object</span>[initialCapacity];    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;        <span class="built_in">this</span>.elementData = EMPTY_ELEMENTDATA;    &#125; <span class="keyword">else</span> &#123;        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal Capacity: &quot;</span>+                                           initialCapacity);    &#125;&#125;<span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">()</span> &#123;    <span class="built_in">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;&#125;<span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> &#123;    Object[] a = c.toArray();    <span class="keyword">if</span> ((size = a.length) != <span class="number">0</span>) &#123;        <span class="keyword">if</span> (c.getClass() == ArrayList.class) &#123;            elementData = a;        &#125; <span class="keyword">else</span> &#123;            elementData = Arrays.copyOf(a, size, Object[].class);        &#125;    &#125; <span class="keyword">else</span> &#123;        <span class="comment">// replace with empty array.</span>        elementData = EMPTY_ELEMENTDATA;    &#125;&#125;</code></pre><ul><li>无参方式创建时，初始化为空数组，等到第一个元素 add 时，数组才扩容到默认值 10。</li></ul><p>先从 add 方法入手：</p><pre><code class="highlight java"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span>    elementData[size++] = e;    <span class="keyword">return</span> <span class="literal">true</span>;&#125;</code></pre><p>第一次 add 时，size 为 0，我们进入 ensureCapacityInternal 方法：</p><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureCapacityInternal</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));&#125;</code></pre><p>在 calculateCapacity 这个方法中，如果当前数组为空（第一次 add 时），就返回默认容量和最小容量中的较大值作为所需容量。否则直接返回 minCapacity。</p><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">calculateCapacity</span><span class="params">(Object[] elementData, <span class="type">int</span> minCapacity)</span> &#123;    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;        <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);    &#125;    <span class="keyword">return</span> minCapacity;&#125;<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureExplicitCapacity</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;    modCount++;    <span class="comment">// overflow-conscious code</span>    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)        grow(minCapacity);&#125;</code></pre><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">grow</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;    <span class="comment">// overflow-conscious code</span>    <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> elementData.length;    <span class="type">int</span> <span class="variable">newCapacity</span> <span class="operator">=</span> oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)        newCapacity = minCapacity;    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)        newCapacity = hugeCapacity(minCapacity);    <span class="comment">// minCapacity is usually close to size, so this is a win:</span>    elementData = Arrays.copyOf(elementData, newCapacity);&#125;</code></pre><p>到这里为止，我们添加第一个元素，数组容量由 空数组 扩容到容量为 10 的数组。如何扩容的呢？ 核心实现在 grow 方法中，此时 minCapacity &#x3D; 10， newCapacity &#x3D; 0，第一个 if 满足条件，newCapacity 赋值为 10。数组被复制到一个扩容后的新数组。</p><pre><code class="highlight java"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] copyOf(<span class="type">int</span>[] original, <span class="type">int</span> newLength) &#123;  <span class="comment">// 申请一个新的数组</span>    <span class="type">int</span>[] copy = <span class="keyword">new</span> <span class="title class_">int</span>[newLength];<span class="comment">// 调用System.arraycopy,将源数组中的数据进行拷贝,并返回新的数组</span>    System.arraycopy(original, <span class="number">0</span>, copy, <span class="number">0</span>,                     Math.min(original.length, newLength));    <span class="keyword">return</span> copy;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> 源码分析 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ArrayList扩容机制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo上传图片</title>
+      <link href="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/"/>
+      <url>/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/</url>
+      
+        <content type="html"><![CDATA[<p>今天在使用 typora 写好笔记后，上传至 hexo 服务器，发现图片还是读取的本地路径。通过参考其他人的经验找到一种解决方法。</p><p>1、在 typora 设置中勾选如下选项，作用是图片使用相对路径。</p><p><img src="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/image-20240106172757156.png" alt="image-20240106172757156"></p><p>2、安装插件即可，不需要再设置<code>图片根目录</code>。</p><pre><code class="highlight javascript">npm install <span class="attr">https</span>:<span class="comment">//github.com/CodeFalling/hexo-asset-image --save</span></code></pre><p>至此在浏览器就可以正常显示图片了。（ps: 前提是根目录下的_config.yml文件中的post_asset_folder字段已经设置为true）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> typora </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Experience getting started with deep learning</title>
+      <link href="/2023/12/01/Experience%20getting%20started%20with%20deep%20learning/"/>
+      <url>/2023/12/01/Experience%20getting%20started%20with%20deep%20learning/</url>
+      
+        <content type="html"><![CDATA[<p>暂无~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 个人感悟 </tag>
             
         </tags>
       

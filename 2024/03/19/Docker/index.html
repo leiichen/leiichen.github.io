@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于 | Chenlei&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="关于 | Chenlei&#39;s Blog">
+  <title>docker | Chenlei&#39;s Blog</title>
+  <meta name="keywords" content=" docker ">
+  <meta name="description" content="docker | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介">
 <meta property="og:type" content="website">
@@ -484,24 +484,39 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-Docker" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于</h1>
+        <h1 class="article-title">docker</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="部署">部署</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">docker</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-12-01 11:32:32'>2023-12-01 11:26</time>
+            发布时间 : <time class="date" title='最后更新: 2024-03-22 09:55:25'>2024-03-19 08:46</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:4</span>
+        <span>字数:691</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -531,7 +546,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">个人简介</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E5%92%8C-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">Docker 和 虚拟机的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E5%AD%98%E5%82%A8"><span class="toc-text">Docker 存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-%E9%83%A8%E7%BD%B2%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE-%E8%8B%A5%E4%BE%9D"><span class="toc-text">Docker 部署前后端分离项目-若依</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">准备工作</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -547,7 +562,119 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2>
+        <h2 id="Docker-和-虚拟机的区别"><a href="#Docker-和-虚拟机的区别" class="headerlink" title="Docker 和 虚拟机的区别"></a>Docker 和 虚拟机的区别</h2><p>虚拟机需要启动完整的系统，内核、工具等</p>
+<p>Docker 是容器的一种实现方式，镜像是一个模板，容器是模板的实例。</p>
+<p><img src="/2024/03/19/Docker/image-20240319140809181.png" alt="image-20240319140809181"></p>
+<p>查看本地镜像：docker images</p>
+<p>查看正在运行的容器：docker ps</p>
+<p>运行一个容器：docker run –name some-nginx -d -p 8080:80 nginx:1.22</p>
+<p>查看容器的信息：docker inspect 容器名</p>
+<pre><code class="highlight plaintext">将容器连接到网络：docker network (dis)connect 网络名 容器名 
+
+之后访问容器 docker run -it --rm mysql:5.7 mysql -h172.17.0.2 -uroot -p
+=》 docker run -it --rm --network 网络名 mysql:5.7 mysql -hsome-mysql -uroot -p</code></pre>
+
+
+
+<h2 id="Docker-存储"><a href="#Docker-存储" class="headerlink" title="Docker 存储"></a>Docker 存储</h2><p><img src="/2024/03/19/Docker/image-20240319153237440.png" alt="image-20240319153237440"></p>
+<p>创建一个卷：docker volume create 卷名</p>
+<h2 id="Docker-部署前后端分离项目-若依"><a href="#Docker-部署前后端分离项目-若依" class="headerlink" title="Docker 部署前后端分离项目-若依"></a>Docker 部署前后端分离项目-若依</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>1、创建 mysql 容器</p>
+<pre><code class="highlight linux">docker run -d \
+  --name mysql \
+  -p 3307:3306 \
+  -e TZ=Asia/Shanghai \
+  -e MYSQL_ROOT_PASSWORD=1314 \
+  -v ./mysql/data:/var/lib/mysql \
+  -v ./mysql/conf:/etc/mysql/conf.d \
+  -v ./mysql/init:/docker-entrypoint-initdb.d \   # 映射路径
+  --network ruoyi    \
+  mysql:8.0.19</code></pre>
+
+<p>在启动 mysql 容器后，运行中内存会很大，需要在进入容器内为其配置文件中设置参数：</p>
+<p>&#x2F;etc&#x2F;mysql&#x2F;conf.d 目录执行 vim docker.cnf</p>
+<pre><code class="highlight plaintext">performance_schema_max_table_instances=400  
+table_definition_cache=400    
+performance_schema=off    
+table_open_cache=64    
+innodb_buffer_pool_chunk_size=64M    
+innodb_buffer_pool_size=64M</code></pre>
+
+
+
+<p>2、创建 redis 容器</p>
+<pre><code class="highlight linux">docker run  \
+--name redis \
+-p 6380:6379 \
+-v /root/redis/conf:/usr/local/etc/redis \
+-v /root/redis/data:/data \
+-d \
+--network ruoyi   \
+redis:6.0.8 \
+redis-server /usr/local/etc/redis/redis.conf</code></pre>
+
+<p>3、创建 nginx 容器</p>
+<pre><code class="highlight linux">docker run -d \
+  --name nginx \
+  -p 81:80 \
+  -v /root/nginx/html:/usr/share/nginx/html \
+  -v /root/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+  --network ruoyi  \
+  nginx:1.22</code></pre>
+
+<p>由于 nginx 的配置文件容器出错，我们可以先创建一个 nginx 容器复制其配置文件，再删除它。</p>
+<pre><code class="highlight plaintext"># 复制配置
+docker cp nginx:/etc/nginx/nginx.conf /root/nginx/conf/nginx.conf
+docker cp nginx:/etc/nginx/conf.d /root/nginx/conf/conf.d
+docker cp nginx:/usr/share/nginx/html /root/nginx/</code></pre>
+
+<p>4、部署后端 Dokcerfile</p>
+<pre><code class="highlight linux"># 基础镜像
+FROM openjdk:11.0-jre-buster
+# 设定时区
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone
+# 挂载目录
+VOLUME /home/ruoyi
+# 创建目录
+RUN mkdir -p /home/ruoyi
+# 指定路径
+WORKDIR /home/ruoyi
+# 拷贝jar包
+COPY /root/ruoyi-admin.jar /home/ruoyi/app.jar
+# 入口
+ENTRYPOINT [&quot;java&quot;, &quot;-jar&quot;, &quot;app.jar&quot;]</code></pre>
+
+<p>5、创建项目镜像</p>
+<pre><code class="highlight linux">docker build -t ruoyi:1.0 -f /root/Dockerfile .</code></pre>
+
+<p>6、创建项目容器</p>
+<pre><code class="highlight linux">docker run -d \
+--name ruoyi  \
+-p 8081:8081  \
+-v /root/ruoyi/uploadPath:/home/ruoyi/uploadPath \
+--network \
+ruoyi  \
+ruoyi:1.0</code></pre>
+
+<p>7、最后运行容器</p>
+<pre><code class="highlight plaintext">docker run -d \
+-p 81:80 \
+-p 443:443 \
+--name nginx \
+--restart=always \
+--network ruoyi \
+-e TZ=&quot;Asia/Shanghai&quot; \
+-v /root/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+-v /root/nginx/conf/conf.d:/etc/nginx/conf.d \
+-v /root/nginx:/var/log/nginx \
+-v /root/nginx/html:/usr/share/nginx/html \
+-v /root/nginx/cert:/etc/nginx/cert \
+nginx:1.22</code></pre>
+
+<p>现在可以通过 服务器id : nginx端口 访问界面了！</p>
+<p><img src="/2024/03/19/Docker/image-20240322095418176.png" alt="image-20240322095418176"></p>
+<p>其中容易出错的点是配置 nginx 时，其配置文件对于后端的映射。</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
     </div>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>关于 | Chenlei&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="关于 | Chenlei&#39;s Blog">
+  <title>hexo上传图片 | Chenlei&#39;s Blog</title>
+  <meta name="keywords" content=" hexo , typora ">
+  <meta name="description" content="hexo上传图片 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介">
 <meta property="og:type" content="website">
@@ -484,24 +484,41 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-hexo上传图片" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">关于</h1>
+        <h1 class="article-title">hexo上传图片</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Hexo">Hexo</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">hexo</a>
+            
+            <a class="color2">typora</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2023-12-01 11:32:32'>2023-12-01 11:26</time>
+            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:34:31'>2024-01-06 17:20</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:4</span>
+        <span>字数:138</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -531,7 +548,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">个人简介</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -547,7 +564,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2>
+        <p>今天在使用 typora 写好笔记后，上传至 hexo 服务器，发现图片还是读取的本地路径。通过参考其他人的经验找到一种解决方法。</p>
+<p>1、在 typora 设置中勾选如下选项，作用是图片使用相对路径。</p>
+<p><img src="/2024/01/06/hexo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/image-20240106172757156.png" alt="image-20240106172757156"></p>
+<p>2、安装插件即可，不需要再设置<code>图片根目录</code>。</p>
+<pre><code class="highlight javascript">npm install <span class="attr">https</span>:<span class="comment">//github.com/CodeFalling/hexo-asset-image --save</span></code></pre>
+
+
+
+<p>至此在浏览器就可以正常显示图片了。（ps: 前提是根目录下的_config.yml文件中的post_asset_folder字段已经设置为true）</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
     </div>
