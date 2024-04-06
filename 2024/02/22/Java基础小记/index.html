@@ -6,15 +6,15 @@
   <meta name="keywords" content=" 面试常见知识点 ">
   <meta name="description" content="Java基础小记 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="个人简介">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+<meta name="description" content="悲观锁与乐观锁这是一种广义上的概念。悲观锁认为在自己使用数据的时候中一定有其他的线程来修改数据，因此在获取数据前都会上锁。像 Lock 的实现类、synchronized 都是悲观锁。 乐观锁则无所谓的态度，认为不会有其他线程来修改，因此不会上锁，只是在更新数据时判断这个数据在自己使用的时候，有没有别的线程修改过。常用的算法是 CAS 算法。 从上面我们得出结论：悲观锁用于写较多的场景，乐观锁用于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的锁">
+<meta property="og:url" content="http://example.com/2024/04/06/Java%E7%9A%84%E9%94%81/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="个人简介">
+<meta property="og:description" content="悲观锁与乐观锁这是一种广义上的概念。悲观锁认为在自己使用数据的时候中一定有其他的线程来修改数据，因此在获取数据前都会上锁。像 Lock 的实现类、synchronized 都是悲观锁。 乐观锁则无所谓的态度，认为不会有其他线程来修改，因此不会上锁，只是在更新数据时判断这个数据在自己使用的时候，有没有别的线程修改过。常用的算法是 CAS 算法。 从上面我们得出结论：悲观锁用于写较多的场景，乐观锁用于">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
-<meta property="article:modified_time" content="2023-12-01T03:32:32.163Z">
+<meta property="article:published_time" content="2024-04-06T09:46:02.000Z">
+<meta property="article:modified_time" content="2024-04-06T12:42:12.092Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
 
@@ -193,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(15)</small>
+                <small>(21)</small>
             
         </div>
     </li>
@@ -319,6 +319,21 @@
             
                 
     <li>
+        <div data-rel="Git">
+            
+            Git
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
         <div data-rel="Hexo">
             
             Hexo
@@ -421,8 +436,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
-<input type="hidden" id="yelog_site_word_count" value="18.8k">
+<input type="hidden" id="yelog_site_posts_number" value="21">
+<input type="hidden" id="yelog_site_word_count" value="21.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -477,6 +492,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>面试常见知识点</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索技巧</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -541,6 +560,60 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/06/Java%E7%9A%84%E9%94%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java的锁">Java的锁</span>
+            <span class="post-date" title="2024-04-06 17:46:02">2024/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/06/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="泛型机制">泛型机制</span>
+            <span class="post-date" title="2024-04-06 16:06:03">2024/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/30/docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84vim/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="docker容器中的vim">docker容器中的vim</span>
+            <span class="post-date" title="2024-03-30 13:55:41">2024/03/30</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/2024/03/28/GitHub%E6%90%9C%E7%B4%A2trick/"
+           data-tag="搜索技巧"
+           data-author="" >
+            <span class="post-title" title="GitHub搜索trick">GitHub搜索trick</span>
+            <span class="post-date" title="2024-03-28 20:25:08">2024/03/28</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/28/ElasticSearch%E5%AD%A6%E4%B9%A0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ElasticSearch学习">ElasticSearch学习</span>
+            <span class="post-date" title="2024-03-28 15:40:47">2024/03/28</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/23/SQL%E5%A4%8D%E7%9B%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SQL复盘">SQL复盘</span>
+            <span class="post-date" title="2024-03-23 14:24:28">2024/03/23</span>
+        </a>
         
         
         <a  class="全部文章 部署 "
@@ -724,12 +797,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:34:57'>2024-02-22 17:01</time>
+            发布时间 : <time class="date" title='最后更新: 2024-03-26 19:13:56'>2024-02-22 17:01</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.9k</span>
+        <span>字数:4.4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -759,7 +832,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-text">多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="toc-text">String 的不可变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-s1-new-String-%E2%80%9Cabc%E2%80%9D-%E8%BF%99%E5%8F%A5%E8%AF%9D%E5%88%9B%E5%BB%BA%E4%BA%86%E5%87%A0%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">String s1 &#x3D; new String(“abc”); 这句话创建了几个字符串对象？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">实现深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E7%94%A8-%E2%80%9C-%E2%80%9D-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">String 类型的变量和常量用 “+” 运算符发生了什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E6%89%A7%E8%A1%8C-return-%E8%BF%98%E6%98%AF-finally"><span class="toc-text">先执行 return 还是 finally</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-%E5%8F%AF%E4%BB%A5%E5%8A%A0%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="toc-text">final 可以加在哪里，有什么作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JMM-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">JMM 内存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E7%9A%84%E9%94%81"><span class="toc-text">Java 的锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-text">synchronized 底层原理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E7%9A%84%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E7%9A%84"><span class="toc-text">锁的如何升级的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-%E5%92%8C-synchronized"><span class="toc-text">volatile 和 synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-%E5%92%8C-ReentrantLock-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">synchronized 和 ReentrantLock 有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">AQS 是什么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%847%E4%B8%AA%E5%8F%82%E6%95%B0%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">线程池的7个参数和工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%85%B3%E9%97%AD%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">怎么关闭线程池？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E5%BC%8F"><span class="toc-text">Java 线程通信的主要方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap-%E5%92%8C-HashTable-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">HashMap 和 HashTable 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap-1-7-%E5%92%8C-1-8"><span class="toc-text">HashMap 1.7 和 1.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-HashMap-%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="toc-text">为什么 HashMap 不安全?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84-List"><span class="toc-text">线程安全的 List</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-%E6%A1%86%E6%9E%B6"><span class="toc-text">Spring 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%8B-Spring-IOC-%E5%92%8C-Spring-Aop"><span class="toc-text">介绍下 Spring IOC 和 Spring Aop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A8%A1%E5%9D%97"><span class="toc-text">Spring 常见的一些模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Test%EF%BC%9A%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-text">Spring Test：单元测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96spring%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E7%9A%84bean"><span class="toc-text">动态获取spring容器里面的bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autowired-%E5%92%8C-Resource"><span class="toc-text">@Autowired 和 @Resource</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98%E8%A7%A3%E5%86%B3%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="toc-text">Spring 三级缓存解决循环依赖</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis"><span class="toc-text">MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">#{} 和 ${} 的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#join-%E5%92%8C-left-join"><span class="toc-text">join 和 left  join</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-text">多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="toc-text">String 的不可变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-s1-new-String-%E2%80%9Cabc%E2%80%9D-%E8%BF%99%E5%8F%A5%E8%AF%9D%E5%88%9B%E5%BB%BA%E4%BA%86%E5%87%A0%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">String s1 &#x3D; new String(“abc”); 这句话创建了几个字符串对象？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">实现深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E7%94%A8-%E2%80%9C-%E2%80%9D-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">String 类型的变量和常量用 “+” 运算符发生了什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E6%89%A7%E8%A1%8C-return-%E8%BF%98%E6%98%AF-finally"><span class="toc-text">先执行 return 还是 finally</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-%E5%8F%AF%E4%BB%A5%E5%8A%A0%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="toc-text">final 可以加在哪里，有什么作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JMM-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">JMM 内存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E7%9A%84%E9%94%81"><span class="toc-text">Java 的锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-text">synchronized 底层原理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E7%9A%84%E5%A6%82%E4%BD%95%E5%8D%87%E7%BA%A7%E7%9A%84"><span class="toc-text">锁的如何升级的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-%E5%92%8C-synchronized"><span class="toc-text">volatile 和 synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-%E5%92%8C-ReentrantLock-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">synchronized 和 ReentrantLock 有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AQS-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">AQS 是什么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%847%E4%B8%AA%E5%8F%82%E6%95%B0%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">线程池的7个参数和工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%85%B3%E9%97%AD%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">怎么关闭线程池？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E5%BC%8F"><span class="toc-text">Java 线程通信的主要方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap-%E5%92%8C-HashTable-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">HashMap 和 HashTable 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap-1-7-%E5%92%8C-1-8"><span class="toc-text">HashMap 1.7 和 1.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-HashMap-%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="toc-text">为什么 HashMap 不安全?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84-List"><span class="toc-text">线程安全的 List</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-%E6%A1%86%E6%9E%B6"><span class="toc-text">Spring 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%8B-Spring-IOC-%E5%92%8C-Spring-Aop"><span class="toc-text">介绍下 Spring IOC 和 Spring Aop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Bean 的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean-%E4%BC%9A%E8%A2%AB%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%90%97"><span class="toc-text">Bean 会被垃圾回收吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBootApplication-%E6%B3%A8%E8%A7%A3"><span class="toc-text">@SpringBootApplication 注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">自动装配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A8%A1%E5%9D%97"><span class="toc-text">Spring 常见的一些模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Test%EF%BC%9A%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-text">Spring Test：单元测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96spring%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E7%9A%84bean"><span class="toc-text">动态获取spring容器里面的bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autowired-%E5%92%8C-Resource"><span class="toc-text">@Autowired 和 @Resource</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC"><span class="toc-text">SpringMVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis"><span class="toc-text">MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">#{} 和 ${} 的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#join-%E5%92%8C-left-join"><span class="toc-text">join 和 left  join</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -930,6 +1003,23 @@ RejectedExecutionHandler handler <span class="comment">// 拒绝策略</span></c
 <p>对数组进行修改时，会分段复制，index 前的和 index 后的分别复制到新数组。</p>
 <h1 id="Spring-框架"><a href="#Spring-框架" class="headerlink" title="Spring 框架"></a>Spring 框架</h1><h2 id="介绍下-Spring-IOC-和-Spring-Aop"><a href="#介绍下-Spring-IOC-和-Spring-Aop" class="headerlink" title="介绍下 Spring IOC 和 Spring Aop"></a>介绍下 Spring IOC 和 Spring Aop</h2><p>ioc 是控制反转，ioc 可以看作一个对象工厂，我们都把该对象交给工厂，工厂管理这些对象的创建以及依赖关系。</p>
 <p>aop 是面向切面编程，当类中的方法有大量冗余的且与业务无关的代码，我们可以将它们通过注解方式抽离出来，让开发者只关心业务逻辑。</p>
+<p>Spring AOP 的实现原理是基于<strong>动态代理</strong>和<strong>字节码操作</strong>实现的。在编译时，Spring 会使用 AspectJ 编译器将切面代码编译成字节码文件。在运行时，Spring 会使用 <strong>Java 动态代理或 CGLIB 代理</strong>生成代理类。代理类会在目标对象方法执行前后插入切面代码，从而实现 AOP。</p>
+<p>Spring AOP 可以使用两种代理方式：JDK动态代理和 CGLIB 代理。如果目标对象实现了至少一个接口，则使用JDK动态代理；否则，使用 CGLIB 代理。</p>
+<h2 id="Bean-的生命周期"><a href="#Bean-的生命周期" class="headerlink" title="Bean 的生命周期"></a>Bean 的生命周期</h2><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240326162005596.png" alt="image-20240326162005596"></p>
+<ul>
+<li><p>实例化、属性赋值、初始化、销毁。</p>
+</li>
+<li><p>初始化的具体操作：Aware 接口的依赖注入、BeanPostProcessor 在初始化前后的处理以及InitializingBean 和 init-method 的初始化操作。</p>
+</li>
+<li><p>销毁的具体操作，有注册相关销毁回调接口，最后通过DisposableBean 和 destory-method 进行销毁。</p>
+</li>
+</ul>
+<h2 id="Bean-会被垃圾回收吗"><a href="#Bean-会被垃圾回收吗" class="headerlink" title="Bean 会被垃圾回收吗"></a>Bean 会被垃圾回收吗</h2><p><strong>Bean没有被其他Bean引用，且容器也没有任何引用指向它时</strong>，会变成一个不可达对象，就会被垃圾回收。但在 Spring 中的 Bean 是单例的，一直存活在应用程序的整个生命周期中，所以除非应用程序结束或 Spring 容器被销毁，否则是不会被 GC 的。</p>
+<h2 id="SpringBootApplication-注解"><a href="#SpringBootApplication-注解" class="headerlink" title="@SpringBootApplication 注解"></a>@SpringBootApplication 注解</h2><p>@Configuration：允许在 Spring 上下文中注册额外的 bean 或导入其他配置类</p>
+<p>@EnableAutoConfiguration：启用 SpringBoot 的自动配置机制</p>
+<p>@ComponentScan：扫描被<code>@Component</code> (<code>@Repository</code>,<code>@Service</code>,<code>@Controller</code>)注解的 bean，注解默认会扫描该类所在的包下所有的类。</p>
+<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240326105137278.png" alt="image-20240326105137278"></p>
+<p>Spring Boot 通过 <strong><code>@EnableAutoConfiguration</code></strong> 开启自动装配，通过 <strong><code>SpringFactoriesLoader</code></strong> 最终加载 <strong><code>META-INF/spring.factories</code></strong> 中的自动配置类实现自动装配，自动配置类其实就是通过 <strong><code>@Conditional</code></strong> 按需加载的配置类，想要其生效必须引入 <strong><code>spring-boot-starter-xxx</code></strong> 包实现起步依赖。</p>
 <h2 id="Spring-常见的一些模块"><a href="#Spring-常见的一些模块" class="headerlink" title="Spring 常见的一些模块"></a>Spring 常见的一些模块</h2><p>Spring Core：供 ioc 容器</p>
 <p>Spring AOP</p>
 <p>Spring DAO：JDBC的抽象层</p>
@@ -942,7 +1032,14 @@ RejectedExecutionHandler handler <span class="comment">// 拒绝策略</span></c
 <h2 id="Autowired-和-Resource"><a href="#Autowired-和-Resource" class="headerlink" title="@Autowired 和 @Resource"></a>@Autowired 和 @Resource</h2><p><code>Autowired</code> 属于 Spring 内置的注解，默认的注入方式为<code>byType</code>（根据类型进行匹配），也就是说会优先根据接口类型去匹配并注入 Bean （接口的实现类）。</p>
 <p><code>@Resource</code>属于 JDK 提供的注解，默认注入方式为 <code>byName</code>。如果无法通过名称匹配到对应的 Bean 的话，注入方式会变为<code>byType</code>。</p>
 <p><code>@Autowired</code> 支持在构造函数、方法、字段和参数上使用。<code>@Resource</code> 主要用于字段和方法上的注入，不支持在构造函数或参数上使用。</p>
-<h2 id="Spring-三级缓存解决循环依赖"><a href="#Spring-三级缓存解决循环依赖" class="headerlink" title="Spring 三级缓存解决循环依赖"></a>Spring 三级缓存解决循环依赖</h2><h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="和-的区别"><a href="#和-的区别" class="headerlink" title="#{} 和 ${} 的区别"></a>#{} 和 ${} 的区别</h2><p>#{} 方式是先用占位符代替参数将SQL语句先进行预编译，再将参数中的内容替换进来。由于SQL语句已经被预编译过，其SQL意图将无法通过非法的参数内容实现更改，其参数中的内容，无法变为SQL命令的一部分。</p>
+<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240325135256785.png" alt="image-20240325135256785"></p>
+<p>springmvc 流程：</p>
+<p>1、客户端发起请求，DispatchServlet 拦截请求。</p>
+<p>2、DispatchServlet 调用 HandlerMapping，去查找对应的 handler (也就是 controller)。</p>
+<p>3、DispatchServlet 调用 HanderAdapter 执行 handler。</p>
+<p>4、handler 执行完毕后返回 ModelAndView，视图解析器 ViewResolver 会查找实际的 view，DispatchServlet 会把 model 渲染到 view 上。</p>
+<p>5、把 view 返回给浏览器。</p>
+<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="和-的区别"><a href="#和-的区别" class="headerlink" title="#{} 和 ${} 的区别"></a>#{} 和 ${} 的区别</h2><p>#{} 方式是先用占位符代替参数将SQL语句先进行预编译，再将参数中的内容替换进来。由于SQL语句已经被预编译过，其SQL意图将无法通过非法的参数内容实现更改，其参数中的内容，无法变为SQL命令的一部分。</p>
 <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="join-和-left-join"><a href="#join-和-left-join" class="headerlink" title="join 和 left  join"></a>join 和 left  join</h2><p>JOIN：返回两个表中都有匹配的行</p>
 <p>left JOIN：返回左表的所有行，如果在右表没有为 null。</p>
 

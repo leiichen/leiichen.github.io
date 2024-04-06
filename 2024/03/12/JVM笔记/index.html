@@ -6,15 +6,15 @@
   <meta name="keywords" content=" JVM ">
   <meta name="description" content="JVM笔记 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="个人简介">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+<meta name="description" content="悲观锁与乐观锁这是一种广义上的概念。悲观锁认为在自己使用数据的时候中一定有其他的线程来修改数据，因此在获取数据前都会上锁。像 Lock 的实现类、synchronized 都是悲观锁。 乐观锁则无所谓的态度，认为不会有其他线程来修改，因此不会上锁，只是在更新数据时判断这个数据在自己使用的时候，有没有别的线程修改过。常用的算法是 CAS 算法。 从上面我们得出结论：悲观锁用于写较多的场景，乐观锁用于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java的锁">
+<meta property="og:url" content="http://example.com/2024/04/06/Java%E7%9A%84%E9%94%81/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="个人简介">
+<meta property="og:description" content="悲观锁与乐观锁这是一种广义上的概念。悲观锁认为在自己使用数据的时候中一定有其他的线程来修改数据，因此在获取数据前都会上锁。像 Lock 的实现类、synchronized 都是悲观锁。 乐观锁则无所谓的态度，认为不会有其他线程来修改，因此不会上锁，只是在更新数据时判断这个数据在自己使用的时候，有没有别的线程修改过。常用的算法是 CAS 算法。 从上面我们得出结论：悲观锁用于写较多的场景，乐观锁用于">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
-<meta property="article:modified_time" content="2023-12-01T03:32:32.163Z">
+<meta property="article:published_time" content="2024-04-06T09:46:02.000Z">
+<meta property="article:modified_time" content="2024-04-06T12:42:12.092Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
 
@@ -193,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(15)</small>
+                <small>(21)</small>
             
         </div>
     </li>
@@ -319,6 +319,21 @@
             
                 
     <li>
+        <div data-rel="Git">
+            
+            Git
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
         <div data-rel="Hexo">
             
             Hexo
@@ -421,8 +436,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
-<input type="hidden" id="yelog_site_word_count" value="18.8k">
+<input type="hidden" id="yelog_site_posts_number" value="21">
+<input type="hidden" id="yelog_site_word_count" value="21.5k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -477,6 +492,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>面试常见知识点</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索技巧</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -541,6 +560,60 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/06/Java%E7%9A%84%E9%94%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java的锁">Java的锁</span>
+            <span class="post-date" title="2024-04-06 17:46:02">2024/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/06/%E6%B3%9B%E5%9E%8B%E6%9C%BA%E5%88%B6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="泛型机制">泛型机制</span>
+            <span class="post-date" title="2024-04-06 16:06:03">2024/04/06</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/30/docker%E5%AE%B9%E5%99%A8%E4%B8%AD%E7%9A%84vim/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="docker容器中的vim">docker容器中的vim</span>
+            <span class="post-date" title="2024-03-30 13:55:41">2024/03/30</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/2024/03/28/GitHub%E6%90%9C%E7%B4%A2trick/"
+           data-tag="搜索技巧"
+           data-author="" >
+            <span class="post-title" title="GitHub搜索trick">GitHub搜索trick</span>
+            <span class="post-date" title="2024-03-28 20:25:08">2024/03/28</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/28/ElasticSearch%E5%AD%A6%E4%B9%A0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ElasticSearch学习">ElasticSearch学习</span>
+            <span class="post-date" title="2024-03-28 15:40:47">2024/03/28</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/03/23/SQL%E5%A4%8D%E7%9B%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SQL复盘">SQL复盘</span>
+            <span class="post-date" title="2024-03-23 14:24:28">2024/03/23</span>
+        </a>
         
         
         <a  class="全部文章 部署 "
@@ -722,12 +795,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:32:37'>2024-03-12 14:39</time>
+            发布时间 : <time class="date" title='最后更新: 2024-03-26 16:35:54'>2024-03-12 14:39</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.2k</span>
+        <span>字数:1.4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -757,7 +830,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="toc-text">类加载器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">双亲委派机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#native%E3%80%81%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="toc-text">native、方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">JVM 虚拟机栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-text">堆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">GC：垃圾回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-text">垃圾回收算法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="toc-text">类加载器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">双亲委派机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#native%E3%80%81%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="toc-text">native、方法区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">JVM 虚拟机栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%8B%E5%8D%87%E5%88%B0%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-text">晋升到老年代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">GC：垃圾回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-text">垃圾回收算法</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -775,12 +848,13 @@
       
         <p><img src="/2024/03/12/JVM%E7%AC%94%E8%AE%B0/image-20240312160432882.png" alt="image-20240312160432882"></p>
 <h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><p>作用：加载类的信息到JVM中。当 Java 程序需要使用某个类时，类加载子系统负责找到对应的.class文件，并将其加载到JVM的方法区中。</p>
-<h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>系统加载 Class 类型的文件主要三步：<strong>加载-&gt;连接-&gt;初始化</strong>。连接过程又可分为三步：<strong>验证-&gt;准备-&gt;解析</strong>。</p>
+<h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p>系统加载 Class 类型的文件主要三步：<strong>加载-&gt;链接（验证-&gt;准备-&gt;解析）-&gt;初始化</strong>。</p>
 <p>加载：将.class文件的二进制字节流读入内存。将字节流所代表的静态存储结构转换为方法区的运行时数据结构。</p>
 <p>验证：确保该类的字节码文件中所包含的信息是否符合当前虚拟机的要求。</p>
 <p>准备：为静态变量分配内存，并设置一个初始值。除了被final修饰的类变量，该类型会在编译期就已经被分配并确定。</p>
 <p>解析</p>
 <p>初始化：为静态变量、静态代码块进行真正初始化</p>
+<p>对于 static 变量，在<code>准备阶段</code>，所有的<code>static</code>变量都会被分配内存，并被设置为初始值，例如int类型的默认值为0，引用类型的默认值为null。在<code>初始化阶段</code>，<code>static</code>变量会按照它们在源代码中被声明的顺序，按照程序中的赋值语句和静态代码块进行初始化。</p>
 <h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><p>Java 在尝试加载一个类时，系统首先判断这个类是否被加载过，已经加载的类直接返回，否则才会尝试加载。类加载器会先委托给它的父加载器去尝试加载这个类，一直到达顶层的类（Bootstrap）只有在父加载器无法加载该类时（找不到对应的类），子加载器才会尝试去加载。</p>
 <h2 id="native、方法区"><a href="#native、方法区" class="headerlink" title="native、方法区"></a>native、方法区</h2><p>方法区：存放已加载的类的信息，常量、静态变量 等。方法区是线程共享的内存区域，它在JVM启动的时候被创建，并且随着类的加载而动态扩展。方法区中包含着常量池。native 关键字的方法会调用底层 C 语言的库，会进入本地方法库，进而调用本地方法接口，</p>
 <h2 id="JVM-虚拟机栈"><a href="#JVM-虚拟机栈" class="headerlink" title="JVM 虚拟机栈"></a>JVM 虚拟机栈</h2><p>每个Java虚拟机线程都有一个私有的Java栈，与线程同时创建。Java栈中保存着帧信息，每个方法在执行时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接和方法出口等信息。</p>
@@ -793,8 +867,10 @@
 <li><p>老年代</p>
 </li>
 </ul>
-<p>大多数情况下，对象在新生代中 Eden 区分配。当Eden区满了之后，会触发一次Minor GC（也就是轻GC）。新生代中的存活对象是从Eden区和当前正在使用的一个Survivor区（我们可以称之为From区）复制到另一个Survivor区（我们可以称之为To区）。复制过程完成后，Eden区和From区将被清空。如果Survivor区容不下Eden区的所有存活对象，那么部分或者全部存活对象将直接被晋升到老年代。</p>
-<p><strong>由于这个互换，保证了在每次垃圾收集结束后，总有一个Survivor区（to）是空的，这是为了下次垃圾收集时有空间来存放从Eden和另一个Survivor（from）区复制过来的存活对象。</strong></p>
+<p><strong>GC 过程：</strong></p>
+<p>新创建的对象大多分配在 Eden 区，此时两个幸存区 0 和 1 几乎为空。随着时间推移，Eden 区放不下了，此时发生轻 GC：首先通过可达性分析算法找到可达对象；被标记的可达对象会被转移到 0 区，此时存活对象年龄加 1；清除 Eden 区所有对象。</p>
+<p>当 Eden 区再次满时，再次发生 GC，此时 0 区已经有对象，还是通过可达性分析找到可达对象，将 Eden 区和 0 区中的可达对象转移到 1 区，年龄加一；将 Eden 区和 0 区的所有对象清除。</p>
+<h3 id="晋升到老年代"><a href="#晋升到老年代" class="headerlink" title="晋升到老年代"></a>晋升到老年代</h3><p>在程序运行过程中，新生代GC会反复发生，长寿对象会在S0和S1之间反复交换，年龄也会越来越大，当对象达到年龄上限时，会被晋升到老年代。这个年龄上限默认是15。大对象会跨过年轻代直接分配到老年代。如果在Survivor空间中相同年龄对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象会直接进入老年代。</p>
 <p>在survivor中，相同年龄的所有对象大小大于survivor的一半空间。年龄大于或等于该年龄的对象可以进入老年代。</p>
 <p>在 jdk8 后，永远存储区改了个名字（元空间）：这个区域在本地内存，存储的是 java 运行时的一些环境或类信息。这个区域不存在垃圾回收。方法区在元空间</p>
 <p>非堆内存：方法区、元空间</p>
