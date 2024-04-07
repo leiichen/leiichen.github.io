@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Chenlei&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Chenlei&#39;s Blog">
+  <title>记项目上线 | Chenlei&#39;s Blog</title>
+  <meta name="keywords" content=" 部署 , 服务器 ">
+  <meta name="description" content="记项目上线 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="前后端分离的线上域名部署背景：基于 SpringBoot 与 Vue 的前后端分离项目，前台页面有两个：分别是前台展示页面、后台管理页面。 对于后端而言需要注意的点：数据库改成服务器 IP，中间件的地址（redis、elasticsearch、rabbitmq等）。设置好后就可以打包成 jar 包，放到服务器目录中，在宝塔中有个很方便的点是选择 jar 包后自动填充执行命令，一键部署。 后端部署完">
 <meta property="og:type" content="article">
@@ -60,7 +60,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -802,12 +802,73 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-记项目上线" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a></li></ol>
+        <h1 class="article-title">记项目上线</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="运维">运维</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">部署</a>
+            
+            <a class="color4">服务器</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-04-07 21:41:01'>2024-04-07 21:18</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:323</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E7%BA%BF%E4%B8%8A%E5%9F%9F%E5%90%8D%E9%83%A8%E7%BD%B2"><span class="toc-text">前后端分离的线上域名部署</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -820,18 +881,38 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><p>本博客记录自己研究生期间深度学习和开发技术的一些学习记录和感悟。不定期更新~</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<p>- </p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前后端分离的线上域名部署"><a href="#前后端分离的线上域名部署" class="headerlink" title="前后端分离的线上域名部署"></a>前后端分离的线上域名部署</h2><p>背景：基于 SpringBoot 与 Vue 的前后端分离项目，前台页面有两个：分别是前台展示页面、后台管理页面。</p>
+<p>对于后端而言需要注意的点：数据库改成服务器 IP，中间件的地址（redis、elasticsearch、rabbitmq等）。设置好后就可以打包成 jar 包，放到服务器目录中，在宝塔中有个很方便的点是选择 jar 包后自动填充执行命令，一键部署。<img src="/2024/04/07/%E8%AE%B0%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/image-20240407212903208.png" alt="image-20240407212903208"></p>
+<p>后端部署完毕后，如何判断部署成功呢？其实可以借助 Postman 等工具测试个接口，看能否得到响应数据。或者直接在浏览器上输入 GET 请求地址，得到响应后说明后端可以正常访问。</p>
+<p>两个前端部署：如果要用域名部署，最好先用 IP:端口 部署好后，再在宝塔的域名管理添加域名就可以了。前台-web页面默认的 publicPath: ‘&#x2F;‘，而后台管理页面是 publicPath: ‘&#x2F;admin’。因此二者放到服务器文件夹后，只需建一个站点，在配置文件（nginx）中如下配置：</p>
+<pre><code class="highlight nginx"><span class="section">location</span><span class="regexp"> ^~</span> /admin
+&#123;
+<span class="attribute">alias</span> /www/wwwroot/blog-admin/dist;
+<span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;
+&#125;
+<span class="section">location</span> /
+&#123;
+<span class="attribute">root</span> /www/wwwroot/blog-web/dist;
+<span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;
+&#125;</code></pre>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -853,6 +934,53 @@
 </script>
 
 
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -861,11 +989,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
