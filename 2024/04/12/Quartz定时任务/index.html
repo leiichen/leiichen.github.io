@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SQL复盘 | Chenlei&#39;s Blog</title>
+  <title>Quartz定时任务 | Chenlei&#39;s Blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="SQL复盘 | Chenlei&#39;s Blog">
+  <meta name="description" content="Quartz定时任务 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Record some things">
 <meta property="og:type" content="article">
@@ -836,9 +836,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-SQL复盘" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Quartz定时任务" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">SQL复盘</h1>
+        <h1 class="article-title">Quartz定时任务</h1>
     
     <div class="article-meta">
         
@@ -848,12 +848,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-11 18:10:28'>2024-03-23 14:24</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-12 14:01:57'>2024-04-12 14:01</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:199</span>
+        <span>字数:0</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -883,7 +883,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-text">连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="toc-text">组合查询</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -899,33 +899,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><blockquote>
-<p> 存储大量文本数据：text、mediumtext、longtext</p>
-</blockquote>
-<p>分别可以存储 $2^{16}-1$ 、$2^{24}-1$ 、$2^{32}-1$ 个字符。</p>
-<blockquote>
-<p>金额计算：用 decimal(M, N)     M：最大存几位数(不包括小数点)   N：小数点后的位数</p>
-</blockquote>
-<p>如 decimal(5, 2) 	 存储范围是 -999.99 - 999.99。</p>
-<blockquote>
-<p> 日期数据类型：Date、DateTime、<strong>timestamp</strong></p>
-</blockquote>
-<p>计算两个日期之间的时间差：TIMEDIFF</p>
-<p>DateTime 可以显示到秒级别。</p>
-<p>timestamp 和时区有关。</p>
-<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><blockquote>
-<p>outer join：分别 left join 和 right join。</p>
-</blockquote>
-<h2 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h2><blockquote>
-<p>UNION：将两个或多个的查询结果组合起来，并消除重复的行。</p>
-<p>UNION ALL：包含重复的行。</p>
-</blockquote>
-<p>组合查询的规则：</p>
-<ul>
-<li>多个查询的字段类型、个数需要相同。</li>
-<li>对于 order by，需要放到最后一条 select 之后。</li>
-</ul>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
     </div>

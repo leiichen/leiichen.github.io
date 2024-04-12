@@ -6,21 +6,17 @@
   <meta name="keywords" content=" Git ">
   <meta name="description" content="git上传代码 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="前后端分离的线上域名部署背景：基于 SpringBoot 与 Vue 的前后端分离项目，前台页面有两个：分别是前台展示页面、后台管理页面。 对于后端而言需要注意的点：数据库改成服务器 IP，中间件的地址（redis、elasticsearch、rabbitmq等）。设置好后就可以打包成 jar 包，放到服务器目录中，在宝塔中有个很方便的点是选择 jar 包后自动填充执行命令，一键部署。 后端部署完">
+<meta name="description" content="Record some things">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记项目上线">
-<meta property="og:url" content="http://example.com/2024/04/07/%E8%AE%B0%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/index.html">
+<meta property="og:title" content="Quartz定时任务">
+<meta property="og:url" content="http://example.com/2024/04/12/Quartz%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="前后端分离的线上域名部署背景：基于 SpringBoot 与 Vue 的前后端分离项目，前台页面有两个：分别是前台展示页面、后台管理页面。 对于后端而言需要注意的点：数据库改成服务器 IP，中间件的地址（redis、elasticsearch、rabbitmq等）。设置好后就可以打包成 jar 包，放到服务器目录中，在宝塔中有个很方便的点是选择 jar 包后自动填充执行命令，一键部署。 后端部署完">
+<meta property="og:description" content="Record some things">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/04/07/%E8%AE%B0%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/image-20240407212903208.png">
-<meta property="article:published_time" content="2024-04-07T13:18:25.000Z">
-<meta property="article:modified_time" content="2024-04-07T13:41:01.325Z">
+<meta property="article:published_time" content="2024-04-12T06:01:42.000Z">
+<meta property="article:modified_time" content="2024-04-12T06:01:57.009Z">
 <meta property="article:author" content="leiichen">
-<meta property="article:tag" content="部署">
-<meta property="article:tag" content="服务器">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/04/07/%E8%AE%B0%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/image-20240407212903208.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -197,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(22)</small>
+                <small>(26)</small>
             
         </div>
     </li>
@@ -455,8 +451,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="22">
-<input type="hidden" id="yelog_site_word_count" value="21.8k">
+<input type="hidden" id="yelog_site_posts_number" value="26">
+<input type="hidden" id="yelog_site_word_count" value="22.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -587,6 +583,42 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/12/Quartz%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Quartz定时任务">Quartz定时任务</span>
+            <span class="post-date" title="2024-04-12 14:01:42">2024/04/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/11/Vue-js/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vue.js">Vue.js</span>
+            <span class="post-date" title="2024-04-11 20:03:50">2024/04/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/09/IO/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="IO">IO</span>
+            <span class="post-date" title="2024-04-09 16:15:35">2024/04/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/04/09/Java%E4%B8%AD%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java中异常机制">Java中异常机制</span>
+            <span class="post-date" title="2024-04-09 15:00:09">2024/04/09</span>
+        </a>
         
         
         <a  class="全部文章 运维 "
@@ -831,12 +863,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:33:15'>2024-03-15 09:49</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-11 19:53:06'>2024-03-15 09:49</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:255</span>
+        <span>字数:266</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -866,7 +898,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5"><span class="toc-text">生成秘钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5"><span class="toc-text">生成秘钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-clone-%E5%8D%8F%E8%AE%AE"><span class="toc-text">Git clone 协议</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -891,7 +923,7 @@
 <p>git diff：比较工作区和暂存区的差别  –cached 比较暂存区和版本库的差异</p>
 <p>git rm：将文件从工作区和暂存区都删除    –cached：把文件从暂存区删除，但保留在工作区</p>
 <p>git checkout – filename    从暂存区恢复文件到工作区</p>
-<p>git commit -am “”  一个命令同时添加到暂存区和提交到本地仓库</p>
+<p>git commit -a -m “”  一个命令同时添加到暂存区和提交到本地仓库</p>
 </blockquote>
 <p>.gitignore：忽略加入暂存区的文件</p>
 <h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><pre><code class="highlight plaintext">cd .ssh
@@ -904,6 +936,7 @@ ssh-keygen -t rsa -b 4096</code></pre>
 <p>切换分支：git switch dev</p>
 <p>合并分支：git merge dev 把 dev 分支合并到 main 分支中</p>
 <p><img src="/2024/03/15/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/image-20240318164945891.png" alt="image-20240318164945891"></p>
+<h2 id="Git-clone-协议"><a href="#Git-clone-协议" class="headerlink" title="Git clone 协议"></a>Git clone 协议</h2><p>SSH 协议、HTTPS 协议</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
