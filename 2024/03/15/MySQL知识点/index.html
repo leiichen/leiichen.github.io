@@ -452,7 +452,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="28">
-<input type="hidden" id="yelog_site_word_count" value="23.3k">
+<input type="hidden" id="yelog_site_word_count" value="24k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -881,12 +881,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-09 10:56:22'>2024-03-15 09:09</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-13 21:06:09'>2024-03-15 09:09</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:607</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -916,7 +916,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-%E8%AF%AD%E5%8F%A5"><span class="toc-text">SQL 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E6%A0%91%E5%92%8CB%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">B+树和B树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-text">InnoDB 物理结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E7%B4%A2%E5%BC%95"><span class="toc-text">MySQL 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">联合索引的最左匹配原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">什么时候用到索引？</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E6%A0%91%E5%92%8CB%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">B+树和B树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-text">InnoDB 物理结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E7%B4%A2%E5%BC%95"><span class="toc-text">MySQL 索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">索引类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">联合索引的最左匹配原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">什么时候用到索引？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="toc-text">索引失效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E7%89%A9%E9%97%AE%E9%A2%98"><span class="toc-text">并发事物问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">隔离级别</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -932,14 +932,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="SQL-语句"><a href="#SQL-语句" class="headerlink" title="SQL 语句"></a>SQL 语句</h2><pre><code class="highlight sql"><span class="keyword">SELECT</span> p.prod_name, <span class="built_in">Sum</span>(o.quantity) <span class="keyword">AS</span> quant_sold
-<span class="keyword">FROM</span> Products p,
-  OrderItems o
-<span class="keyword">WHERE</span> p.prod_id <span class="operator">=</span> o.prod_id
-<span class="keyword">GROUP</span> <span class="keyword">BY</span> p.prod_name（这里不能用 p.prod_id，会报错）</code></pre>
-
-<p>这里不能用 p.prod_id 是因为当使用 group by 语句时，select 子句中的非聚合列必须出现在 group by 中。</p>
-<h2 id="B-树和B树的区别"><a href="#B-树和B树的区别" class="headerlink" title="B+树和B树的区别"></a>B+树和B树的区别</h2><ul>
+        <h2 id="B-树和B树的区别"><a href="#B-树和B树的区别" class="headerlink" title="B+树和B树的区别"></a>B+树和B树的区别</h2><ul>
 <li><p>B+ 叶子节点（最底部的节点）才会存放实际数据（索引+记录），非叶子节点只会存放索引；</p>
 </li>
 <li><p>B+Tree 叶子节点采用的是双链表连接，适合 MySQL 中常见的基于范围的顺序查找，而 B 树无法做到这一点。</p>
@@ -950,10 +943,13 @@
 <li>主键索引的 B+Tree 的叶子节点存放的是实际数据，所有完整的用户记录都存放在主键索引的 B+Tree 的叶子节点里；</li>
 <li>二级索引的 B+Tree 的叶子节点存放的是主键值，而不是实际数据。使用辅助索引需要检索两遍索引：首先检索辅助索引获得主键，然后根据主键到主键索引中检索获得数据记录。</li>
 </ul>
-<h2 id="MySQL-索引"><a href="#MySQL-索引" class="headerlink" title="MySQL 索引"></a>MySQL 索引</h2><blockquote>
-<p>按物理存储分：主键索引、二级索引</p>
-<p>按字段个数分：单列索引、联合索引</p>
+<h2 id="MySQL-索引"><a href="#MySQL-索引" class="headerlink" title="MySQL 索引"></a>MySQL 索引</h2><h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>主键索引、唯一索引、普通索引、联合索引、全文索引</p>
+<blockquote>
+<p>唯一索引：索引列的值必须唯一，但可以为空</p>
 </blockquote>
+<p>聚簇索引和非聚簇索引：</p>
+<p>聚簇索引：叶子存放了实际数据，所有完整的用户记录都存放在这里。</p>
+<p>非聚簇索引：叶子存放的是主键值，因此如果想要的数据在二级索引查不到，就需要通过主键索引查到所有的数据，这个过程就是回表。</p>
 <h3 id="联合索引的最左匹配原则"><a href="#联合索引的最左匹配原则" class="headerlink" title="联合索引的最左匹配原则"></a>联合索引的最左匹配原则</h3><p>从左开始向右匹配，当遇到范围查询时就停止匹配。<strong>范围查询的字段还是可以用联合索引的。</strong></p>
 <p>先对第一个字段进行排序，再对第二个字段排序。</p>
 <pre><code class="highlight sql"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> t_table <span class="keyword">where</span> a <span class="operator">&gt;=</span> <span class="number">1</span> <span class="keyword">and</span> b <span class="operator">=</span> <span class="number">2</span></code></pre>
@@ -969,6 +965,31 @@
 <p>如果一个字段经常被修改，就不建议对其创建索引，因为修改数据时索引也需要修改。</p>
 <p>表中数据比较少的情况。</p>
 </blockquote>
+<h3 id="索引失效"><a href="#索引失效" class="headerlink" title="索引失效"></a>索引失效</h3><blockquote>
+<p>记住，索引保存的是索引字段的原始值，对索引字段进行修改会使索引失效。</p>
+</blockquote>
+<p>1、like 关键字 ‘%xx’ 或 ‘%xx%’ 会让索引失效。</p>
+<p>2、对索引使用函数、对索引使用表达式计算。</p>
+<p>3、索引隐式类型转换。（索引为 varchar，但传入的是 int）</p>
+<p>4、联合索引非最左匹配。 联合索引是指数据先按索引第一列排序，第一列排序相同后才会按照第二列排序。</p>
+<h2 id="并发事物问题"><a href="#并发事物问题" class="headerlink" title="并发事物问题"></a>并发事物问题</h2><blockquote>
+<p>脏读：A事物读取了  未提交事物 B 修改过的数据，就发生了脏读。对于未提交的事物 B 来说，它可能发生回滚，那么 A 中的数据就是脏数据。</p>
+</blockquote>
+<blockquote>
+<p>不可重复读：一个事物多次读取同一个数据，得到的结果不一样。（有其他事物在期间对此数据做了修改）</p>
+</blockquote>
+<blockquote>
+<p>幻读：一个事物多次查询某个符合条件的 记录数量，出现前后两次查询结果不一致。（有其他事物在期间插入符合条件的记录）</p>
+</blockquote>
+<h2 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h2><ul>
+<li>读未提交：事物还没有提交时，所做的更改可以被其他事物看到。</li>
+<li>读提交：事物还没有提交时，所做的更改 <strong>不能</strong> 被其他事物看到。</li>
+<li>可重复读：一个事物执行中看到的数据与这个事物启动时看到的数据一致。是 MySQL 默认的隔离级别。因此如果有其他事物插入了记录，是查不出来这条数据的，避免了幻读问题。</li>
+<li>串行化：对记录加上读写锁，防止一个事物在读写时，有另外的事物过来更改记录。</li>
+</ul>
+<p>读提交是在 每个语句执行前 都会生成一个快照</p>
+<p>可重复读是在 启动事物时生成一个快照，在整个事物期间都用这个快照。</p>
+<p>串行化是通过 加读写锁 实现的。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>

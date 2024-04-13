@@ -452,7 +452,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="28">
-<input type="hidden" id="yelog_site_word_count" value="23.3k">
+<input type="hidden" id="yelog_site_word_count" value="24k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -881,7 +881,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-09 14:28:50'>2024-03-12 14:39</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-13 17:25:07'>2024-03-12 14:39</time>
         
     </div>
     <div class="article-meta">
@@ -934,6 +934,9 @@
       
         <p><img src="/2024/03/12/JVM%E7%AC%94%E8%AE%B0/image-20240312160432882.png" alt="image-20240312160432882"></p>
 <h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><h3 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h3><p>加载、验证、准备、解析、初始化</p>
+<blockquote>
+<p>准备阶段：为类的 static 变量在方法区分配内存，将其初始值置为 0。被 final 修饰的常量会直接赋值。</p>
+</blockquote>
 <h2 id="JVM-内存结构"><a href="#JVM-内存结构" class="headerlink" title="JVM 内存结构"></a>JVM 内存结构</h2><ul>
 <li>线程私有：Java虚拟栈、程序计数器、本地方法栈</li>
 <li>线程共享：方法区、堆内存</li>
@@ -949,9 +952,15 @@
 <li><p>老年代</p>
 </li>
 </ul>
-<h3 id="晋升到老年代"><a href="#晋升到老年代" class="headerlink" title="晋升到老年代"></a>晋升到老年代</h3><p>在程序运行过程中，新生代GC会反复发生，长寿对象会在S0和S1之间反复交换，年龄也会越来越大，当对象达到年龄上限时，会被晋升到老年代。这个年龄上限默认是15。大对象会跨过年轻代直接分配到老年代。如果在Survivor空间中相同年龄对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象会直接进入老年代。</p>
-<p>在survivor中，相同年龄的所有对象大小大于survivor的一半空间。年龄大于或等于该年龄的对象可以进入老年代。</p>
-<p>在 jdk8 后，永远存储区改了个名字（元空间）：这个区域在本地内存，存储的是 java 运行时的一些环境或类信息。这个区域不存在垃圾回收。方法区在元空间</p>
+<h3 id="晋升到老年代"><a href="#晋升到老年代" class="headerlink" title="晋升到老年代"></a>晋升到老年代</h3><ul>
+<li><p>在程序运行过程中，新生代GC会反复发生，长寿对象会在S0和S1之间反复交换，年龄也会越来越大，当对象达到年龄上限时，会被晋升到老年代。这个年龄上限默认是15。</p>
+</li>
+<li><p>大对象会跨过年轻代直接分配到老年代。</p>
+</li>
+<li><p>某个年龄和以下年龄的对象大于幸存区的一半，年龄大于或等于该年龄的对象可以进入老年代。</p>
+</li>
+</ul>
+<p>在 jdk8 后，永久代改了个名字（元空间）：这个区域在本地内存，存储的是 java 运行时的一些环境或类信息。这个区域不存在垃圾回收。方法区在元空间</p>
 <p>非堆内存：方法区、元空间</p>
 <ul>
 <li>JDK 1.8 之后，无永久代，替代为元空间，不存在于 JVM，使用的是本地内存。</li>
@@ -967,7 +976,7 @@
 <li><p>分代收集：将内存划分为几块，如堆分为新生代和老年代。</p>
 </li>
 </ul>
-<p>新生代一般使用复制算法进行垃圾会输。复制算法将新生代分为 Eden区和两个幸存区（From 区、To 区）。当 Eden 区满时，触发 Minor GC，将存活对象移动到一个幸存区，然后清空 Eden 区。这个过程循环反复，直到一个幸存区满了，再触发 Minor GC，将 Eden 区和 From 区的存活对象移到另一个幸存区，清空这个幸存区。</p>
+<p>新生代一般使用复制算法进行垃圾回收。复制算法将新生代分为 Eden区和两个幸存区（From 区、To 区）。当 Eden 区满时，触发 Minor GC，将存活对象移动到一个幸存区，然后清空 Eden 区。这个过程循环反复，直到一个幸存区满了，再触发 Minor GC，将 Eden 区和 From 区的存活对象移到另一个幸存区，清空这个幸存区。</p>
 <p>老年代一般采用标记-清除-整理算法。</p>
 <h2 id="GC-过程"><a href="#GC-过程" class="headerlink" title="GC 过程"></a>GC 过程</h2><p>新创建的对象大多分配在 Eden 区，此时两个幸存区 0 和 1 几乎为空。随着时间推移，Eden 区放不下了，此时发生轻 GC：首先通过可达性分析算法找到可达对象；被标记的可达对象会被转移到 0 区，此时存活对象年龄加 1；清除 Eden 区所有对象。</p>
 <p>当 Eden 区再次满时，再次发生 GC，此时 0 区已经有对象，还是通过可达性分析找到可达对象，将 Eden 区和 0 区中的可达对象转移到 1 区，年龄加一；将 Eden 区和 0 区的所有对象清除。</p>
