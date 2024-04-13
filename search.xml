@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>线程池</title>
+      <link href="/2024/04/13/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+      <url>/2024/04/13/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p> 在 Java 中的线程池中，在核心线程数已满的情况下，为什么要先判断等待队列是否已满，未满放到队列中。而不是先判断最大线程数是否已满？    线程池的目的应该尽可能创建多个线程。</p></blockquote><p>原因有很多，可能等待队列充当了个缓存区，允许系统在流量高峰时有更多弹性，避免不必要的资源消耗。</p><p>另外，在 <a href="https://zhuanlan.zhihu.com/p/92632090">https://zhuanlan.zhihu.com/p/92632090</a> 中也提到了这点，每当需要创建线程时，都会调用 addWorker() 方法，在这个方法中需要获取锁，而多个线程获取锁会造成资源的争抢。如果在最大线程数未满的情况下，直接创建新的线程，这样每次都需要多获取一次锁。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Quartz定时任务</title>
       <link href="/2024/04/12/Quartz%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
       <url>/2024/04/12/Quartz%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
