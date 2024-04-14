@@ -452,7 +452,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="28">
-<input type="hidden" id="yelog_site_word_count" value="24k">
+<input type="hidden" id="yelog_site_word_count" value="23.3k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -881,12 +881,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-10 20:20:38'>2024-03-07 20:11</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-14 09:13:41'>2024-03-07 20:11</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2.7k</span>
+        <span>字数:2.9k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -980,14 +980,19 @@
 <p>我们通过 nginx 的负载均衡启动 2 台服务器模拟，本地锁 synchronized 会失效，我们需要使用分布式锁。分布式锁的实现用 redis 的 setnx 实现，也就是我们自定义锁替换掉 synchronized。但还有几个问题，1、多个线程如何判断释放的锁是否是自己的呢？</p>
 <p>这里可以给锁拼接上 uuid，增加锁标识的复杂性，释放锁时需要先判断锁存在，再删除锁。但这里又有问题了，如果判断锁存在后单还没删除，发生了堵塞，有其他线程获取了锁，此时前线程堵塞完成，又把锁释放了。</p>
 <p>这里我们将判断锁和释放锁打包为 lua 脚本，具有原子性。</p>
-<p>但我们自定义的锁总有缺陷，如锁不可重入等，我们使用 Redssion 框架。</p>
+<p>但我们自定义的锁总有缺陷，如锁不可重入、不可重试等，我们使用 Redssion 框架。</p>
+<p> 最终优化：将库存判断、用户是否下单 这些逻辑判断写到一个 lua 脚本中，只有都通过了再使用消息队列 插入订单，执行库存减一。实现解耦合。</p>
 <h3 id="Redission-原理"><a href="#Redission-原理" class="headerlink" title="Redission 原理"></a>Redission 原理</h3><p><strong>可重入锁</strong>：用 hash 结构存储   key：锁   field：线程标识   value：重入次数。</p>
 <p><strong>锁重试：</strong>释放时间如果没有指定，则设置为看门狗（30s），执行 lua 脚本：如果当前线程第一次来，记录标识，锁重入次数为 1；如果已经存在锁标识了，那么锁重入次数加 1；否则返回剩余时间。这是一个异步的过程，函数结束后返回，如果得到 null，获取锁成功，否则计算剩余时间，如果小于 0，则剩余时间不够获取锁失败；否则等待一个订阅（其他线程释放锁的信号），得到订阅后才会再次获取锁，在等待过程中如果等待时间大于剩余时间，则取消订阅，返回 false。</p>
 <p><strong>自动续约：</strong>获取锁成功后，判断是否设置了释放时间，没有的话默认是 -1，如果第一次来，添加个定时任务：10s 后更新有效期为 30s，永不过期。释放锁时才会取消。</p>
 <p><img src="/2024/03/07/redis%E7%9A%84%E5%BA%94%E7%94%A8/image-20240308205339316.png" alt="image-20240308205339316"></p>
 <h2 id="3、lua脚本异步操作"><a href="#3、lua脚本异步操作" class="headerlink" title="3、lua脚本异步操作"></a>3、lua脚本异步操作</h2><p>之前的业务是判断库存后通过分布式锁实现一人一单，这是串行操作，效率不高，其实判断库存、一人一单与操作数据库可以隔离开，如果用户有资格下单，就可以返回订单号了，用户不需要等待数据库操作完成即可获得反馈。</p>
 <p>此外，我们在保存优惠券时就可以把优惠券信息存入缓存，在查询用户是否有资格下单时，直接从缓存中查库存就好，并且将购买的用户写入缓存，避开了直接访问数据库。</p>
-<h2 id="4、Sorted-Set-维护点赞排行榜"><a href="#4、Sorted-Set-维护点赞排行榜" class="headerlink" title="4、Sorted Set 维护点赞排行榜"></a>4、Sorted Set 维护点赞排行榜</h2><h1 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h1><h2 id="Zset的底层如何实现"><a href="#Zset的底层如何实现" class="headerlink" title="Zset的底层如何实现"></a>Zset的底层如何实现</h2><p>使用 <strong>ziplist</strong>（压缩链表）和 <strong>skiplist</strong>（跳表）两种。</p>
+<h2 id="4、Sorted-Set-维护点赞排行榜"><a href="#4、Sorted-Set-维护点赞排行榜" class="headerlink" title="4、Sorted Set 维护点赞排行榜"></a>4、Sorted Set 维护点赞排行榜</h2><ul>
+<li>在首页如何判断当前用户是否给某个博客点过赞？这是用 redis 实现的，用户点赞都放到了缓存中，为了实现点赞排行榜，使用的是 zset 数据结构。每次访问首页时，查询缓存中是否有用户点赞的缓存，有的话就设置 isLike 为 true，在前端就会高亮显示。</li>
+<li></li>
+</ul>
+<h1 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h1><h2 id="Zset的底层如何实现"><a href="#Zset的底层如何实现" class="headerlink" title="Zset的底层如何实现"></a>Zset的底层如何实现</h2><p>使用 <strong>ziplist</strong>（压缩链表）和 <strong>skiplist</strong>（跳表）两种。</p>
 <p>当保存的元素少于 128 个，且保存的所有元素都小于 64 字节 -&gt; 使用 ziplist。</p>
 <ul>
 <li><strong>ziplist</strong></li>
