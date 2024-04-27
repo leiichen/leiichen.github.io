@@ -6,15 +6,15 @@
   <meta name="keywords" content=" JVM ">
   <meta name="description" content="JVM笔记 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="TCP与UDPTCP特性：  面向连接，传输数据前要先建立连接。 一对一的两点服务，保证可靠连接 因为要建立连接，对系统资源的消耗大。 保证数据的完整性和有序  应用：HTTP、FTP、SMTP 对应 Web浏览器、文件传输、邮件传输 UDP特性：  无连接。 支持一对一、一对多、多对多。  应用： TCP如何保证可靠性的 序列号和确认应答。TCP为每个字节分配一个序列号，按序列化将数据分为多个报">
-<meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络">
-<meta property="og:url" content="http://example.com/2024/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+<meta name="description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://example.com/about/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="TCP与UDPTCP特性：  面向连接，传输数据前要先建立连接。 一对一的两点服务，保证可靠连接 因为要建立连接，对系统资源的消耗大。 保证数据的完整性和有序  应用：HTTP、FTP、SMTP 对应 Web浏览器、文件传输、邮件传输 UDP特性：  无连接。 支持一对一、一对多、多对多。  应用： TCP如何保证可靠性的 序列号和确认应答。TCP为每个字节分配一个序列号，按序列化将数据分为多个报">
+<meta property="og:description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-22T11:58:48.000Z">
-<meta property="article:modified_time" content="2024-04-22T12:19:35.459Z">
+<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
+<meta property="article:modified_time" content="2024-04-12T10:34:40.939Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
 
@@ -467,7 +467,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="27">
-<input type="hidden" id="yelog_site_word_count" value="24.7k">
+<input type="hidden" id="yelog_site_word_count" value="24.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -887,12 +887,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-22 21:17:24'>2024-03-12 14:39</time>
+            发布时间 : <time class="date" title='最后更新: 2024-04-24 14:56:35'>2024-03-12 14:39</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.1k</span>
+        <span>字数:1.4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -922,7 +922,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">类的生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-text">JVM 内存结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">双亲委派机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">JVM 虚拟机栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%8B%E5%8D%87%E5%88%B0%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-text">晋升到老年代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-text">垃圾回收算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC-%E8%BF%87%E7%A8%8B"><span class="toc-text">GC 过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="toc-text">垃圾回收器</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">类的生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="toc-text">JVM 内存结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">双亲委派机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="toc-text">JVM 虚拟机栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%8B%E5%8D%87%E5%88%B0%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-text">晋升到老年代</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">垃圾判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-text">垃圾回收算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GC-%E8%BF%87%E7%A8%8B"><span class="toc-text">GC 过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%99%A8"><span class="toc-text">垃圾回收器</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -973,6 +973,15 @@
 <li>JDK 1.8 之后，无永久代，替代为元空间，不存在于 JVM，使用的是本地内存。</li>
 </ul>
 <p><img src="/2024/03/12/JVM%E7%AC%94%E8%AE%B0/image-20240312200859515.png" alt="image-20240312200859515"></p>
+<h2 id="垃圾判断算法"><a href="#垃圾判断算法" class="headerlink" title="垃圾判断算法"></a>垃圾判断算法</h2><ul>
+<li>引用计数算法：两个对象循环依赖导致无法回收。</li>
+<li>可达性分析算法：通过GC Roots 开始找，与它相连接的就是可达对象。</li>
+<li>三色标记算法</li>
+</ul>
+<p>初始标记：寻找所有被 GCRoots 直接引用的对象。这里需要 Stop the World。</p>
+<p>并发标记：对初始标记中标记的对象进行整个引用链的扫描，这里可以与用户线程同步。</p>
+<p>重新标记：并发标记会耗费较长时间，这段时间中对象的引用可能会改变，用来处理这些问题。该过程需要  Stop the World。</p>
+<p>并发清除：将标记为垃圾的对象进行清除，不需要 Stop the World。</p>
 <h2 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h2><ul>
 <li><p>标记-清除：将存活的对象进行标记，然后清除未标记的对象。（会产生内存碎片）<img src="/2024/03/12/JVM%E7%AC%94%E8%AE%B0/image-20240407112632893.png" alt="image-20240407112632893"></p>
 </li>
@@ -991,6 +1000,13 @@
 <li>S1满了之后GC，存活的对象放到S0区，这样反复每GC一次，对象的年龄就增加一，到达某个值后，就晋升到老年代。</li>
 </ol>
 <h2 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h2><p><img src="/2024/03/12/JVM%E7%AC%94%E8%AE%B0/image-20240422210101635.png" alt="image-20240422210101635"></p>
+<p>Serial：单线程回收。新生代用复制算法，老年代用标记-整理算法。</p>
+<p>Parallel Scavenge、Parallel Old：新生代用复制算法，老年代用标记-整理算法。</p>
+<blockquote>
+<p>以上两种方式都会导致用户线程暂停，进行垃圾回收。</p>
+</blockquote>
+<p>分代收集器：CMS 使用三色标记算法</p>
+<p>分区收集器：G1、ZGC</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
