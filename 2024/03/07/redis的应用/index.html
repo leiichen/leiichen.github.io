@@ -6,15 +6,15 @@
   <meta name="keywords" content=" redis的应用 ">
   <meta name="description" content="redis的应用 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="静态代理静态代理主要由一个公共接口，一个具体的类，一个代理类组成。代理类持有具体类的实例。代理的是具体类的实例方法。 公共接口： public interface Person &#123;     &#x2F;&#x2F; 上交班费     void giveMoney(); &#125;  具体类： public class Student implements Person &#123;     private">
+<meta name="description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java动态代理实现">
-<meta property="og:url" content="http://example.com/2024/04/30/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="Redisson分布式锁">
+<meta property="og:url" content="http://example.com/2024/05/09/Redisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="静态代理静态代理主要由一个公共接口，一个具体的类，一个代理类组成。代理类持有具体类的实例。代理的是具体类的实例方法。 公共接口： public interface Person &#123;     &#x2F;&#x2F; 上交班费     void giveMoney(); &#125;  具体类： public class Student implements Person &#123;     private">
+<meta property="og:description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-30T08:49:41.000Z">
-<meta property="article:modified_time" content="2024-04-30T11:22:21.087Z">
+<meta property="article:published_time" content="2024-05-09T01:58:47.000Z">
+<meta property="article:modified_time" content="2024-05-09T02:13:00.669Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
 
@@ -193,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(29)</small>
+                <small>(30)</small>
             
         </div>
     </li>
@@ -466,8 +466,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="25.7k">
+<input type="hidden" id="yelog_site_posts_number" value="30">
+<input type="hidden" id="yelog_site_word_count" value="27.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -601,6 +601,15 @@
         
         
         <a  class="全部文章 "
+           href="/2024/05/09/Redisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redisson分布式锁">Redisson分布式锁</span>
+            <span class="post-date" title="2024-05-09 09:58:47">2024/05/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
            href="/2024/04/30/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/"
            data-tag=""
            data-author="" >
@@ -610,7 +619,7 @@
         
         
         <a  class="全部文章 "
-           href="/2024/04/30/BIO%E3%80%81NIO/"
+           href="/2024/04/30/Netty/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="BIO、NIO">BIO、NIO</span>
@@ -905,12 +914,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-25 19:25:14'>2024-03-07 20:11</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-09 09:56:45'>2024-03-07 20:11</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.2k</span>
+        <span>字数:3.4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -940,7 +949,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">Redis 在项目中的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%81%9A%E7%BC%93%E5%AD%98"><span class="toc-text">1、做缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-text">缓存穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-text">缓存击穿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-text">缓存雪崩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">2、分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98"><span class="toc-text">超卖问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%BA%E4%B8%80%E5%8D%95"><span class="toc-text">一人一单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redission-%E5%8E%9F%E7%90%86"><span class="toc-text">Redission 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81lua%E8%84%9A%E6%9C%AC%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C"><span class="toc-text">3、lua脚本异步操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81Sorted-Set-%E7%BB%B4%E6%8A%A4%E7%82%B9%E8%B5%9E%E6%8E%92%E8%A1%8C%E6%A6%9C"><span class="toc-text">4、Sorted Set 维护点赞排行榜</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-text">原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">数据结构的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zset%E7%9A%84%E5%BA%95%E5%B1%82%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">Zset的底层如何实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#skiplist"><span class="toc-text">skiplist</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">Redis 持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AOF-%E6%97%A5%E5%BF%97"><span class="toc-text">AOF 日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0"><span class="toc-text">Redis 过期删除和内存淘汰</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redis-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">Redis 在项目中的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%81%9A%E7%BC%93%E5%AD%98"><span class="toc-text">1、做缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-text">缓存穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-text">缓存击穿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-text">缓存雪崩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">2、分布式锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%8D%96%E9%97%AE%E9%A2%98"><span class="toc-text">超卖问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%BA%E4%B8%80%E5%8D%95"><span class="toc-text">一人一单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redission-%E5%8E%9F%E7%90%86"><span class="toc-text">Redission 原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81lua%E8%84%9A%E6%9C%AC%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C"><span class="toc-text">3、lua脚本异步操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81Sorted-Set-%E7%BB%B4%E6%8A%A4%E7%82%B9%E8%B5%9E%E6%8E%92%E8%A1%8C%E6%A6%9C"><span class="toc-text">4、Sorted Set 维护点赞排行榜</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-text">原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">数据结构的应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Zset%E7%9A%84%E5%BA%95%E5%B1%82%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-text">Zset的底层如何实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#skiplist"><span class="toc-text">skiplist</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-text">Redis 持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AOF-%E6%97%A5%E5%BF%97"><span class="toc-text">AOF 日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0"><span class="toc-text">Redis 过期删除和内存淘汰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redisson-%E5%8E%9F%E7%90%86"><span class="toc-text">Redisson 原理</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -974,7 +983,7 @@
 <blockquote>
 <p>布隆过滤</p>
 </blockquote>
-<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h3><p>某个热点数据过期了，此时有大量请求同时查询这个数据，这些请求就直接打到数据库上，给数据库带来巨大的冲击。</p>
+<h3 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h3><p>某个热点数据过期了，在这个数据缓存重建之前，有大量请求同时查询这个数据，这些请求就直接打到数据库上，给数据库带来巨大的冲击。</p>
 <p>解决方案：1、互斥锁   2、设计逻辑过期</p>
 <p><strong>互斥锁实现逻辑：</strong>先根据 key 在缓存中查找，找到直接返回。如果是空值，说明发生了缓存穿透，返回空。这里起初用的是自定义的锁：SETNX。只有当 key 不存在时才会成功，如下</p>
 <pre><code class="highlight java"><span class="comment">//    private boolean tryLock(String key) &#123;</span>
@@ -987,7 +996,7 @@
 
 <p>如果获取锁失败，休眠一段时间，重新查询。获取锁成功后，在数据库查询，如果未查到则发生了缓存穿透，插入空值。如果查到了则存入 redis，最后释放锁。</p>
 <p><strong>互斥锁解决缓存击穿主要在于先让一个线程获取锁，将其他线程阻止在外，此线程在数据库查询一次后存入缓存，外面的线程就可以从缓存中取数据，不用都来访问数据库。</strong></p>
-<p><strong>逻辑过期实现逻辑：</strong>缓存过期策略意思是在商品中添加一个逻辑过期时间字段，在查询之前就预加载到了缓存，如果没有查到，说明该商品不是活动商品。如果查到的话，将其转化为对应的 Bean 对象，判断其逻辑时间是否过期（缓存过期时间在当前时间之后则尚未过期），如果未过期直接返回这个对象；否则需要开启独立线程获取锁查询数据库，并重新写入缓存，而主线程直接返回旧的缓存 </p>
+<p><strong>逻辑过期实现逻辑：</strong>缓存过期策略意思是在商品中添加一个逻辑过期时间字段，在查询之前就预加载到了缓存，如果没有查到，说明该商品不是活动商品。如果查到的话，将其转化为对应的 Bean 对象，判断其逻辑时间是否过期（缓存过期时间在当前时间之后则尚未过期），如果未过期直接返回这个对象；否则需要开启独立线程获取锁查询数据库，并重新写入缓存，而主线程直接返回旧的缓存。</p>
 <p><strong>这样做是为了保证响应速度，缓存数据虽然可能稍微落后于数据库的最新数据，但是在大多数情况下，这个小小的延迟并不会影响系统的功能和用户的体验。逻辑过期一定要先进行数据预热，将我们热点数据加载到缓存中。</strong></p>
 <h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><p>大量的缓存在同一时间失效或 redis 服务宕机，导致大量的请求都直接落到了数据库上，对数据库造成了巨大的压力。</p>
 <p>解决方案：</p>
@@ -997,19 +1006,28 @@
 <li><p>互斥锁</p>
 </li>
 </ul>
+<p><img src="/2024/03/07/redis%E7%9A%84%E5%BA%94%E7%94%A8/image-20240507203026393.png" alt="image-20240507203026393"></p>
 <h2 id="2、分布式锁"><a href="#2、分布式锁" class="headerlink" title="2、分布式锁"></a>2、分布式锁</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>SET 命令有个 NX 选项，用来实现分布式锁。当 key 不存在时，插入成功；存在则插入失败。</p>
 <p>解锁时为了区分当前线程是否为获取锁的线程，需要先判断，再释放锁。这是两个操作，需要 Lua 脚本保证解锁的原子性。</p>
-<h3 id="超卖问题"><a href="#超卖问题" class="headerlink" title="超卖问题"></a>超卖问题</h3><p>为什么会发生超卖问题？多个线程在同时执行时，对库存的判断和扣减并不是原子性操作，可能导致同一时刻多个线程判断库存都是足够的，然后都执行了扣减库存的操作，从而导致超卖。</p>
+<h3 id="超卖问题"><a href="#超卖问题" class="headerlink" title="超卖问题"></a>超卖问题</h3><blockquote>
+<p>一开始判断逻辑与创建订单是放到一起的，且没有加锁。这样就会出现超卖。</p>
+<p>使用乐观锁解决。</p>
+</blockquote>
+<p>为什么会发生超卖问题？多个线程在同时执行时，对库存的判断和扣减并不是原子性操作，可能导致同一时刻多个线程判断库存都是足够的，然后都执行了扣减库存的操作，从而导致超卖。</p>
 <p>解决方案：</p>
 <p>悲观锁：认为一定会有线程安全问题，每次操作数据库前都要获取锁。常见的悲观锁有：<code>synchronized</code>、<code>lock</code>。</p>
-<p>乐观锁：认为不一定会有线程安全问题，因此不加锁，只是更新数据时区判断有没有其他线程对数据做了修改。常见的有版本号、CAS。</p>
-<p>CAS：首先读取当前的值，在执行 SQL 时，将要修改的字段值与读取的值进行比较，如果不同，说明这期间有其他线程修改了。说明有其他线程涉入修改，于是当前线程放弃修改。</p>
+<p>乐观锁：认为不一定会有线程安全问题，因此不加锁，只是更新数据时判断有没有其他线程对数据做了修改。常见的有版本号、CAS。</p>
+<p>CAS：不用额外对表加个版本号，用库存代替版本。首先读取当前的值，在执行 SQL 时，将要修改的字段值与读取的值进行比较，如果不同，说明这期间有其他线程修改了。说明有其他线程涉入修改，于是当前线程放弃修改。</p>
 <p>但在项目中修改库存时，按理说只要库存大于 0 就可以减一，但在并发操作下用了 CAS 后，很多个请求都没有执行 SQL，为什么？ 举个例子：库存初始为 100，线程1和线程2先后查询到库存为 100，线程1先买，库存减一，此时为 99。线程2此时买，发现库存不为原来查询的 100，就不更新了。改进：只要库存大于0，就可以更改。</p>
-<h3 id="一人一单"><a href="#一人一单" class="headerlink" title="一人一单"></a>一人一单</h3><p>上面的超卖问题是针对单体项目的，也就是单个用户进行购买，但实际需求中是一个用户只能限购一单，如何实现呢？</p>
+<h3 id="一人一单"><a href="#一人一单" class="headerlink" title="一人一单"></a>一人一单</h3><blockquote>
+<p>开始只是在判断逻辑中加了个订单的判断，但在并发情况下多个线程同时判断成立，于是就下了多次单。</p>
+</blockquote>
+<p>上面的超卖问题是针对单体项目的，也就是单个用户进行购买，但实际需求中是一个用户只能限购一单，如何实现呢？</p>
 <p>起初是多加了个判断：判断当前用户是否在数据库表中有记录了，有说明已经下过单了，但这样还是会一个人下多个单，为什么？还是并发问题，多个线程可能同时判断当前用户未下过单，于是同时操作数据库减库存。我们需要的是判断和操作数据库是一个原子操作。</p>
 <p>单体模式下的解决方案：使用悲观锁，锁的是用户的 id.toString().intern()，不能直接锁 id，每次得到 id 都是新的对象，intern() 表示从常量池中寻找与字符串值一致的对象，这样就能保证同一用户请求时，只有一个用户进入锁中。但这种方式锁住的是当前 JVM 中的对象，集群下有多个 JVM，因此我们需要分布式锁。</p>
 <p>我们通过 nginx 的负载均衡启动 2 台服务器模拟，本地锁 synchronized 会失效，我们需要使用分布式锁。分布式锁的实现用 redis 的 setnx 实现，也就是我们自定义锁替换掉 synchronized。但还有几个问题，1、多个线程如何判断释放的锁是否是自己的呢？</p>
-<p>这里可以给锁拼接上 uuid，增加锁标识的复杂性，释放锁时需要先判断锁存在，再删除锁。但这里又有问题了，如果判断锁存在后单还没删除，发生了堵塞，有其他线程获取了锁，此时前线程堵塞完成，又把锁释放了。</p>
+<p>这里可以给锁拼接上 uuid，增加锁标识的复杂性，释放锁时需要先判断锁存在，再删除锁。2、如果获取锁成功后发生了堵塞，锁超时释放了，此时有其他线程获取了锁，而之前的那个线程堵塞完成，又把锁释放了。</p>
+<p>问题：判断锁后如果发生了堵塞，其他线程获得锁，堵塞完后之前的线程直接释放锁了。这是因为判断锁和释放锁中间的堵塞。</p>
 <p>这里我们将判断锁和释放锁打包为 lua 脚本，具有原子性。</p>
 <p>但我们自定义的锁总有缺陷，如锁不可重入、不可重试等，我们使用 Redssion 框架。</p>
 <p> 最终优化：将库存判断、用户是否下单 这些逻辑判断写到一个 lua 脚本中，只有都通过了再使用消息队列 插入订单，执行库存减一。实现解耦合。</p>
@@ -1058,6 +1076,12 @@
 <p>1、不进行淘汰，当内存满了直接返回错误</p>
 <p>2、进行内存淘汰的策略，又分为 在设置了过期时间的数据中淘汰 和 在所有数据范围内淘汰。</p>
 <p>在设置了过期时间的数据中淘汰：</p>
+<h2 id="Redisson-原理"><a href="#Redisson-原理" class="headerlink" title="Redisson 原理"></a>Redisson 原理</h2><blockquote>
+<p>可重入原理</p>
+</blockquote>
+<p><img src="/2024/03/07/redis%E7%9A%84%E5%BA%94%E7%94%A8/image-20240508215548502.png" alt="image-20240508215548502"></p>
+<p><img src="/2024/03/07/redis%E7%9A%84%E5%BA%94%E7%94%A8/image-20240509094208707.png" alt="image-20240509094208707"></p>
+<p><img src="/2024/03/07/redis%E7%9A%84%E5%BA%94%E7%94%A8/image-20240509094500689.png" alt="image-20240509094500689"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>

@@ -6,15 +6,15 @@
   <meta name="keywords" content=" MySQL面试题 ">
   <meta name="description" content="MySQL知识点 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="静态代理静态代理主要由一个公共接口，一个具体的类，一个代理类组成。代理类持有具体类的实例。代理的是具体类的实例方法。 公共接口： public interface Person &#123;     &#x2F;&#x2F; 上交班费     void giveMoney(); &#125;  具体类： public class Student implements Person &#123;     private">
+<meta name="description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java动态代理实现">
-<meta property="og:url" content="http://example.com/2024/04/30/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="Redisson分布式锁">
+<meta property="og:url" content="http://example.com/2024/05/09/Redisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="静态代理静态代理主要由一个公共接口，一个具体的类，一个代理类组成。代理类持有具体类的实例。代理的是具体类的实例方法。 公共接口： public interface Person &#123;     &#x2F;&#x2F; 上交班费     void giveMoney(); &#125;  具体类： public class Student implements Person &#123;     private">
+<meta property="og:description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-30T08:49:41.000Z">
-<meta property="article:modified_time" content="2024-04-30T11:22:21.087Z">
+<meta property="article:published_time" content="2024-05-09T01:58:47.000Z">
+<meta property="article:modified_time" content="2024-05-09T02:13:00.669Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
 
@@ -193,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(29)</small>
+                <small>(30)</small>
             
         </div>
     </li>
@@ -466,8 +466,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="25.7k">
+<input type="hidden" id="yelog_site_posts_number" value="30">
+<input type="hidden" id="yelog_site_word_count" value="27.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -601,6 +601,15 @@
         
         
         <a  class="全部文章 "
+           href="/2024/05/09/Redisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redisson分布式锁">Redisson分布式锁</span>
+            <span class="post-date" title="2024-05-09 09:58:47">2024/05/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
            href="/2024/04/30/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/"
            data-tag=""
            data-author="" >
@@ -610,7 +619,7 @@
         
         
         <a  class="全部文章 "
-           href="/2024/04/30/BIO%E3%80%81NIO/"
+           href="/2024/04/30/Netty/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="BIO、NIO">BIO、NIO</span>
@@ -905,12 +914,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-25 11:04:41'>2024-03-15 09:09</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-02 16:58:43'>2024-03-15 09:09</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.2k</span>
+        <span>字数:1.3k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -940,7 +949,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E6%A0%91%E5%92%8CB%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">B+树和B树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-text">InnoDB 物理结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E7%B4%A2%E5%BC%95"><span class="toc-text">MySQL 索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">索引类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">联合索引的最左匹配原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">什么时候用到索引？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="toc-text">索引失效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E7%89%A9%E9%97%AE%E9%A2%98"><span class="toc-text">并发事物问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E6%97%A5%E5%BF%97"><span class="toc-text">MySQL 日志</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E6%A0%91%E5%92%8CB%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">B+树和B树的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#InnoDB-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="toc-text">InnoDB 物理结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E7%B4%A2%E5%BC%95"><span class="toc-text">MySQL 索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">索引类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">联合索引的最左匹配原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E5%88%B0%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">什么时候用到索引？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="toc-text">索引失效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E7%89%A9%E9%97%AE%E9%A2%98"><span class="toc-text">并发事物问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-text">隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-%E6%97%A5%E5%BF%97"><span class="toc-text">MySQL 日志</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -956,7 +965,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="B-树和B树的区别"><a href="#B-树和B树的区别" class="headerlink" title="B+树和B树的区别"></a>B+树和B树的区别</h2><ul>
+        <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>排除记录时用 where，join on 是进行笛卡尔连接的。</p>
+<p>当想要获得某个列(如工资)的排序，可以考虑表自连接。 </p>
+<pre><code class="highlight sql">(<span class="keyword">select</span> s1.salary <span class="keyword">from</span> salaries s1, salaries s2 <span class="keyword">where</span> s1.salary <span class="operator">&lt;=</span> s2.salary <span class="keyword">group</span> <span class="keyword">by</span> s1.salary <span class="keyword">having</span> <span class="built_in">count</span>(<span class="keyword">distinct</span>(s2.salary)) <span class="operator">=</span> <span class="number">2</span>)</code></pre>
+
+<h2 id="B-树和B树的区别"><a href="#B-树和B树的区别" class="headerlink" title="B+树和B树的区别"></a>B+树和B树的区别</h2><ul>
 <li><p>B+ 叶子节点（最底部的节点）才会存放实际数据（索引+记录），非叶子节点只会存放索引；</p>
 </li>
 <li><p>B+Tree 叶子节点采用的是双链表连接，适合 MySQL 中常见的基于范围的顺序查找，而 B 树无法做到这一点。</p>

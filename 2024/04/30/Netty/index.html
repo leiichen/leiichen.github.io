@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Java基础小记 | Chenlei&#39;s Blog</title>
-  <meta name="keywords" content=" 面试常见知识点 ">
-  <meta name="description" content="Java基础小记 | Chenlei&#39;s Blog">
+  <title>BIO、NIO | Chenlei&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="BIO、NIO | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:type" content="article">
@@ -887,41 +887,24 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Java基础小记" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Netty" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Java基础小记</h1>
+        <h1 class="article-title">BIO、NIO</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="Java">Java</a> > 
-            
-            <a  data-rel="Java&lt;---&gt;基础">基础</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color3">面试常见知识点</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-05-09 15:04:16'>2024-02-22 17:01</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-01 16:27:33'>2024-04-30 15:46</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.3k</span>
+        <span>字数:1.5k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -951,7 +934,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B"><span class="toc-text">线程与进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="toc-text">Java 包装类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-text">多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#String-%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="toc-text">String 的不可变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String-s1-new-String-%E2%80%9Cabc%E2%80%9D-%E8%BF%99%E5%8F%A5%E8%AF%9D%E5%88%9B%E5%BB%BA%E4%BA%86%E5%87%A0%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">String s1 &#x3D; new String(“abc”); 这句话创建了几个字符串对象？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">实现深拷贝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E4%B8%8D%E9%87%8D%E5%86%99-hashcode-%E5%90%97%EF%BC%9F"><span class="toc-text">可以不重写 hashcode 吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E5%B8%B8%E9%87%8F%E7%94%A8-%E2%80%9C-%E2%80%9D-%E8%BF%90%E7%AE%97%E7%AC%A6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">String 类型的变量和常量用 “+” 运算符发生了什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final-%E5%8F%AF%E4%BB%A5%E5%8A%A0%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="toc-text">final 可以加在哪里，有什么作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JMM-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-text">JMM 内存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookies-%E5%92%8C-Session-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">Cookies 和 Session 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JUC"><span class="toc-text">JUC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep-%E5%92%8C-wait"><span class="toc-text">sleep() 和 wait()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%847%E4%B8%AA%E5%8F%82%E6%95%B0%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">线程池的7个参数和工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%85%B3%E9%97%AD%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">怎么关闭线程池？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E5%BC%8F"><span class="toc-text">Java 线程通信的主要方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap-%E5%92%8C-HashTable-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">HashMap 和 HashTable 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HashMap-1-7-%E5%92%8C-1-8"><span class="toc-text">HashMap 1.7 和 1.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8A%A0%E8%BD%BD%E5%9B%A0%E5%AD%90%E8%AE%BE%E7%BD%AE%E4%B8%BA-0-75%EF%BC%9F"><span class="toc-text">为什么加载因子设置为 0.75？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-HashMap-%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="toc-text">为什么 HashMap 不安全?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-%E6%A1%86%E6%9E%B6"><span class="toc-text">Spring 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%8B-Spring-IOC-%E5%92%8C-Spring-Aop"><span class="toc-text">介绍下 Spring IOC 和 Spring Aop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">Bean 的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean-%E4%BC%9A%E8%A2%AB%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%90%97"><span class="toc-text">Bean 会被垃圾回收吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBootApplication-%E6%B3%A8%E8%A7%A3"><span class="toc-text">@SpringBootApplication 注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="toc-text">自动装配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A8%A1%E5%9D%97"><span class="toc-text">Spring 常见的一些模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spring-Test%EF%BC%9A%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-text">Spring Test：单元测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%8E%B7%E5%8F%96spring%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E7%9A%84bean"><span class="toc-text">动态获取spring容器里面的bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autowired-%E5%92%8C-Resource"><span class="toc-text">@Autowired 和 @Resource</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC"><span class="toc-text">SpringMVC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8-%E5%92%8C-%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-text">过滤器 和 拦截器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis"><span class="toc-text">MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">#{} 和 ${} 的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL"><span class="toc-text">MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#join-%E5%92%8C-left-join"><span class="toc-text">join 和 left  join</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E6%A1%86%E6%9E%B6%E6%95%B4%E4%B8%AA%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">RPC框架整个的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO%E6%AF%94BIO%E6%95%88%E7%8E%87%E9%AB%98%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-text">NIO比BIO效率高的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E6%B5%81%E4%B8%8E%E9%9D%A2%E5%90%91%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">面向流与面向缓冲区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIO"><span class="toc-text">BIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-text">NIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%B5%E5%A1%9EIO%E4%B8%8E%E9%9D%9E%E5%A0%B5%E5%A1%9EIO"><span class="toc-text">堵塞IO与非堵塞IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E6%8B%B7%E8%B4%9D"><span class="toc-text">零拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-poll-epoll"><span class="toc-text">select&#x2F;poll&#x2F;epoll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reactor%E6%A8%A1%E5%9E%8B"><span class="toc-text">Reactor模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Netty%E9%87%8D%E8%A6%81%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-text">Netty重要的组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">为什么需要注册中心</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -967,165 +950,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h2><p>1、一个线程只能属于一个进程，一个进程可以有多个线程。</p>
-<p>2、资源分配给线程，进程不拥有资源，而是共享进程的资源。</p>
-<p>3、处理机分给线程，在处理机运行的是线程。</p>
-<h2 id="Java-包装类"><a href="#Java-包装类" class="headerlink" title="Java 包装类"></a>Java 包装类</h2><p>Integer、Boolean、Byte、Character、Short、Long 都有缓存机制，因此两个变量使用 &#x3D;&#x3D; 做比较时，如果在缓存中，是不会比较地址的。</p>
-<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>多态是指不同的子类对同一种行为有不同的表现形式。多态包括编译时多态（重载）和运行时多态（重写）。重载：方法名相同，参数列表不同（参数个数、类型、顺序），返回值、访问修饰符也可以不同。</p>
-<h3 id="String-的不可变"><a href="#String-的不可变" class="headerlink" title="String 的不可变"></a>String 的不可变</h3><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240222173405251.png" alt="image-20240222173405251"></p>
-<p>修改 s 变量时，不在原来的地址上修改，而是指向新的引用地址。</p>
-<p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240222173659994.png" alt="image-20240222173659994"></p>
-<p>value 用 final 修饰，指的是 value 变量的引用不能更改，不能指向其他地址。</p>
-<p>但数组本身是可以修改值的，这并不会对其地址有影响。</p>
-<ul>
-<li>设计成不可变，可以使用字符串常量池。</li>
-</ul>
-<h3 id="String-s1-new-String-“abc”-这句话创建了几个字符串对象？"><a href="#String-s1-new-String-“abc”-这句话创建了几个字符串对象？" class="headerlink" title="String s1 &#x3D; new String(“abc”); 这句话创建了几个字符串对象？"></a>String s1 &#x3D; new String(“abc”); 这句话创建了几个字符串对象？</h3><p>1 个或 2 个。一、如果字符串常量池中没有字符串对象 “abc” 的引用，则它会在堆上创建两个字符串对象，其中一个字符串对象的引用会被保存在字符串常量池中。</p>
-<p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240222170700469.png" alt="image-20240222170700469"></p>
-<p>2、如果字符串常量池中已存在字符串对象“abc”的引用，则只会在堆中创建 1 个字符串对象“abc”。</p>
+        <h2 id="RPC框架整个的流程"><a href="#RPC框架整个的流程" class="headerlink" title="RPC框架整个的流程"></a>RPC框架整个的流程</h2><p>1、服务端扫描目录，查找是否有自定义注解，有的话就知道是一个服务，会把服务实现类与接口名放入一个Map，把接口名与服务端地址注册到注册中心。之后，服务端初始化ChannelPipeline，定义各种监听事件。</p>
+<p>2、客户端启动，通过反向代理调用接口的方法，先会进行服务发现，从Nacos获取对应服务的服务端地址，再与服务端进行连接并初始化客户端，就准备发送消息了，同时客户端会做一个负载均衡，如果当前这个接口名在多个服务端有实现， 就通过负载均衡算法选一个进行发送。</p>
+<p>3、服务端收到消息后，到自己的本地注册表中查找对应接口的实现类，通过反射执行对应的方法，将结果返回。</p>
 <blockquote>
-<p>对于 String &#x3D; “abc”，如果常量池中有 “abc” 字符串对象，就直接指向它；否则会在常量池中创建一个 “abc” 字符串对象。</p>
+<p>如果发送到服务端，服务端发生了异常怎么处理</p>
 </blockquote>
-<h3 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h3><p>三种方式：重写 clone() 方法、<strong>通过序列化实现</strong>、<strong>利用反射方式实现</strong></p>
-<h2 id="可以不重写-hashcode-吗？"><a href="#可以不重写-hashcode-吗？" class="headerlink" title="可以不重写 hashcode 吗？"></a>可以不重写 hashcode 吗？</h2><p>不可以，如果两个对象通过 equals 判断是相等的，但哈希码不同，当用作哈希表的键时，可能不能正常工作。例如，当向 HashSet 中添加两个逻辑上相等的对象时，本应该只有一个被存储，但因为哈希码不同，被存储了两次。这就违反了 Set 集合中唯一性的约束。</p>
-<h2 id="String-类型的变量和常量用-“-”-运算符发生了什么？"><a href="#String-类型的变量和常量用-“-”-运算符发生了什么？" class="headerlink" title="String 类型的变量和常量用 “+” 运算符发生了什么？"></a>String 类型的变量和常量用 “+” 运算符发生了什么？</h2><pre><code class="highlight java"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;str&quot;</span>;
-<span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;ing&quot;</span>;
-<span class="type">String</span> <span class="variable">str3</span> <span class="operator">=</span> <span class="string">&quot;str&quot;</span> + <span class="string">&quot;ing&quot;</span>;
-<span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> str1 + str2;
-<span class="type">String</span> <span class="variable">str5</span> <span class="operator">=</span> <span class="string">&quot;string&quot;</span>;
-System.out.println(str3 == str4);<span class="comment">//false</span>
-System.out.println(str3 == str5);<span class="comment">//true</span>
-System.out.println(str4 == str5);<span class="comment">//false</span></code></pre>
-
+<h2 id="NIO比BIO效率高的原因"><a href="#NIO比BIO效率高的原因" class="headerlink" title="NIO比BIO效率高的原因"></a>NIO比BIO效率高的原因</h2><ul>
+<li>面向流和面向缓存区</li>
+<li>阻塞IO和非堵塞IO</li>
+<li>零拷贝</li>
+</ul>
+<h2 id="面向流与面向缓冲区"><a href="#面向流与面向缓冲区" class="headerlink" title="面向流与面向缓冲区"></a>面向流与面向缓冲区</h2><p>BIO是面向流的，NIO是面向缓冲区的。</p>
+<h2 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h2><p>最传统的IO模型，也被称为同步堵塞IO。客户端每发出一个连接，服务端就需要启动一个线程进行处理，在整个IO期间会被堵塞直到拿到结果。</p>
+<h2 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h2><p><img src="/2024/04/30/Netty/image-20240430154933821.png" alt="image-20240430154933821"></p>
+<p>称为同步非堵塞IO，基于事件驱动来处理IO。NIO由三部分组成：selector、channel、buffer。</p>
+<p>流程如下：当客户端发出一个连接，服务端将其注册到selector，也就是channel，这个连接是非堵塞的，当没有数据读写时不会占用资源。Selector会不断轮询注册在其上的所有channel，如果某个channel发生了注册时指定的事件，那么selector就让服务端程序处理这个事件。</p>
+<p>数据的读写会在Buffer中，这可以减少上下文切换的开销。</p>
+<blockquote>
+<p>为什么NIO中一个线程可以管理多个Channel？</p>
+</blockquote>
+<h2 id="堵塞IO与非堵塞IO"><a href="#堵塞IO与非堵塞IO" class="headerlink" title="堵塞IO与非堵塞IO"></a>堵塞IO与非堵塞IO</h2><p>BIO的各种流是堵塞的。当一个线程调用read()或write()时，该线程会被堵塞，直到有数据读入或数据写入。而NIO的非堵塞是指当通道中没有东西可读或不可写，读写函数会马上返回，不会堵塞，这个线程就可以去做其他事情。线程将非堵塞的IO空闲时间用在其他通道执行IO操作，这就是为什么一个线程可以管理多个通道，即IO复用的原理。</p>
+<h2 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h2><p>零拷贝是指避免在用户态与内核态之间来回拷贝数据。</p>
+<h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select&#x2F;poll&#x2F;epoll"></a>select&#x2F;poll&#x2F;epoll</h2><p>这三个是用来实现<code>多路复用</code>的。也就是线程不会被任何一个连接堵塞，且任何一个连接有数据时要通知 select&#x2F;poll&#x2F;epoll 线程。</p>
 <ul>
-<li><p>对于 String str3 &#x3D; “str” + “ing”;<code>编译器会优化成</code>String str3 &#x3D; “string”;</p>
+<li><p>select采取主动轮询的方式，每次调用时需要向内核传递所有的socket文件描述符，当某个fd有消息时，会把fd集合全部拷贝到用户态进行遍历，因为用户态并不知道哪些文件描述符要进行处理。</p>
 </li>
-<li><p>对象引用和“+”的字符串拼接方式，实际上是通过 <code>StringBuilder</code> 调用 <code>append()</code> 方法实现的，拼接完成之后调用 <code>toString()</code> 得到一个 <code>String</code> 对象 。</p>
+<li><p>epoll：采用事件回调机制。会在cache中创建一颗红黑树和一个就绪链表。红黑树存储所有注册的socket的文件描述符。当文件描述符有读写操作时，就将这个fd放入就绪链表。epoll只需要观察就绪链表中有无数据即可。有的话就传递到用户态，并且这里不需要像select那样进行拷贝，因为epoll使用了mmap共享用户态和内核态内存。</p>
 </li>
 </ul>
-<pre><code class="highlight java"><span class="type">String</span> <span class="variable">str4</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>().append(str1).append(str2).toString();</code></pre>
-
-<p>String str &#x3D; “abc” + new String(“def”); 创建了几个对象？（假设常量池中没有缓存）</p>
-<p>这会被优化为 </p>
-<pre><code class="highlight java"><span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;def&quot;</span>);
-<span class="keyword">new</span> <span class="title class_">StringBuilder</span>().append(<span class="string">&quot;abc&quot;</span>).append(s).toString();</code></pre>
-
-<p>创建了 5 个对象  new StringBuilder() -&gt; “abc” -&gt; “def” -&gt; new String() -&gt; toString()</p>
-<h2 id="final-可以加在哪里，有什么作用"><a href="#final-可以加在哪里，有什么作用" class="headerlink" title="final 可以加在哪里，有什么作用"></a>final 可以加在哪里，有什么作用</h2><p>类：这个类不能被继承，<code>final</code> 类中的所有成员方法都隐式地指定为 <code>final</code>，但是字段不自动成为 <code>final</code>。</p>
-<p>方法：这个方法不能被子类覆盖或重写。</p>
-<p>变量：该变量的值一旦被初始化之后就不能被改变。对于基本数据类型，它的值不能被改变。对于引用类型，它的引用不能改变，但对引用的对象本身是可以修改的。</p>
-<h2 id="JMM-内存模型"><a href="#JMM-内存模型" class="headerlink" title="JMM 内存模型"></a>JMM 内存模型</h2><p>每个线程都有一个私有的本地内存，线程可以把变量保存 <strong>本地内存</strong> （比如机器的寄存器）中，而不是直接在主存中进行读写。如果线程间需要通信，必须通过主内存来进行。<img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240313145809511.png" alt="image-20240313145809511"></p>
-<h2 id="Cookies-和-Session-的区别"><a href="#Cookies-和-Session-的区别" class="headerlink" title="Cookies 和 Session 的区别"></a>Cookies 和 Session 的区别</h2><p>1、当用户第一次登录成功后，服务器会创建一个 Session，并为这个 Session 创建唯一的 SessionID。Session 保存在服务器端，保存了用户的状态信息。</p>
-<p>2、服务器将这个唯一的 SessionID 存储到一个 Cookies 中，并通过 HTTP 响应将该 Cookies 发生给用户的 Web 浏览器。</p>
-<p>3、用户的浏览器会保存这个 Cookies，后续请求都会携带此 Cookies 发送回服务器。</p>
-<p>4、服务器会读取 Cookies 中的 SessionID，通过它找到 Session 数据，里面包含了用户的状态信息，如登录凭证、购物车内存等。</p>
-<p>5、当用户退出登录或 Session 过期后，服务器会销毁 Session 数据。</p>
-<h2 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h2><h3 id="sleep-和-wait"><a href="#sleep-和-wait" class="headerlink" title="sleep() 和 wait()"></a>sleep() 和 wait()</h3><p>sleep() 是 Thread 类的静态方法</p>
-<p>wait() 是 Object 类的方法，直到其他线程调用相同对象的 notify() 方法。wait() 方法通常与 synchronized 关键字一起使用，表示释放锁，从而允许其他线程获取锁。</p>
-<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><h3 id="线程池的7个参数和工作原理"><a href="#线程池的7个参数和工作原理" class="headerlink" title="线程池的7个参数和工作原理"></a>线程池的7个参数和工作原理</h3><pre><code class="highlight java"><span class="type">int</span> corePoolSize,    <span class="comment">// 核心线程数，创建后不会被回收</span>
-<span class="type">int</span> maximumPoolSize,   <span class="comment">// 最大线程数，当核心线程数已满、最大线程数未满，就创建一个新线程</span>
-<span class="type">long</span> keepAliveTime,  <span class="comment">// 空闲线程存活时间，当可被回收的线程大于keepAliveTime被回收</span>
-TimeUnit unit, 
-BlockingQueue&lt;Runnable&gt; workQueue, <span class="comment">// 工作队列，当提交的任务超过核心线程数，再提交的任务就放到工作队列</span>
-ThreadFactory threadFactory,  <span class="comment">// 线程工厂，可以设定线程名、线程编号等</span>
-RejectedExecutionHandler handler <span class="comment">// 拒绝策略</span></code></pre>
-
-<h3 id="怎么关闭线程池？"><a href="#怎么关闭线程池？" class="headerlink" title="怎么关闭线程池？"></a>怎么关闭线程池？</h3><p>shutdown()：会在当前运行的线程执行完任务后关闭它们。</p>
-<p>shutdownNow()：会试图停止所有正在执行的任务，并返回还没有开始执行的任务。并不保证每个任务都能成功停止，因为这个方法本质是对线程池每个线程调用了 interrupt() 方法来尝试取消线程的执行，但中断一个线程是非强制性的，也就是它只是给线程发送了一个取消的信号，而线程能否响应，怎样响应是取决于线程本身的。</p>
-<h2 id="Java-线程通信的主要方式"><a href="#Java-线程通信的主要方式" class="headerlink" title="Java 线程通信的主要方式"></a>Java 线程通信的主要方式</h2><p><strong>volatile关键字</strong>：</p>
+<p>ET &amp; LT：</p>
+<p>ET：边缘触发，</p>
+<p>LT：水平触发，epoll 遍历 ready_list 的时候，会把 socket 从 ready_list 里面移除，但如果这个 socket 仍然有数据未读取，又会被加入到 ready_list 中。</p>
+<h2 id="Reactor模型"><a href="#Reactor模型" class="headerlink" title="Reactor模型"></a>Reactor模型</h2><p>基于事件驱动。</p>
 <ul>
-<li>所有volatile修饰的变量一旦被某个线程更改，必须立即刷新到主内存</li>
-<li>所有volatile修饰的变量在使用之前必须重新读取主内存的值</li>
+<li>单Reactor单线程模型：I&#x2F;O操作和非I&#x2F;O操作都在一个线程上处理。当有多个请求时会延迟响应速度，因此应该把非I&#x2F;O的操作从线程中卸载。</li>
+<li>单Reactor多线程模型：与上面不同的是，添加了个工作者线程池，将非I&#x2F;O操作从Reactor线程中转移到线程池中处理。</li>
+<li>主从多线程模型：将“接受客户端的连接请求”和“与该客户端的通信”分在了两个Reactor线程来完成。主Reactor完成与客户端的连接请求，但它不负责与客户端通信。它把建立好的连接转交给从Reactor完成与客户端的通信。还可以通过实现subReactor线程池来将海量的连接分发给多个subReactor线程。</li>
 </ul>
-<p><strong>等待&#x2F;通知机制</strong>：等待通知机制是基于wait和notify方法来实现的，在一个线程内调用该线程锁对象的wait方法，线程将进入等待队列进行等待直到被通知或者被唤醒。</p>
-<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h3 id="HashMap-和-HashTable-的区别"><a href="#HashMap-和-HashTable-的区别" class="headerlink" title="HashMap 和 HashTable 的区别"></a>HashMap 和 HashTable 的区别</h3><ul>
-<li>安全性：HashMap 是线程不安全的，HashTable 是线程安全的</li>
-<li>HashMap 可以使用null作为key，Hashtable则不允许null作为key</li>
-<li>扩容：HashMap的初始容量为16，Hashtable初始容量为11，两者的填充因子默认都是0.75。HashMap扩容时是当前容量翻倍即:<code>capacity</code> *<code>2</code><strong>，Hashtable扩容时是容量翻倍+1即:</strong><code>capacity</code>* <code>(2+1)</code>。</li>
+<h2 id="Netty重要的组件"><a href="#Netty重要的组件" class="headerlink" title="Netty重要的组件"></a>Netty重要的组件</h2><ul>
+<li>Channel：Netty网络操作类，包括基本的 I&#x2F;O 操作，如 bind、connect、read、write 等。</li>
+<li>EventLoop：事件调度，通过Reactor 线程模型将事件交给handler。</li>
+<li>ChannelHandler：处理各种事件。</li>
+<li><strong>ChannelPipeline</strong>：为ChannelHandler提供了链式容器，组装各种 ChannelHandler。</li>
+<li>ChannelFuture：Netty 框架中所有的 I&#x2F;O 操作都为异步的，因此我们需要 ChannelFuture 的 addListener()注册一个 ChannelFutureListener 监听事件，当操作执行成功或者失败时，监听就会自动触发返回结果。</li>
 </ul>
-<h3 id="HashMap-1-7-和-1-8"><a href="#HashMap-1-7-和-1-8" class="headerlink" title="HashMap 1.7 和 1.8"></a>HashMap 1.7 和 1.8</h3><p>1.7 底层是数组加链表，1.8底层是数组+链表+红黑树。</p>
-<p>当 put 一个 Node 时，会计算 key 的 hashcode， 再通过将 hashcode 与 (n - 1) 进行与运算，有两种情况：</p>
-<p>1、数组索引的元素是空的，这种情况很简单，直接将元素放进去就好了。</p>
-<p>2、已经有元素占据了索引位置，这种情况下我们需要判断一下该位置的元素和当前元素是否相等，使用equals来比较。<strong>如果两者相等则直接覆盖</strong>，<strong>如果不等则在原元素下面使用链表的结构存储该元素</strong></p>
-<p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240320110614657.png" alt="image-20240320110614657"></p>
-<p>当链表的元素个数达到8并且数组长度超过64的时候使用链表存储就转变成了使用红黑树存储。</p>
-<p>HashMap中有两个重要的参数：<strong>初始容量大小和加载因子</strong>。初始容量大小为 16，默认加载因子为 0.75。</p>
-<h3 id="为什么加载因子设置为-0-75？"><a href="#为什么加载因子设置为-0-75？" class="headerlink" title="为什么加载因子设置为 0.75？"></a>为什么加载因子设置为 0.75？</h3><p>往哈希表中放数据类似骰硬币，01分布。做个假设：扔 k 次骰子，没有一次是相同的概率。</p>
-<p>二项分布 Cn^0 </p>
-<h3 id="为什么-HashMap-不安全"><a href="#为什么-HashMap-不安全" class="headerlink" title="为什么 HashMap 不安全?"></a>为什么 HashMap 不安全?</h3><ul>
-<li>多线程下扩容会死循环</li>
-<li>多线程下 put 会导致元素丢失</li>
-<li>put 和 get 并发时会导致 get 到 null</li>
-</ul>
-<p>CopyonWriteArraylist：读写、读读都不互斥，只有写写互斥。多个线程可以同时读。</p>
-<pre><code class="highlight java"><span class="comment">// 插入元素到 CopyOnWriteArrayList 的尾部</span>
-<span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;
-    <span class="keyword">final</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="built_in">this</span>.lock;
-    <span class="comment">// 加锁</span>
-    lock.lock();
-    <span class="keyword">try</span> &#123;
-        <span class="comment">// 获取原来的数组</span>
-        Object[] elements = getArray();
-        <span class="comment">// 原来数组的长度</span>
-        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> elements.length;
-        <span class="comment">// 创建一个长度+1的新数组，并将原来数组的元素复制给新数组</span>
-        Object[] newElements = Arrays.copyOf(elements, len + <span class="number">1</span>);
-        <span class="comment">// 元素放在新数组末尾</span>
-        newElements[len] = e;
-        <span class="comment">// array指向新数组</span>
-        setArray(newElements);
-        <span class="keyword">return</span> <span class="literal">true</span>;
-    &#125; <span class="keyword">finally</span> &#123;
-        <span class="comment">// 解锁</span>
-        lock.unlock();
-    &#125;
-&#125;</code></pre>
-
-<p>也就是对数组进行增加元素时，会复制出一份新的数组，并将元素加到新的数组。</p>
-<p>对数组进行修改时，会分段复制，index 前的和 index 后的分别复制到新数组。</p>
-<h1 id="Spring-框架"><a href="#Spring-框架" class="headerlink" title="Spring 框架"></a>Spring 框架</h1><h2 id="介绍下-Spring-IOC-和-Spring-Aop"><a href="#介绍下-Spring-IOC-和-Spring-Aop" class="headerlink" title="介绍下 Spring IOC 和 Spring Aop"></a>介绍下 Spring IOC 和 Spring Aop</h2><p>ioc 是控制反转，ioc 可以看作一个对象工厂，我们都把该对象交给工厂，工厂管理这些对象的创建以及依赖关系。</p>
-<p>aop 是面向切面编程，当类中的方法有大量冗余的且与业务无关的代码，我们可以将它们通过注解方式抽离出来，让开发者只关心业务逻辑。</p>
-<p>Spring AOP 的实现原理是基于<strong>动态代理</strong>和<strong>字节码操作</strong>实现的。在编译时，Spring 会使用 AspectJ 编译器将切面代码编译成字节码文件。在运行时，Spring 会使用 <strong>Java 动态代理或 CGLIB 代理</strong>生成代理类。代理类会在目标对象方法执行前后插入切面代码，从而实现 AOP。</p>
-<p>Spring AOP 可以使用两种代理方式：JDK动态代理和 CGLIB 代理。如果目标对象实现了至少一个接口，则使用JDK动态代理；否则，使用 CGLIB 代理。</p>
-<h2 id="Bean-的生命周期"><a href="#Bean-的生命周期" class="headerlink" title="Bean 的生命周期"></a>Bean 的生命周期</h2><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240326162005596.png" alt="image-20240326162005596"></p>
-<ul>
-<li><p>实例化、属性赋值、初始化、销毁。</p>
-</li>
-<li><p>初始化的具体操作：Aware 接口的依赖注入、BeanPostProcessor 在初始化前后的处理以及InitializingBean 和 init-method 的初始化操作。</p>
-</li>
-<li><p>销毁的具体操作，有注册相关销毁回调接口，最后通过DisposableBean 和 destory-method 进行销毁。</p>
-</li>
-</ul>
-<h2 id="Bean-会被垃圾回收吗"><a href="#Bean-会被垃圾回收吗" class="headerlink" title="Bean 会被垃圾回收吗"></a>Bean 会被垃圾回收吗</h2><p><strong>Bean没有被其他Bean引用，且容器也没有任何引用指向它时</strong>，会变成一个不可达对象，就会被垃圾回收。但在 Spring 中的 Bean 是单例的，一直存活在应用程序的整个生命周期中，所以除非应用程序结束或 Spring 容器被销毁，否则是不会被 GC 的。</p>
-<h2 id="SpringBootApplication-注解"><a href="#SpringBootApplication-注解" class="headerlink" title="@SpringBootApplication 注解"></a>@SpringBootApplication 注解</h2><p>@Configuration：允许在 Spring 上下文中注册额外的 bean 或导入其他配置类</p>
-<p>@EnableAutoConfiguration：启用 SpringBoot 的自动配置机制</p>
-<p>@ComponentScan：扫描被<code>@Component</code> (<code>@Repository</code>,<code>@Service</code>,<code>@Controller</code>)注解的 bean，注解默认会扫描该类所在的包下所有的类。</p>
-<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240326105137278.png" alt="image-20240326105137278"></p>
-<p>Spring Boot 通过 <strong><code>@EnableAutoConfiguration</code></strong> 开启自动装配，通过 <strong><code>SpringFactoriesLoader</code></strong> 最终加载 <strong><code>META-INF/spring.factories</code></strong> 中的自动配置类实现自动装配，自动配置类其实就是通过 <strong><code>@Conditional</code></strong> 按需加载的配置类，想要其生效必须引入 <strong><code>spring-boot-starter-xxx</code></strong> 包实现起步依赖。</p>
-<h2 id="Spring-常见的一些模块"><a href="#Spring-常见的一些模块" class="headerlink" title="Spring 常见的一些模块"></a>Spring 常见的一些模块</h2><p>Spring Core：供 ioc 容器</p>
-<p>Spring AOP</p>
-<p>Spring DAO：JDBC的抽象层</p>
-<p>Spring ORM：实体关系映射</p>
-<p>Spring Web</p>
-<p>Spring Web MVC</p>
-<h4 id="Spring-Test：单元测试"><a href="#Spring-Test：单元测试" class="headerlink" title="Spring Test：单元测试"></a>Spring Test：单元测试</h4><h2 id="动态获取spring容器里面的bean"><a href="#动态获取spring容器里面的bean" class="headerlink" title="动态获取spring容器里面的bean"></a>动态获取spring容器里面的bean</h2><pre><code class="highlight java"><span class="type">ApplicationContext</span> <span class="variable">applicationContext</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassPathXmlApplicationContext</span>(<span class="string">&quot;spring.xml&quot;</span>);
-<span class="type">Student</span> <span class="variable">st</span> <span class="operator">=</span> applicationContext.getBean(Student.class);</code></pre>
-
-<h2 id="Autowired-和-Resource"><a href="#Autowired-和-Resource" class="headerlink" title="@Autowired 和 @Resource"></a>@Autowired 和 @Resource</h2><p>一个按类型，一个按名称进行装配。</p>
-<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="/2024/02/22/Java%E5%9F%BA%E7%A1%80%E5%B0%8F%E8%AE%B0/image-20240325135256785.png" alt="image-20240325135256785"></p>
-<p>springmvc 流程：</p>
-<p>1、客户端发起请求，Servlet会根据根据请求的路径进行解析，DispatchServlet 拦截请求。</p>
-<p>2、DispatchServlet 调用 HandlerMapping，去查找对应的 handler (也就是 controller)。</p>
-<p>3、DispatchServlet 调用 HanderAdapter 执行 handler。</p>
-<p>4、handler 执行完毕后返回 ModelAndView，视图解析器 ViewResolver 会查找实际的 view，DispatchServlet 会把 model 渲染到 view 上。</p>
-<p>5、把 view 返回给浏览器。</p>
-<h2 id="过滤器-和-拦截器"><a href="#过滤器-和-拦截器" class="headerlink" title="过滤器 和 拦截器"></a>过滤器 和 拦截器</h2><ul>
-<li>调用时机：Filter 是在进入容器后，在 servlet 之前进行预处理，结束是在 servlet 处理完后。Interceptor 是在进入 servlet 后，在进入 controller 之前预处理的，在controller中的方法执行完后返回 ModelAndView 后请求结束。</li>
-<li>Filter 一般用于字符编码和 cors 跨域问题，Interceptor 一般作用于业务逻辑的处理，如用户权限等。</li>
-</ul>
-<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="和-的区别"><a href="#和-的区别" class="headerlink" title="#{} 和 ${} 的区别"></a>#{} 和 ${} 的区别</h2><p>#{} 方式是先用占位符代替参数将SQL语句先进行预编译，再将参数中的内容替换进来。由于SQL语句已经被预编译过，其SQL意图将无法通过非法的参数内容实现更改，其参数中的内容，无法变为SQL命令的一部分。</p>
-<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="join-和-left-join"><a href="#join-和-left-join" class="headerlink" title="join 和 left  join"></a>join 和 left  join</h2><p>JOIN：返回两个表中都有匹配的行</p>
-<p>left JOIN：返回左表的所有行，如果在右表没有为 null。</p>
+<h2 id="为什么需要注册中心"><a href="#为什么需要注册中心" class="headerlink" title="为什么需要注册中心"></a>为什么需要注册中心</h2><p>1、没有注册中心，客户端是通过固定的服务端地址进行访问的，如果服务端换了地址或服务挂了，客户端就无法访问了。而服务中心可以保存服务提供者的信息，每个服务提供者向注册中心注册自己的服务。这样客户端就可以直接向注册中心调用服务，如果拿到的服务挂了，还可以重新调用服务。</p>
+<p>2、当服务端这边的服务更新了，通过注册中心可以及时通知给客户端，客户端就会重新订阅服务，得到最新的服务。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>

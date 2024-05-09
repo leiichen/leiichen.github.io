@@ -6,15 +6,15 @@
   <meta name="keywords" content=" Git ">
   <meta name="description" content="git上传代码 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="静态代理静态代理主要由一个公共接口，一个具体的类，一个代理类组成。代理类持有具体类的实例。代理的是具体类的实例方法。 公共接口： public interface Person &#123;     &#x2F;&#x2F; 上交班费     void giveMoney(); &#125;  具体类： public class Student implements Person &#123;     private">
+<meta name="description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java动态代理实现">
-<meta property="og:url" content="http://example.com/2024/04/30/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="Redisson分布式锁">
+<meta property="og:url" content="http://example.com/2024/05/09/Redisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="静态代理静态代理主要由一个公共接口，一个具体的类，一个代理类组成。代理类持有具体类的实例。代理的是具体类的实例方法。 公共接口： public interface Person &#123;     &#x2F;&#x2F; 上交班费     void giveMoney(); &#125;  具体类： public class Student implements Person &#123;     private">
+<meta property="og:description" content="使用Redis自带数据结构实现分布式锁和 Redisson 分布式锁 SET NX EX  redis自带的数据结构 set 可以实现简易的分布式锁。但有如下几个缺陷： 1、无法实现可重试。当线程无法获取锁时就立即返回，不会重试。 2、无法实现可重入。 3、无法超时续约。只能通过 EX 设置获取锁后自动过期时间，但这并不安全，当某个业务执行的时间较长时，如果锁自动释放了，存在安全隐患。  Redi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-30T08:49:41.000Z">
-<meta property="article:modified_time" content="2024-04-30T11:22:21.087Z">
+<meta property="article:published_time" content="2024-05-09T01:58:47.000Z">
+<meta property="article:modified_time" content="2024-05-09T02:13:00.669Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
 
@@ -193,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(29)</small>
+                <small>(30)</small>
             
         </div>
     </li>
@@ -466,8 +466,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="29">
-<input type="hidden" id="yelog_site_word_count" value="25.7k">
+<input type="hidden" id="yelog_site_posts_number" value="30">
+<input type="hidden" id="yelog_site_word_count" value="27.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -601,6 +601,15 @@
         
         
         <a  class="全部文章 "
+           href="/2024/05/09/Redisson%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redisson分布式锁">Redisson分布式锁</span>
+            <span class="post-date" title="2024-05-09 09:58:47">2024/05/09</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
            href="/2024/04/30/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0/"
            data-tag=""
            data-author="" >
@@ -610,7 +619,7 @@
         
         
         <a  class="全部文章 "
-           href="/2024/04/30/BIO%E3%80%81NIO/"
+           href="/2024/04/30/Netty/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="BIO、NIO">BIO、NIO</span>
@@ -905,12 +914,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-15 16:55:09'>2024-03-15 09:49</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-08 09:41:50'>2024-03-15 09:49</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:336</span>
+        <span>字数:560</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -940,7 +949,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5"><span class="toc-text">生成秘钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-clone-%E5%8D%8F%E8%AE%AE"><span class="toc-text">Git clone 协议</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-text">相关命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5"><span class="toc-text">生成秘钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-clone-%E5%8D%8F%E8%AE%AE"><span class="toc-text">Git clone 协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-add-%E5%92%8C-git-commit"><span class="toc-text">git add 和 git commit</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -963,15 +972,9 @@
 </blockquote>
 <p>有了暂存区，可以很方便的进行回滚</p>
 <h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><blockquote>
-<p>git log：查看提交记录（作者、邮箱）</p>
-<p>git status：查看哪些文件被提交</p>
-<p>git ls-files：查看暂存区的内容 默认是mixed，也就是回退时保留工作区文件，但移除暂存区文件</p>
-<p>git reflog：查看历史记录</p>
-<p>git reset 回退分支</p>
-<p>git diff：比较工作区和暂存区的差别  –cached 比较暂存区和版本库的差异</p>
-<p>git rm：将文件从工作区和暂存区都删除    –cached：把文件从暂存区删除，但保留在工作区</p>
-<p>git checkout – filename    从暂存区恢复文件到工作区</p>
-<p>git commit -a -m “”  一个命令同时添加到暂存区和提交到本地仓库</p>
+<p>git status：显示工作目录和索引的状态</p>
+<p>git diff：比较工作目录和索引的差异      –cached：比较索引和对象数据库的差异</p>
+<p>git restore：从索引将文件恢复到工作目录中     –staged 从对象数据库将文件恢复到索引</p>
 </blockquote>
 <p>.gitignore：忽略加入暂存区的文件</p>
 <h2 id="生成秘钥"><a href="#生成秘钥" class="headerlink" title="生成秘钥"></a>生成秘钥</h2><pre><code class="highlight plaintext">cd .ssh
@@ -985,6 +988,19 @@ ssh-keygen -t rsa -b 4096</code></pre>
 <p>合并分支：git merge dev 把 dev 分支合并到 main 分支中</p>
 <p><img src="/2024/03/15/git%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81/image-20240318164945891.png" alt="image-20240318164945891"></p>
 <h2 id="Git-clone-协议"><a href="#Git-clone-协议" class="headerlink" title="Git clone 协议"></a>Git clone 协议</h2><p>SSH 协议、HTTPS 协议</p>
+<h2 id="git-add-和-git-commit"><a href="#git-add-和-git-commit" class="headerlink" title="git add 和 git commit"></a>git add 和 git commit</h2><blockquote>
+<p>为什么要分开设计？不能一次性提交吗？</p>
+</blockquote>
+<p><code>git add</code> 命令允许收集下一次提交需要的全部内容，因为Git只会为增加到索引（暂存区）的变更建立快照。</p>
+<p>这样设计是为了选择将哪些变更作为下一次提交的内容。比如有下面的场景：</p>
+<p>项目中有一个文件录入错误，你改正了这个错误。但这个修正与你原来的任务无关。如何将这个修正与原来的任务分开呢？</p>
+<p>你可以使用 <code>git add</code> 暂存这个修正后的文件，并使用<code>git commit -m &#39;&#39;</code> 来提交这个修正。这次提交只包含了那个特定的修正，与你原来的任务没有关系。</p>
+<p>在提交了修正后，可以继续处理原任务，再次使用<code>git add</code> 暂存这些变更，使用<code>git commit -m &#39;&#39;</code> 来提交，确保这次提交只与你的原任务相关。</p>
+<p>工作目录 -&gt; 索引 -&gt; 对象数据库</p>
+<blockquote>
+<p>链</p>
+</blockquote>
+<p>Git提交（commit）会记录你做出并增加到索引的变更。除了存储库中第一个提交，之后的提交会指向它之前的提交，构成一个有向无环图（DAG）。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
