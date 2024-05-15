@@ -6,19 +6,17 @@
   <meta name="keywords" content="">
   <meta name="description" content="BIO、NIO | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="工厂模式简单工厂模式在一个工厂类中创建对象。  工厂方法模式为每个实现类分配一个工厂类，但这样代码复杂度变高了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="GoF23设计模式">
-<meta property="og:url" content="http://example.com/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta name="description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://example.com/about/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="工厂模式简单工厂模式在一个工厂类中创建对象。  工厂方法模式为每个实现类分配一个工厂类，但这样代码复杂度变高了。">
+<meta property="og:description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20240513202111493.png">
-<meta property="article:published_time" content="2024-05-13T12:18:24.000Z">
-<meta property="article:modified_time" content="2024-05-13T12:23:40.848Z">
+<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
+<meta property="article:modified_time" content="2024-04-12T10:34:40.939Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20240513202111493.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -469,7 +467,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="31">
-<input type="hidden" id="yelog_site_word_count" value="28.2k">
+<input type="hidden" id="yelog_site_word_count" value="28.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -606,7 +604,7 @@
            href="/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="GoF23设计模式">GoF23设计模式</span>
+            <span class="post-title" title=""></span>
             <span class="post-date" title="2024-05-13 20:18:24">2024/05/13</span>
         </a>
         
@@ -910,12 +908,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-05-14 10:08:55'>2024-04-30 15:46</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-14 15:29:43'>2024-04-30 15:46</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:1.6k</span>
+        <span>字数:1.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -945,7 +943,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E6%A1%86%E6%9E%B6%E6%95%B4%E4%B8%AA%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">RPC框架整个的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO%E6%AF%94BIO%E6%95%88%E7%8E%87%E9%AB%98%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-text">NIO比BIO效率高的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E6%B5%81%E4%B8%8E%E9%9D%A2%E5%90%91%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">面向流与面向缓冲区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIO"><span class="toc-text">BIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-text">NIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%B5%E5%A1%9EIO%E4%B8%8E%E9%9D%9E%E5%A0%B5%E5%A1%9EIO"><span class="toc-text">堵塞IO与非堵塞IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E6%8B%B7%E8%B4%9D"><span class="toc-text">零拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-poll-epoll"><span class="toc-text">select&#x2F;poll&#x2F;epoll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reactor%E6%A8%A1%E5%9E%8B"><span class="toc-text">Reactor模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Netty%E9%87%8D%E8%A6%81%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-text">Netty重要的组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">为什么需要注册中心</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E6%A1%86%E6%9E%B6%E6%95%B4%E4%B8%AA%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">RPC框架整个的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO%E6%AF%94BIO%E6%95%88%E7%8E%87%E9%AB%98%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-text">NIO比BIO效率高的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E6%B5%81%E4%B8%8E%E9%9D%A2%E5%90%91%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-text">面向流与面向缓冲区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIO"><span class="toc-text">BIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-text">NIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%B5%E5%A1%9EIO%E4%B8%8E%E9%9D%9E%E5%A0%B5%E5%A1%9EIO"><span class="toc-text">堵塞IO与非堵塞IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E6%8B%B7%E8%B4%9D"><span class="toc-text">零拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-poll-epoll"><span class="toc-text">select&#x2F;poll&#x2F;epoll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8BReactor%E6%A8%A1%E5%9E%8B"><span class="toc-text">高性能网络模型Reactor模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Netty%E9%87%8D%E8%A6%81%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-text">Netty重要的组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">为什么需要注册中心</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -983,6 +981,8 @@
 </blockquote>
 <h2 id="堵塞IO与非堵塞IO"><a href="#堵塞IO与非堵塞IO" class="headerlink" title="堵塞IO与非堵塞IO"></a>堵塞IO与非堵塞IO</h2><p>BIO的各种流是堵塞的。当一个线程调用read()或write()时，该线程会被堵塞，直到有数据读入或数据写入。而NIO的非堵塞是指当通道中没有东西可读或不可写，读写函数会马上返回，不会堵塞，这个线程就可以去做其他事情。线程将非堵塞的IO空闲时间用在其他通道执行IO操作，这就是为什么一个线程可以管理多个通道，即IO复用的原理。</p>
 <h2 id="零拷贝"><a href="#零拷贝" class="headerlink" title="零拷贝"></a>零拷贝</h2><p>零拷贝是指避免在用户态与内核态之间来回拷贝数据。</p>
+<p><img src="/2024/04/30/Netty/image-20240514152835271.png" alt="image-20240514152835271"></p>
+<p>page cahce（页缓存）是内核态和用户态的中间层，如果用户态能直接访问到页缓存，那么就不必来回拷贝了。</p>
 <h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select&#x2F;poll&#x2F;epoll"></a>select&#x2F;poll&#x2F;epoll</h2><p>这三个是用来实现<code>多路复用</code>的。也就是线程不会被任何一个连接堵塞，且任何一个连接有数据时要通知 select&#x2F;poll&#x2F;epoll 线程。</p>
 <ul>
 <li><p>select采取主动轮询的方式，每次调用时需要向内核传递所有的socket文件描述符fd，当某个fd有消息时，会把fd集合全部拷贝到用户态进行遍历，因为用户态并不知道哪些文件描述符要进行处理。</p>
@@ -991,9 +991,9 @@
 </li>
 </ul>
 <p>ET &amp; LT：</p>
-<p>ET：边缘触发，</p>
-<p>LT：水平触发，epoll 遍历 ready_list 的时候，会把 socket 从 ready_list 里面移除，但如果这个 socket 仍然有数据未读取，又会被加入到 ready_list 中。</p>
-<h2 id="Reactor模型"><a href="#Reactor模型" class="headerlink" title="Reactor模型"></a>Reactor模型</h2><p>基于事件驱动。</p>
+<p>ET：边缘触发。当一个不可读的socket变为可读时，epoll_wait会返回该文件描述符，但之后，即使数据仍然可读，epoll_wait不会再次返回该文件描述符，除非再次从不可读变为可读。</p>
+<p>LT：水平触发。在处理该文件描述符时，如果没有读取或写入所有数据（例如，只读取了部分数据），那么该文件描述符在下一次epoll_wait调用时仍然会被返回，直到条件不再满足为止。</p>
+<h2 id="高性能网络模型Reactor模型"><a href="#高性能网络模型Reactor模型" class="headerlink" title="高性能网络模型Reactor模型"></a>高性能网络模型Reactor模型</h2><p>基于事件驱动。</p>
 <ul>
 <li>单Reactor单线程模型：I&#x2F;O操作和非I&#x2F;O操作都在一个线程上处理。当有多个请求时会延迟响应速度，因此应该把非I&#x2F;O的操作从线程中卸载。</li>
 <li>单Reactor多线程模型：与上面不同的是，添加了个工作者线程池，将非I&#x2F;O操作从Reactor线程中转移到线程池中处理。</li>

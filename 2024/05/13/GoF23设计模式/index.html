@@ -2,23 +2,21 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GoF23设计模式 | Chenlei&#39;s Blog</title>
+  <title>Chenlei&#39;s Blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="GoF23设计模式 | Chenlei&#39;s Blog">
+  <meta name="description" content="Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="工厂模式简单工厂模式在一个工厂类中创建对象。  工厂方法模式为每个实现类分配一个工厂类，但这样代码复杂度变高了。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="GoF23设计模式">
-<meta property="og:url" content="http://example.com/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta name="description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于">
+<meta property="og:url" content="http://example.com/about/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="工厂模式简单工厂模式在一个工厂类中创建对象。  工厂方法模式为每个实现类分配一个工厂类，但这样代码复杂度变高了。">
+<meta property="og:description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20240513202111493.png">
-<meta property="article:published_time" content="2024-05-13T12:18:24.000Z">
-<meta property="article:modified_time" content="2024-05-13T12:23:40.848Z">
+<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
+<meta property="article:modified_time" content="2024-04-12T10:34:40.939Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20240513202111493.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -469,7 +467,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="31">
-<input type="hidden" id="yelog_site_word_count" value="28.2k">
+<input type="hidden" id="yelog_site_word_count" value="28.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -606,7 +604,7 @@
            href="/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="GoF23设计模式">GoF23设计模式</span>
+            <span class="post-title" title=""></span>
             <span class="post-date" title="2024-05-13 20:18:24">2024/05/13</span>
         </a>
         
@@ -900,8 +898,6 @@
     <div class="pjax">
         <article id="post-GoF23设计模式" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">GoF23设计模式</h1>
-    
     <div class="article-meta">
         
         
@@ -910,12 +906,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-05-13 20:23:40'>2024-05-13 20:18</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-15 19:20:23'>2024-05-13 20:18</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:51</span>
+        <span>字数:398</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -945,7 +941,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-text">工厂模式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="toc-text">工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82"><span class="toc-text">简单工厂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95"><span class="toc-text">工厂方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82"><span class="toc-text">抽象工厂</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -961,9 +957,106 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>简单工厂模式在一个工厂类中创建对象。</p>
-<p><img src="/2024/05/13/GoF23%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20240513202111493.png" alt="image-20240513202111493"></p>
-<p>工厂方法模式为每个实现类分配一个工厂类，但这样代码复杂度变高了。</p>
+        <p>汽车可以分为轿车、SUV、MPV等。</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h3 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h3><p>简单工厂由单一的工厂类来创建产品。</p>
+<pre><code class="highlight java"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CarFactory</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">static</span> Car <span class="title function_">getCar</span><span class="params">(String type)</span> &#123;
+        <span class="keyword">if</span> (<span class="string">&quot;Sedan&quot;</span>.equalsIgnoreCase(type)) &#123;
+            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Sedan</span>();
+        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;SUV&quot;</span>.equalsIgnoreCase(type)) &#123;
+            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SUV</span>();
+        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;MPV&quot;</span>.equalsIgnoreCase(type)) &#123;
+            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MPV</span>();
+        &#125;
+        <span class="keyword">return</span> <span class="literal">null</span>;
+    &#125;
+&#125;
+
+<span class="keyword">interface</span> <span class="title class_">Car</span> &#123;
+    <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">()</span>;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">Sedan</span> <span class="keyword">implements</span> <span class="title class_">Car</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">()</span> &#123;
+        System.out.println(<span class="string">&quot;Driving a Sedan&quot;</span>);
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">SUV</span> <span class="keyword">implements</span> <span class="title class_">Car</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">()</span> &#123;
+        System.out.println(<span class="string">&quot;Driving an SUV&quot;</span>);
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">MPV</span> <span class="keyword">implements</span> <span class="title class_">Car</span> &#123;
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">()</span> &#123;
+        System.out.println(<span class="string">&quot;Driving an MPV&quot;</span>);
+    &#125;
+&#125;</code></pre>
+
+
+
+<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><p>每个产品都对应一个工厂。</p>
+<pre><code class="highlight java"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">CarFactory</span> &#123;
+    Car <span class="title function_">createCar</span><span class="params">()</span>;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">SedanFactory</span> <span class="keyword">implements</span> <span class="title class_">CarFactory</span> &#123;
+    <span class="keyword">public</span> Car <span class="title function_">createCar</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Sedan</span>();
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">SUVFactory</span> <span class="keyword">implements</span> <span class="title class_">CarFactory</span> &#123;
+    <span class="keyword">public</span> Car <span class="title function_">createCar</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SUV</span>();
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">MPVFactory</span> <span class="keyword">implements</span> <span class="title class_">CarFactory</span> &#123;
+    <span class="keyword">public</span> Car <span class="title function_">createCar</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MPV</span>();
+    &#125;
+&#125;
+
+<span class="comment">// 同上面的Car，Sedan，SUV，MPV类 </span></code></pre>
+
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>每个工厂分别能够创建属于它自己品牌的一系列产品（例如不同类型的汽车）。</p>
+<pre><code class="highlight java"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">CarFactory</span> &#123;
+    Sedan <span class="title function_">createSedan</span><span class="params">()</span>;
+    SUV <span class="title function_">createSUV</span><span class="params">()</span>;
+    MPV <span class="title function_">createMPV</span><span class="params">()</span>;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">MercedesFactory</span> <span class="keyword">implements</span> <span class="title class_">CarFactory</span> &#123;
+    <span class="keyword">public</span> Sedan <span class="title function_">createSedan</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MercedesSedan</span>();
+    &#125;
+    <span class="keyword">public</span> SUV <span class="title function_">createSUV</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MercedesSUV</span>();
+    &#125;
+    <span class="keyword">public</span> MPV <span class="title function_">createMPV</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MercedesMPV</span>();
+    &#125;
+&#125;
+
+<span class="keyword">class</span> <span class="title class_">BMWFactory</span> <span class="keyword">implements</span> <span class="title class_">CarFactory</span> &#123;
+    <span class="keyword">public</span> Sedan <span class="title function_">createSedan</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BMWSedan</span>();
+    &#125;
+    <span class="keyword">public</span> SUV <span class="title function_">createSUV</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BMWSUV</span>();
+    &#125;
+    <span class="keyword">public</span> MPV <span class="title function_">createMPV</span><span class="params">()</span> &#123;
+        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BMWMPV</span>();
+    &#125;
+&#125;
+
+<span class="comment">// Car, Sedan, SUV, MPV接口以及具体的Mercedes和BMW的实现类</span></code></pre>
+
+
+
+<p>抽象工厂模式比工厂方法模式的抽象程度更高，工厂方法侧重于单一产品的灵活性和扩展性，而抽象工厂侧重于产品族的整体性。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
