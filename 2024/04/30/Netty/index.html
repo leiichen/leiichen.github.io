@@ -908,7 +908,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-05-14 15:29:43'>2024-04-30 15:46</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-18 19:45:53'>2024-04-30 15:46</time>
         
     </div>
     <div class="article-meta">
@@ -985,7 +985,7 @@
 <p>page cahce（页缓存）是内核态和用户态的中间层，如果用户态能直接访问到页缓存，那么就不必来回拷贝了。</p>
 <h2 id="select-poll-epoll"><a href="#select-poll-epoll" class="headerlink" title="select&#x2F;poll&#x2F;epoll"></a>select&#x2F;poll&#x2F;epoll</h2><p>这三个是用来实现<code>多路复用</code>的。也就是线程不会被任何一个连接堵塞，且任何一个连接有数据时要通知 select&#x2F;poll&#x2F;epoll 线程。</p>
 <ul>
-<li><p>select采取主动轮询的方式，每次调用时需要向内核传递所有的socket文件描述符fd，当某个fd有消息时，会把fd集合全部拷贝到用户态进行遍历，因为用户态并不知道哪些文件描述符要进行处理。</p>
+<li><p>select采取主动轮询的方式，把已连接的socket放到文件描述符集合，调用select函数会把fd集合全部拷贝到用户态进行遍历，因为用户态并不知道哪些文件描述符要进行处理。</p>
 </li>
 <li><p>epoll：采用事件回调机制。会在cache中创建一颗红黑树和一个就绪链表。红黑树存储所有注册的socket的文件描述符。当文件描述符有读写操作时，就将这个fd放入就绪链表。epoll只需要观察就绪链表中有无数据即可。有的话就传递到用户态，并且这里不需要像select那样进行拷贝，因为epoll使用了mmap共享用户态和内核态内存。</p>
 </li>

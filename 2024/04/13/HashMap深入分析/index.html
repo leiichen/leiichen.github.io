@@ -916,7 +916,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-04-25 10:11:17'>2024-04-13 10:53</time>
+            发布时间 : <time class="date" title='最后更新: 2024-05-18 12:53:26'>2024-04-13 10:53</time>
         
     </div>
     <div class="article-meta">
@@ -1000,7 +1000,7 @@
 <p>通过这种方式，不需要重新计算每个元素的索引，只需判断第五位，就能快速定位新数组的索引。</p>
 <h2 id="为什么HashMap不安全"><a href="#为什么HashMap不安全" class="headerlink" title="为什么HashMap不安全"></a>为什么HashMap不安全</h2><ol>
 <li>在1.7时多线程同时扩容可能造成链表形成环。</li>
-<li>put 和 get并发时，可能导致 get 为 null。因为一个线程在进行 put 时触发扩容，此时另一个线程来 get，新数组还没有初始化，当然 get 为 null 了。</li>
+<li>put 和 get 并发时，可能导致 get 为 null。因为一个线程在进行 put 时触发扩容，此时另一个线程来 get，新数组还没有初始化，当然 get 为 null 了。</li>
 </ol>
 
       
