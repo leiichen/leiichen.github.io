@@ -6,17 +6,19 @@
   <meta name="keywords" content=" SpringBoot小记 ">
   <meta name="description" content="SpringBoot小记 | Chenlei&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+<meta name="description" content="MP在自动插入数据时ID过大解决方案：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis-plus的ID问题">
+<meta property="og:url" content="http://example.com/2024/06/02/mybatis-plus%E7%9A%84ID%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Chenlei&#39;s Blog">
-<meta property="og:description" content="个人简介Don’t fear failure. Life gets interesting when we fail, because it’s a sign that we’ve surpassed ourselves.">
+<meta property="og:description" content="MP在自动插入数据时ID过大解决方案：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-01T03:26:41.000Z">
-<meta property="article:modified_time" content="2024-04-12T10:34:40.939Z">
+<meta property="og:image" content="http://example.com/2024/06/02/mybatis-plus%E7%9A%84ID%E9%97%AE%E9%A2%98/image-20240602154350340.png">
+<meta property="article:published_time" content="2024-06-02T07:42:05.000Z">
+<meta property="article:modified_time" content="2024-06-02T07:43:54.542Z">
 <meta property="article:author" content="leiichen">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/06/02/mybatis-plus%E7%9A%84ID%E9%97%AE%E9%A2%98/image-20240602154350340.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -193,7 +195,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(31)</small>
+                <small>(34)</small>
             
         </div>
     </li>
@@ -339,6 +341,21 @@
     
         
             
+                
+    <li>
+        <div data-rel="算法">
+            
+            算法
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
         
     
         
@@ -466,8 +483,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="31">
-<input type="hidden" id="yelog_site_word_count" value="28.8k">
+<input type="hidden" id="yelog_site_posts_number" value="34">
+<input type="hidden" id="yelog_site_word_count" value="29.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -514,6 +531,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>部署</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>动态规划</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -598,6 +619,33 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 "
+           href="/2024/06/02/mybatis-plus%E7%9A%84ID%E9%97%AE%E9%A2%98/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mybatis-plus的ID问题">mybatis-plus的ID问题</span>
+            <span class="post-date" title="2024-06-02 15:42:05">2024/06/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 算法 "
+           href="/2024/06/01/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/"
+           data-tag="动态规划"
+           data-author="" >
+            <span class="post-title" title="背包问题">背包问题</span>
+            <span class="post-date" title="2024-06-01 15:22:31">2024/06/01</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/2024/05/21/Vue3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vue3">Vue3</span>
+            <span class="post-date" title="2024-05-21 20:39:34">2024/05/21</span>
+        </a>
         
         
         <a  class="全部文章 "
@@ -925,12 +973,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:34:43'>2024-02-21 20:25</time>
+            发布时间 : <time class="date" title='最后更新: 2024-06-18 10:17:18'>2024-02-21 20:25</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2.4k</span>
+        <span>字数:2.6k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -960,7 +1008,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-Mybatis"><span class="toc-text">SpringBoot 整合 Mybatis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-Spring-Data-JPA"><span class="toc-text">SpringBoot 整合 Spring Data JPA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-Redis"><span class="toc-text">SpringBoot 整合 Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-5-%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">Redis 5 种数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-SpringSecurity"><span class="toc-text">SpringBoot 整合 SpringSecurity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-text">权限管理</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RequestBody-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%97%B6%E6%9C%BA"><span class="toc-text">@RequestBody 的使用时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PathVariable-%E5%B0%86%E5%8F%82%E6%95%B0%E4%B8%8A%E7%9A%84%E5%80%BC%E4%B8%8E-URL-%E7%BB%91%E5%AE%9A%E3%80%82"><span class="toc-text">@PathVariable 将参数上的值与 URL 绑定。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-Mybatis"><span class="toc-text">SpringBoot 整合 Mybatis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-Spring-Data-JPA"><span class="toc-text">SpringBoot 整合 Spring Data JPA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-Redis"><span class="toc-text">SpringBoot 整合 Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis-5-%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">Redis 5 种数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E6%95%B4%E5%90%88-SpringSecurity"><span class="toc-text">SpringBoot 整合 SpringSecurity</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-text">权限管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-text">SpringBoot 常用注解</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -976,19 +1024,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、在 Controller 中注入 Repository 的接口：</p>
+        <h2 id="RequestBody-的使用时机"><a href="#RequestBody-的使用时机" class="headerlink" title="@RequestBody 的使用时机"></a>@RequestBody 的使用时机</h2><p>当传递过来的参数无法覆盖 @RequestBody 修饰的对象中所有的属性，就不用加。</p>
+<p>1、在 Controller 中注入 Repository 的接口：</p>
 <pre><code class="highlight java"><span class="meta">@Autowired</span>
 <span class="keyword">private</span> StudentRepository studentRepository;</code></pre>
 
 <p>注意在 studentRepositoryImpl 中添加 @Repository 注解。</p>
-<p>2、@RequestBody 接收一个 JSON 格式的数据，可以用 postman 发送 JSON 格式数据，但如果前端是 JSP，使用的是 <code>application/x-www-form-urlencoded</code> 或者 <code>multipart/form-data</code>，则前端不需要添加注解。</p>
+<p>2、@RequestBody 接收一个 JSON 格式的数据，自动的把一个JSON的字符串转换为一个java对象。但如果前端是 JSP，使用的是 <code>application/x-www-form-urlencoded</code> 或者 <code>multipart/form-data</code>，则前端不需要添加注解。</p>
 <pre><code class="highlight java"><span class="meta">@PostMapping(&quot;/save&quot;)</span>
 <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="meta">@RequestBody</span> Student student)</span> &#123;
     studentRepository.saveOrUpdate(student);
 &#125;</code></pre>
 
-
-
+<blockquote>
+<p> @ResponseBody 方法会返回JSON格式，如果控制器添加了 @RestController，就不需要添加 @ResponseBody 了。</p>
+</blockquote>
+<blockquote>
+<h3 id="PathVariable-将参数上的值与-URL-绑定。"><a href="#PathVariable-将参数上的值与-URL-绑定。" class="headerlink" title="@PathVariable 将参数上的值与 URL 绑定。"></a><code>@PathVariable</code> 将参数上的值与 URL 绑定。</h3></blockquote>
 <h2 id="SpringBoot-整合-Mybatis"><a href="#SpringBoot-整合-Mybatis" class="headerlink" title="SpringBoot 整合 Mybatis"></a>SpringBoot 整合 Mybatis</h2><p>1、建表</p>
 <pre><code class="highlight sql"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> student(
 	id <span class="type">int</span> <span class="keyword">PRIMARY</span> KEY auto_increment,
@@ -1485,6 +1537,28 @@
     <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">body</span>&gt;</span>
 <span class="tag">&lt;/<span class="name">html</span>&gt;</span></code></pre>
+
+
+
+
+
+<h2 id="SpringBoot-常用注解"><a href="#SpringBoot-常用注解" class="headerlink" title="SpringBoot 常用注解"></a>SpringBoot 常用注解</h2><blockquote>
+<p> Web相关注解</p>
+</blockquote>
+<p><code>@RequestMapping</code>：负责URL到Controller中具体函数的映射</p>
+<p><code>@RequestController</code>：@Controller 和 @ResponseBody 的集合，表明是REST风格的控制器，将函数的返回值直接填入HTTP响应体中。</p>
+<p><code>@PathVariable</code>：将URL的占位符参数绑定到方法的参数上</p>
+<p><code>@RequestParam</code>：将请求的参数绑定到方法参数上</p>
+<p><code>@RequestBody</code>：绑定 请求体 到方法参数上。</p>
+<blockquote>
+<p>变量注入</p>
+</blockquote>
+<p><code>@Autowired</code>：按名称注入</p>
+<p><code>@Resource</code>：按类型注入</p>
+<blockquote>
+<p>异常处理</p>
+</blockquote>
+<p><code>@RestControllerAdvice</code> 和 <code>@ExceptionHandler</code></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
