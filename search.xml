@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title>集合</title>
+      <link href="/2024/06/20/%E9%9B%86%E5%90%88/"/>
+      <url>/2024/06/20/%E9%9B%86%E5%90%88/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><code>HashSet</code> ：向 HashSet 插入对象时，先对计算对象的 hashcode 找到应插入的下标，同时会与其他已加入的对象的 hashcode 作比较，如果不同则可以插入；如果发现有相同的hashcode 的值的对象，则调用 equals() 方法检查 hashcode 相等的对象是否真的相同。如果相同，则不会插入成功；如果不同，则重新散列到其他的位置。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JUC并发</title>
+      <link href="/2024/06/20/JUC%E5%B9%B6%E5%8F%91/"/>
+      <url>/2024/06/20/JUC%E5%B9%B6%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><p>每个 Thread 拥有一个 ThreadLocalMap，它存储了该线程使用的所有的 ThreadLocal 对象和对应的值。</p><p><img src="/2024/06/20/JUC%E5%B9%B6%E5%8F%91/image-20240620194122252.png" alt="image-20240620194122252"></p><blockquote><p>线程池与 ThreadLocal 一起用时有什么问题？</p></blockquote><p>内存泄漏、</p><p>脏数据：线程被不同的任务重复利用，如果没有及时清除 ThreadLocal 存储的数据，下一个任务就可能访问到上一个任务设置的数据。</p><h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><p>AQS只是一个框架，具体的资源的获取&#x2F;释放由自定义同步器去实现。</p><p>AQS最核心的是 volatile int state（资源）和一个 FIFO 等待队列（线程被堵塞就在这排队）。</p><blockquote><p> AQS的两种资源共享方式</p></blockquote><p>独占：Exclusive，只有一个线程可执行</p><p>共享：Share，多个线程可同时执行</p><p><img src="/2024/06/20/JUC%E5%B9%B6%E5%8F%91/image-20240620163741996.png" alt="image-20240620163741996"></p><h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>ReentrantLock是独占资源。state 初始化为0，表示未锁定，A线程 lock() 时，会调用 tryAcquire() 独占锁并让 state + 1。此后，其他线程再 tryAcquire() 时就会失败，直到A线程 unlock() 到 state &#x3D; 0为止。其他线程才有机会获得锁，当然释放锁之前，A线程可以重复获取此锁，这就是可重复的概念。但是获取多少次就需要释放多少次。</p><p><img src="/2024/06/20/JUC%E5%B9%B6%E5%8F%91/image-20240620212014597.png" alt="image-20240620212014597"></p><h2 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h2><p>在 JDK1.7 中采用 Segment + HashEntry + 链表实现。一个 Segment 包含一个 HashEntry 数组，每个 HashEntry 数组的结构是数组 + 链表。</p><blockquote><p>get() 操作</p></blockquote><p>与 HashMap 的 get() 操作类似，只是 ConcurrentHashMap 需要先经过 hash 定位到对应的 Segment，之后与 HashMap 类似。</p><blockquote><p>put() 操作</p></blockquote><p>1、首先会根据 hash 计算出 Segment 的位置。</p><p>2、通过继承ReentrantLock的tryLock()方法尝试去获取锁，如果没有成功则继续尝试，如果对该Segment加锁成功则与 HashMap 的put操作类似。</p><p>3、释放 Segment 锁。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mybatis-plus的ID问题</title>
       <link href="/2024/06/02/mybatis-plus%E7%9A%84ID%E9%97%AE%E9%A2%98/"/>
       <url>/2024/06/02/mybatis-plus%E7%9A%84ID%E9%97%AE%E9%A2%98/</url>
@@ -36,19 +62,6 @@
             <tag> 动态规划 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Vue3</title>
-      <link href="/2024/05/21/Vue3/"/>
-      <url>/2024/05/21/Vue3/</url>
-      
-        <content type="html"><![CDATA[<p>reactive 和 ref ：前者存储对象或数组，后者存储单个类型数据</p><p>v-bind 简写 :value 单向数据绑定</p><p>v-model 双向数据绑定</p><p>computed：计算属性 有缓存，当依赖的的数据发生变化时重新计算。</p><p>watch：监听器  可以获取数据发生改变前和改变后的值</p><p>watchEffect：自动监听</p>]]></content>
-      
-      
       
     </entry>
     
@@ -205,19 +218,6 @@
             <tag> 服务器 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java的锁</title>
-      <link href="/2024/04/06/Java%E7%9A%84%E9%94%81/"/>
-      <url>/2024/04/06/Java%E7%9A%84%E9%94%81/</url>
-      
-        <content type="html"><![CDATA[<h2 id="悲观锁与乐观锁"><a href="#悲观锁与乐观锁" class="headerlink" title="悲观锁与乐观锁"></a>悲观锁与乐观锁</h2><p>这是一种广义上的概念。悲观锁认为在自己使用数据的时候中一定有其他的线程来修改数据，因此在获取数据前都会上锁。像 Lock 的实现类、synchronized 都是悲观锁。</p><p>乐观锁是乐观派，认为不会有其他线程来修改，因此不会上锁，只是在更新数据时判断这个数据在自己使用的时候，有没有别的线程修改过。常用的算法是 CAS 算法。</p><p>从上面我们得出结论：悲观锁用于写较多的场景，乐观锁用于读较多的场景。</p><p>CAS 是一个原子操作，因此不需要对其加锁。其包含三个操作数：要更新的变量V、预期原值A、新值B。先判断 V 是否等于 A，则可以将A更新为B。否则取消。</p><blockquote><p>预期值 A 本质是旧值</p></blockquote><h2 id="锁升级过程"><a href="#锁升级过程" class="headerlink" title="锁升级过程"></a>锁升级过程</h2><p>偏向锁 -&gt; 自旋锁（轻量级锁）-&gt; 重量级锁</p><h2 id="为什么有自旋锁？"><a href="#为什么有自旋锁？" class="headerlink" title="为什么有自旋锁？"></a>为什么有自旋锁？</h2><p>阻塞或唤醒一个线程需要切换上下文，这花费的时间可能比用户代码执行的时间还长。而且许多同步场景中，同步资源的锁定时间很长，不妨让线程等一等，不用挂起，这就是自旋。而且当今多核CPU，完全可以让一个核等一会，其他核去忙。</p><p>如果等待时间很短，则自旋很好。但如果时间很长，一直自旋也会让CPU白白消耗资源，于是自旋有个上限，默认是10次。</p><h2 id="Synchronized-锁原理分析"><a href="#Synchronized-锁原理分析" class="headerlink" title="Synchronized 锁原理分析"></a>Synchronized 锁原理分析</h2><p>monitorenter 和 monitorexit 指令。每个对象在同一时间只能与一个 monitor 关联，而一个 monitor 在同一时间只能被一个线程获得。当一个对象获取 monitor 时，会发生以下几种情况：1、 monitor 计数器为0，对象一旦获得锁则 monitor 加一。2、monitor 不为0，判断该线程是否为重入锁，是的话计数器加一，否则线程会被堵塞。</p><p>由于 monitorenter 和 monitorexit 是依赖于底层的操作系统实现的，这会将用户态变为内核态，影响性能。</p><h2 id="volatile-详解"><a href="#volatile-详解" class="headerlink" title="volatile 详解"></a>volatile 详解</h2><p>对修饰了 volatile 变量修改时，JVM 会向处理器插入一条 lock 前缀指令，具体如下：</p><ul><li><p>将当前处理器缓存的值立即刷新到主存</p></li><li><p>将其他处理器的缓存值置为无效</p></li></ul><p>因此，其他处理器在发现本地缓存失效时，会重新到主存中读取该值，也就是最新的值。</p><h2 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h2><p>概念：对象头 Mark Word：有 HashCode、GC Age、锁标记位。</p><p>当一个线程尝试获取轻量级锁时，会先在自己的栈帧中创建一个锁记录(Lock Record)，然后使用 CAS 将 Mark Word 拷贝到锁记录中，并且将 Mark Word 更新为指向 Lock Record 的指针。如果失败，看是否指向已经是当前栈帧，是的话已经获取锁了，否则会自旋。</p><h2 id="synchronized-和-ReentrantLock-的区别"><a href="#synchronized-和-ReentrantLock-的区别" class="headerlink" title="synchronized 和 ReentrantLock 的区别"></a>synchronized 和 ReentrantLock 的区别</h2><p>1、synchronized 是Java 的关键字，ReentrantLock 是一个类。</p><p>2、使用 synchronized 时，JVM 会自动加锁释放锁。而 Lock 时需要调用方法，在 finally 块中释放锁。</p><p>3、ReentrantLock 可以绑定多个 Condition，进行多路通知。而 synchronized 只能唤醒一个或全部线程。</p><h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><p>AQS 的两个核心：资源 state、未获取到资源的等待队列 CLH，使用的自旋锁。</p><p>流程如下：</p><p>1、t1 时刻，线程 a 持有资源 state（持有资源的线程在 head 节点）</p><p>2、t1 时刻，线程 b 尝试获取锁失败，则封装为 Node 节点并插入 CLH 队列队尾。</p><p>3、挂起 b 线程，并告知 a 线程释放锁时通知下 b。</p><p>4、t2 时刻，a 线程释放锁并通知 b。</p><p>5、t3 时刻，b 尝试获取锁。</p><p>来看看 ReentrantLock 公平锁的tryAcquire：</p><pre><code class="highlight java"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="type">boolean</span> <span class="title function_">tryAcquire</span><span class="params">(<span class="type">int</span> acquires)</span> &#123;    <span class="comment">//获取当前线程</span>    <span class="keyword">final</span> <span class="type">Thread</span> <span class="variable">current</span> <span class="operator">=</span> Thread.currentThread();    <span class="comment">//获取AQS中的state</span>    <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> getState();    <span class="comment">//如果state等于0说明此时没有线程占有锁</span>    <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;        <span class="comment">//hasQueuedPredecessors 判断有没有别的线程排在了当前线程的前面。</span>        <span class="comment">//此方法返回true，代表当前线程需要排队，返回false，表示当前线程不用排队</span>        <span class="comment">//不用排队的话 直接cas尝试将state占位己有</span>        <span class="keyword">if</span> (!hasQueuedPredecessors() &amp;&amp;            compareAndSetState(<span class="number">0</span>, acquires)) &#123;            <span class="comment">//设置AQS中的独占线程字段 为当前线程</span>            setExclusiveOwnerThread(current);            <span class="comment">//返回true 代表获取锁成功</span>            <span class="keyword">return</span> <span class="literal">true</span>;        &#125;    &#125;    <span class="comment">//如果state不是0 则判断当前占有锁的线程是否是当前线程，如果是，</span>    <span class="comment">//表示此线程重入抢锁，对state进行+1 </span>    <span class="keyword">else</span> <span class="keyword">if</span> (current == getExclusiveOwnerThread()) &#123;        <span class="type">int</span> <span class="variable">nextc</span> <span class="operator">=</span> c + acquires;        <span class="keyword">if</span> (nextc &lt; <span class="number">0</span>)            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;Maximum lock count exceeded&quot;</span>);        setState(nextc);        <span class="comment">//重入线程，只需将state+1， head信息不需要变，也不许要到等待队列排队，</span>        <span class="comment">//直接返回true加锁成功</span>        <span class="keyword">return</span> <span class="literal">true</span>;    &#125;    <span class="comment">//抢锁失败 返回false</span>    <span class="keyword">return</span> <span class="literal">false</span>;&#125;</code></pre><p>非公平锁就是少了 hasQueuedPredecessors 的判断。</p>]]></content>
-      
-      
       
     </entry>
     
@@ -478,31 +478,6 @@
     
     
     <entry>
-      <title>ThreadLocal在多线程下的应用</title>
-      <link href="/2024/03/07/ThreadLocal%E5%9C%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%BA%94%E7%94%A8/"/>
-      <url>/2024/03/07/ThreadLocal%E5%9C%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-      
-        <content type="html"><![CDATA[<h2 id="ThreadLocal-定义"><a href="#ThreadLocal-定义" class="headerlink" title="ThreadLocal 定义"></a>ThreadLocal 定义</h2><p>以空间换时间的方式解决多线程安全问题。当用ThreadLocal修饰变量时，会为每一个使用该变量的线程创建一个独立的变量副本，这样就能让各线程相互隔离，保证线程安全。</p><h2 id="四个主要方法"><a href="#四个主要方法" class="headerlink" title="四个主要方法"></a>四个主要方法</h2><p>get()、set()、remove()、initialValue()；在进行get之前，必须先set，否则会报空指针异常，如果想在get之前不需要调用set就能正常访问的话，必须重写initialValue()方法。如下</p><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;Integer&gt; threadLocalCount = ThreadLocal.withInitial(() -&gt; <span class="number">0</span>);</code></pre><p>这意味着每个线程访问这个变量时都会得到一个初始值<code>0</code>。</p><h2 id="底层原理"><a href="#底层原理" class="headerlink" title="底层原理"></a>底层原理</h2><p>当多个线程使用被ThreadLocal修饰的变量时，每个线程都会有一个自己的<code>ThreadLocalMap</code>，ThreadLocalMap有一个Entry数组，数组中的每个<code>Entry</code>存储了一个<code>ThreadLocal</code>对象（作为键）和与对象关联的私有值（作为值）。</p><p>当线程调用<code>ThreadLocal</code>的<code>get()</code>或<code>set()</code>方法时，它实际上就是操作<code>ThreadLocalMap</code>中与自己关联的<code>ThreadLocal</code>对象的值。</p><blockquote><p>线程池与 ThreadLocal 一起用时有什么问题？</p></blockquote><p>内存泄漏、</p><p>脏数据：线程被不同的任务重复利用，如果没有及时清除 ThreadLocal 存储的数据，下一个任务就可能访问到上一个任务设置的数据。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ThreadLocal </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>MybatisPlus</title>
       <link href="/2024/02/23/MybatisPlus/"/>
       <url>/2024/02/23/MybatisPlus/</url>
@@ -574,33 +549,6 @@
         <tags>
             
             <tag> SpringBoot小记 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ArrayList扩容机制</title>
-      <link href="/2024/02/06/ArrayList%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6/"/>
-      <url>/2024/02/06/ArrayList%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6/</url>
-      
-        <content type="html"><![CDATA[<p>ArrayList 有三种方式初始化：</p><pre><code class="highlight java"><span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">(<span class="type">int</span> initialCapacity)</span> &#123;    <span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;        <span class="built_in">this</span>.elementData = <span class="keyword">new</span> <span class="title class_">Object</span>[initialCapacity];    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;        <span class="built_in">this</span>.elementData = EMPTY_ELEMENTDATA;    &#125; <span class="keyword">else</span> &#123;        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal Capacity: &quot;</span>+                                           initialCapacity);    &#125;&#125;<span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">()</span> &#123;    <span class="built_in">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;&#125;<span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> &#123;    Object[] a = c.toArray();    <span class="keyword">if</span> ((size = a.length) != <span class="number">0</span>) &#123;        <span class="keyword">if</span> (c.getClass() == ArrayList.class) &#123;            elementData = a;        &#125; <span class="keyword">else</span> &#123;            elementData = Arrays.copyOf(a, size, Object[].class);        &#125;    &#125; <span class="keyword">else</span> &#123;        <span class="comment">// replace with empty array.</span>        elementData = EMPTY_ELEMENTDATA;    &#125;&#125;</code></pre><ul><li>无参方式创建时，初始化为空数组，等到第一个元素 add 时，数组才扩容到默认值 10。</li></ul><p>先从 add 方法入手：</p><pre><code class="highlight java"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span>    elementData[size++] = e;    <span class="keyword">return</span> <span class="literal">true</span>;&#125;</code></pre><p>第一次 add 时，size 为 0，我们进入 ensureCapacityInternal 方法：</p><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureCapacityInternal</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));&#125;</code></pre><p>在 calculateCapacity 这个方法中，如果当前数组为空（第一次 add 时），就返回默认容量和最小容量中的较大值作为所需容量。否则直接返回 minCapacity。</p><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">calculateCapacity</span><span class="params">(Object[] elementData, <span class="type">int</span> minCapacity)</span> &#123;    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;        <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);    &#125;    <span class="keyword">return</span> minCapacity;&#125;<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureExplicitCapacity</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;    modCount++;    <span class="comment">// overflow-conscious code</span>    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)        grow(minCapacity);&#125;</code></pre><pre><code class="highlight java"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">grow</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;    <span class="comment">// overflow-conscious code</span>    <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> elementData.length;    <span class="type">int</span> <span class="variable">newCapacity</span> <span class="operator">=</span> oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)        newCapacity = minCapacity;    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)        newCapacity = hugeCapacity(minCapacity);    <span class="comment">// minCapacity is usually close to size, so this is a win:</span>    elementData = Arrays.copyOf(elementData, newCapacity);&#125;</code></pre><p>到这里为止，我们添加第一个元素，数组容量由 空数组 扩容到容量为 10 的数组。如何扩容的呢？ 核心实现在 grow 方法中，此时 minCapacity &#x3D; 10， newCapacity &#x3D; 0，第一个 if 满足条件，newCapacity 赋值为 10。数组被复制到一个扩容后的新数组。</p><pre><code class="highlight java"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] copyOf(<span class="type">int</span>[] original, <span class="type">int</span> newLength) &#123;  <span class="comment">// 申请一个新的数组</span>    <span class="type">int</span>[] copy = <span class="keyword">new</span> <span class="title class_">int</span>[newLength];<span class="comment">// 调用System.arraycopy,将源数组中的数据进行拷贝,并返回新的数组</span>    System.arraycopy(original, <span class="number">0</span>, copy, <span class="number">0</span>,                     Math.min(original.length, newLength));    <span class="keyword">return</span> copy;&#125;</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-          <category> 源码分析 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ArrayList扩容机制 </tag>
             
         </tags>
       
