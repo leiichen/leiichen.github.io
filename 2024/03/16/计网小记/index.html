@@ -193,7 +193,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(32)</small>
+                <small>(31)</small>
             
         </div>
     </li>
@@ -314,7 +314,7 @@
         <div data-rel="计网">
             
             计网
-            <small>(1)</small>
+            <small>(0)</small>
         </div>
         
     </li>
@@ -481,8 +481,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="32">
-<input type="hidden" id="yelog_site_word_count" value="28k">
+<input type="hidden" id="yelog_site_posts_number" value="31">
+<input type="hidden" id="yelog_site_word_count" value="26.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -688,15 +688,6 @@
            data-author="" >
             <span class="post-title" title="BIO、NIO">BIO、NIO</span>
             <span class="post-date" title="2024-04-30 15:46:50">2024/04/30</span>
-        </a>
-        
-        
-        <a  class="全部文章 计网 "
-           href="/2024/04/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="计算机网络">计算机网络</span>
-            <span class="post-date" title="2024-04-22 19:58:48">2024/04/22</span>
         </a>
         
         
@@ -951,12 +942,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2024-03-22 10:33:42'>2024-03-16 16:17</time>
+            发布时间 : <time class="date" title='最后更新: 2024-06-23 09:38:12'>2024-03-16 16:17</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:377</span>
+        <span>字数:584</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -986,7 +977,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%B8%8E-UDP-%E5%8C%BA%E5%88%AB"><span class="toc-text">TCP 与 UDP 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">三次握手</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%B8%8E-UDP-%E5%8C%BA%E5%88%AB"><span class="toc-text">TCP 与 UDP 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-text">四次挥手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%B8%B8%E8%A7%81%E7%9A%84%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-text">HTTP常见的状态码</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1002,18 +993,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="TCP-与-UDP-区别"><a href="#TCP-与-UDP-区别" class="headerlink" title="TCP 与 UDP 区别"></a>TCP 与 UDP 区别</h2><p>TCP：面向连接、可靠、面向字节流</p>
-<p>UDP：无连接、不可靠、面向报文</p>
-<p>TCP 是一对一的两点服务，UDP 支持一对一、一对多、多对多</p>
-<p>应用场景：</p>
-<p>TCP：FTP 文件传输、HTTP &#x2F; HTTPS</p>
-<p>UDP：实时应用、游戏</p>
+        <h2 id="TCP-与-UDP-区别"><a href="#TCP-与-UDP-区别" class="headerlink" title="TCP 与 UDP 区别"></a>TCP 与 UDP 区别</h2><p>TCP：面向连接的可靠传输、面向字节流，只能一对一</p>
+<p>UDP：无连接，不保证可靠传输、面向报文，支持一对一，一对多，多对多</p>
 <h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p><img src="/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/image-20240316164317006.png" alt="image-20240316164317006"></p>
 <p>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了 <strong>LISTEN 监听状态</strong>。</p>
-<p><strong>第一次握手：</strong>客户端首先也创建传输运输块，向服务器发出连接请求报文，将标志位 SYN 置为 1，选择一个初始序列号 seq&#x3D;x。SYN&#x3D;1的报文段不能携带数据，但要消耗掉一个序号，此时TCP客户进程进入SYN-SENT（同步已发送）状态。</p>
+<p><strong>第一次握手：</strong>客户端向服务器发出连接请求报文，将标志位 SYN 置为 1，选择一个初始序列号 seq&#x3D;x。SYN&#x3D;1的报文段不能携带数据，但要消耗掉一个序号，此时TCP客户进程进入SYN-SENT（同步已发送）状态。</p>
 <p><strong>第二次握手：</strong>服务器收到请求报文后，如果同意连接，则会向客户端发出确认报文。确认报文中应该 ACK&#x3D;1，SYN&#x3D;1，确认号是ack&#x3D;x+1，同时也要为自己初始化一个序列号 seq&#x3D;y，此时，TCP服务器进程进入了 SYN-RCVD 同步收到状态。</p>
 <p>第三次握手：TCP客户端收到确认后，还要向服务器给出确认。确认报文的ACK&#x3D;1，ack&#x3D;y+1，自己的序列号seq&#x3D;x+1，此时，TCP连接建立。</p>
 <p><strong>第三次握手是可以携带数据的，前两次握手是不可以携带数据的</strong></p>
+<blockquote>
+<p>为什么要三次连接</p>
+</blockquote>
+<p>如果只有两次连接，服务端可能会误认为一个延迟到达的旧SYN报文是一个新的连接请求。</p>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p><img src="/2024/03/16/%E8%AE%A1%E7%BD%91%E5%B0%8F%E8%AE%B0/image-20240623090502431.png" alt="image-20240623090502431"></p>
+<blockquote>
+<p>客户端有个2MSL的等待时间是为了防止服务端的关闭请求丢失而重传。</p>
+</blockquote>
+<blockquote>
+<p>为什么要有四次挥手？</p>
+</blockquote>
+<p>客户端发送FIN关闭请求报文，仅仅是对客户端而言的，服务端还有可能要发数据。</p>
+<h2 id="HTTP常见的状态码"><a href="#HTTP常见的状态码" class="headerlink" title="HTTP常见的状态码"></a>HTTP常见的状态码</h2><p>2xx：服务端成功处理客户端的请求</p>
+<p>3xx：重定向，资源地址发生变动</p>
+<ul>
+<li>301：永久重定向</li>
+<li>302：临时重定向</li>
+<li>304：可以继续使用缓存</li>
+</ul>
+<p>4xx：客户端错误</p>
+<ul>
+<li>400：笼统的错误</li>
+<li>403：禁止访问资源</li>
+<li>404：页面未找到</li>
+</ul>
+<p>5xx：服务端错误</p>
+<ul>
+<li>500：笼统的错误</li>
+<li>502：网关错误或代理配置问题</li>
+<li>504：网关超时，代理服务器负载过大</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1216271933@qq.com </span>
